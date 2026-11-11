@@ -295,10 +295,10 @@ color: #475569;
 </div>
 <!-- PAGE 1 : ACCUEIL -->
 <section id="accueil" class="page-section active-page">
-<div class="badge">🩺 Portail Officiel de Santé Publique</div>
+<div class="badge">🩺 Portail Indépendant de Santé & Prévention</div>
 <header>
 <h1>L'instant Santé</h1>
-<p>Votre guide d'information publique pour comprendre et prévenir les troubles de santé courants.</p>
+<p>Votre guide d'information pour comprendre et prévenir les troubles de santé courants.</p>
 </header>
 <div class="hero-banner">
 <span>🌍 💡 🩺</span>
@@ -324,15 +324,15 @@ color: #475569;
 </div>
 </div>
 <div class="alert-box">
-<h3>🚨 Note d'Information Publique</h3>
+<h3>🚨 Note d'Information</h3>
 <p>Ce portail a pour but d'informer et de sensibiliser. En cas de douleur persistante ou d'anomalie soudaine, consultez un professionnel de santé ou rendez-vous en centre médical.</p>
 </div>
 <!-- BAS DE PAGE STANDARD -->
 <div class="site-footer">
 <div class="footer-info">
-ℹ️ <strong>Informations utiles :</strong> Service édité pour la sensibilisation publique en santé • Ouagadougou, Burkina Faso • Contact direct : +226 68884814
+ℹ️ <strong>Informations utiles :</strong> Portail d'information en santé &bull; Ouagadougou, Burkina Faso &bull; Contact direct : +226 68884814
 </div>
-<p>© 2026 <strong>Neema Digit SAS</strong> • Tous droits réservés.</p>
+<p>&copy; 2026 <strong>Neema Digit SAS</strong> &bull; Tous droits réservés.</p>
 </div>
 </section>
 <!-- PAGE 2 : PATHOLOGIES & ANOMALIES -->
@@ -369,7 +369,7 @@ color: #475569;
 <div class="footer-info">
 ℹ️ <strong>Informations utiles :</strong> En cas de symptômes unilatéraux ou de douleurs thoraciques, consultez en urgence.
 </div>
-<p>© 2026 <strong>Neema Digit SAS</strong> • Tous droits réservés.</p>
+<p>&copy; 2026 <strong>Neema Digit SAS</strong> &bull; Tous droits réservés.</p>
 </div>
 </section>
 <!-- PAGE 3 : ACTUALITÉS & FICHIERS TÉLÉCHARGEABLES -->
@@ -379,7 +379,7 @@ color: #475569;
 <p>Téléchargez nos guides pratiques et consultez nos articles de prévention.</p>
 </header>
 <h2>📥 Documents & Guides à Télécharger</h2>
-<p>Retrouvez ci-dessous les ressources documentaires officielles de la plateforme :</p>
+<p>Retrouvez ci-dessous les ressources documentaires de la plateforme :</p>
 <div class="download-card">
 <div>
 <h4>📄 Guide complet : Prévention des Œdèmes et Jambes Lourdes</h4>
@@ -412,7 +412,7 @@ color: #475569;
 <div class="footer-info">
 ℹ️ <strong>Informations utiles :</strong> Tous les fichiers mis à disposition sont libres de téléchargement pour un usage éducatif.
 </div>
-<p>© 2026 <strong>Neema Digit SAS</strong> • Tous droits réservés.</p>
+<p>&copy; 2026 <strong>Neema Digit SAS</strong> &bull; Tous droits réservés.</p>
 </div>
 </section>
 <!-- PAGE 4 : QUIZ & EVALUATION -->
@@ -469,7 +469,7 @@ color: #475569;
 <div class="footer-info">
 ℹ️ <strong>Informations utiles :</strong> Quiz interactif pédagogique sans stockage de données personnelles.
 </div>
-<p>© 2026 <strong>Neema Digit SAS</strong> • Tous droits réservés.</p>
+<p>&copy; 2026 <strong>Neema Digit SAS</strong> &bull; Tous droits réservés.</p>
 </div>
 </section>
 <!-- PAGE 5 : ESPACE NEEMA DIGIT SAS -->
@@ -481,7 +481,7 @@ color: #475569;
 <div class="agency-box">
 <h2>🏢 À propos de Neema Digit SAS</h2>
 <p><strong>Neema Digit SAS</strong> est une agence numérique spécialisée dans la communication digitale, la création de sites web performants, le design graphique et le développement d'applications interactives.</p>
-<p>Nous concevons des solutions innovantes et accompagnons les projets publics, institutionnels et privés à forte valeur ajoutée au Burkina Faso et à l'international.</p>
+<p>Nous concevons des solutions innovantes et accompagnons des projets de toutes envergures au Burkina Faso et à l'international.</p>
 <h3 style="margin-top:20px; color:var(--primary);">📞 Contacts & Informations Officielles</h3>
 <ul>
 <li><strong>Siège social :</strong> Ouagadougou, Burkina Faso</li>
@@ -495,77 +495,85 @@ color: #475569;
 <!-- BAS DE PAGE STANDARD -->
 <div class="site-footer">
 <div class="footer-info">
-ℹ️ <strong>Informations utiles :</strong> Neema Digit SAS • Solutions web et accompagnement digital sur mesure.
+ℹ️ <strong>Informations utiles :</strong> Neema Digit SAS &bull; Solutions web et accompagnement digital sur mesure.
 </div>
-<p>© 2026 <strong>Neema Digit SAS</strong> • Tous droits réservés.</p>
+<p>&copy; 2026 <strong>Neema Digit SAS</strong> &bull; Tous droits réservés.</p>
 </div>
 </section>
 </div>
+
 <script>
 function switchPage(pageId) {
-const sections = document.querySelectorAll('.page-section');
-sections.forEach(sec => sec.classList.remove('active-page'));
-document.getElementById(pageId).classList.add('active-page');
-const navBtns = document.querySelectorAll('.nav-btn');
-navBtns.forEach((btn, idx) => {
-btn.classList.remove('active');
-if(
-(pageId==='accueil' && idx=0) ||
-(pageId='pathologies' && idx=1) ||
-(pageId='ressources' && idx=2) ||
-(pageId='quiz' && idx=3) ||
-(pageId='neema' && idx===4)
-) {
-btn.classList.add('active');
+    const sections = document.querySelectorAll('.page-section');
+    sections.forEach(sec => sec.classList.remove('active-page'));
+    
+    document.getElementById(pageId).classList.add('active-page');
+    
+    const navBtns = document.querySelectorAll('.nav-btn');
+    navBtns.forEach((btn, idx) => {
+        btn.classList.remove('active');
+        if(
+            (pageId === 'accueil' && idx === 0) ||
+            (pageId === 'pathologies' && idx === 1) ||
+            (pageId === 'ressources' && idx === 2) ||
+            (pageId === 'quiz' && idx === 3) ||
+            (pageId === 'neema' && idx === 4)
+        ) {
+            btn.classList.add('active');
+        }
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }
-});
-window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+
 let userAnswers = { 1: null, 2: null, 3: null, 4: null };
+
 function setAnswer(qId, optIdx, isCorrect) {
-userAnswers[qId] = isCorrect;
-const card = document.querySelectorAll('.question-card')[qId - 1];
-const buttons = card.querySelectorAll('.option-btn');
-buttons.forEach((b, i) => {
-b.style.background = (i === optIdx) ? '#dbeafe' : '#f8fafc';
-b.style.borderColor = (i === optIdx) ? '#2563eb' : '#cbd5e1';
-});
+    userAnswers[qId] = isCorrect;
+    const card = document.querySelectorAll('.question-card')[qId - 1];
+    const buttons = card.querySelectorAll('.option-btn');
+    buttons.forEach((b, i) => {
+        b.style.background = (i === optIdx) ? '#dbeafe' : '#f8fafc';
+        b.style.borderColor = (i === optIdx) ? '#2563eb' : '#cbd5e1';
+    });
 }
+
 function calculerScore() {
-if (userAnswers[1] === null || userAnswers[2] === null || userAnswers[3] === null || userAnswers[4] === null) {
-alert("Veuillez répondre à toutes les questions avant de valider !");
-return;
+    if (userAnswers[1] === null || userAnswers[2] === null || userAnswers[3] === null || userAnswers[4] === null) {
+        alert("Veuillez répondre à toutes les questions avant de valider !");
+        return;
+    }
+    let total = 0;
+    if (userAnswers[1]) total += 2.5;
+    if (userAnswers[2]) total += 2.5;
+    if (userAnswers[3]) total += 2.5;
+    if (userAnswers[4]) total += 2.5;
+
+    document.getElementById('quizContent').style.display = 'none';
+    const resBox = document.getElementById('resultBox');
+    resBox.style.display = 'block';
+    document.getElementById('scoreDisplay').innerText = total + " / 10";
+    const msg = document.getElementById('congratsText');
+    if (total === 10) {
+        msg.innerHTML = "🏆 <strong>Note : 10/10 ! Excellent !</strong> Vous maîtrisez parfaitement les sujets de santé préventive.";
+        msg.style.color = "#10b981";
+    } else if (total >= 7.5) {
+        msg.innerHTML = "👏 <strong>Note : " + total + "/10 ! Très bien !</strong> Vous avez de solides connaissances.";
+        msg.style.color = "#2563eb";
+    } else {
+        msg.innerHTML = "💡 <strong>Note : " + total + "/10. Bien essayé !</strong> Relisez nos fiches et repassez le quiz pour progresser.";
+        msg.style.color = "#f59e0b";
+    }
 }
-let total = 0;
-if (userAnswers[1]) total += 2.5;
-if (userAnswers[2]) total += 2.5;
-if (userAnswers[3]) total += 2.5;
-if (userAnswers[4]) total += 2.5;
-document.getElementById('quizContent').style.display = 'none';
-const resBox = document.getElementById('resultBox');
-resBox.style.display = 'block';
-document.getElementById('scoreDisplay').innerText = total + " / 10";
-const msg = document.getElementById('congratsText');
-if (total === 10) {
-msg.innerHTML = "🏆 <strong>Note : 10/10 ! Excellent !</strong> Vous maîtrisez parfaitement les sujets de santé préventive.";
-msg.style.color = "#10b981";
-} else if (total >= 7.5) {
-msg.innerHTML = "👏 <strong>Note : " + total + "/10 ! Très bien !</strong> Vous avez de solides connaissances.";
-msg.style.color = "#2563eb";
-} else {
-msg.innerHTML = "💡 <strong>Note : " + total + "/10. Bien essayé !</strong> Relisez nos fiches et repassez le quiz pour progresser.";
-msg.style.color = "#f59e0b";
-}
-}
+
 function resetQuiz() {
-userAnswers = { 1: null, 2: null, 3: null, 4: null };
-document.querySelectorAll('.option-btn').forEach(b => {
-b.style.background = '#f8fafc';
-b.style.borderColor = '#cbd5e1';
-});
-document.getElementById('resultBox').style.display = 'none';
-document.getElementById('quizContent').style.display = 'block';
+    userAnswers = { 1: null, 2: null, 3: null, 4: null };
+    document.querySelectorAll('.option-btn').forEach(b => {
+        b.style.background = '#f8fafc';
+        b.style.borderColor = '#cbd5e1';
+    });
+    document.getElementById('resultBox').style.display = 'none';
+    document.getElementById('quizContent').style.display = 'block';
 }
 </script>
 </body>
-  </html>
+</html>

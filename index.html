@@ -43,32 +43,66 @@ from { opacity: 0; transform: translateY(8px); }
 to { opacity: 1; transform: translateY(0); }
 }
 
-/* NAVIGATION PRINCIPALE */
-.navbar {
-display: flex;
-flex-wrap: wrap;
-gap: 6px;
-justify-content: center;
-margin-bottom: 35px;
+/* BOUTON MENU DÉPLIABLE (BURGER / DROPDOWN) */
+.menu-container {
+position: relative;
+margin-bottom: 30px;
+text-align: center;
 border-bottom: 2px solid #e2e8f0;
-padding-bottom: 15px;
+padding-bottom: 20px;
+}
+.menu-toggle-btn {
+background: var(--primary);
+color: white;
+border: none;
+padding: 14px 24px;
+border-radius: 30px;
+font-weight: 700;
+font-size: 1rem;
+cursor: pointer;
+display: inline-flex;
+align-items: center;
+gap: 10px;
+box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+transition: background 0.3s;
+}
+.menu-toggle-btn:hover {
+background: var(--primary-dark);
+}
+.dropdown-nav {
+display: none;
+flex-direction: column;
+gap: 8px;
+max-width: 400px;
+margin: 15px auto 0 auto;
+background: #ffffff;
+border: 1px solid #cbd5e1;
+border-radius: 12px;
+padding: 12px;
+box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+z-index: 100;
+}
+.dropdown-nav.open {
+display: flex;
+animation: fadeIn 0.3s ease;
 }
 .nav-btn {
 background: #f1f5f9;
 border: none;
-padding: 10px 14px;
-border-radius: 20px;
+padding: 12px 16px;
+border-radius: 8px;
 cursor: pointer;
 font-weight: 600;
 color: #475569;
-font-size: 0.9rem;
-transition: all 0.3s ease;
+font-size: 0.95rem;
+text-align: left;
+transition: all 0.2s ease;
 }
 .nav-btn:hover, .nav-btn.active {
 background: var(--primary);
 color: white;
-box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
 }
+
 .page-section {
 display: none;
 }
@@ -138,7 +172,7 @@ margin-bottom: 20px;
 font-style: italic;
 }
 
-/* ACCORDÉON DE CONTENU */
+/* ACCORDÉON DE CONTENU EXHAUSTIF */
 .accordion-group {
 display: flex;
 flex-direction: column;
@@ -174,15 +208,15 @@ background: #f8fafc;
 padding: 0 20px;
 }
 .accordion-content.open {
-max-height: 3500px;
+max-height: 4000px;
 padding: 25px 20px;
 border-top: 1px solid #e2e8f0;
 }
 
-/* CARTES D'URGENCE */
+/* GRILLES D'URGENCE */
 .emergency-grid {
 display: grid;
-grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 gap: 20px;
 margin: 20px 0;
 }
@@ -192,16 +226,8 @@ border: 2px solid #fecaca;
 border-radius: 12px;
 padding: 20px;
 text-align: center;
-transition: transform 0.3s;
 }
-.emergency-card:hover {
-transform: translateY(-3px);
-}
-.emergency-card h3 {
-color: #dc2626;
-margin-bottom: 8px;
-font-size: 1.2rem;
-}
+.emergency-card h3 { color: #dc2626; margin-bottom: 8px; }
 .emergency-number {
 font-size: 1.8rem;
 font-weight: 800;
@@ -343,14 +369,20 @@ color: #475569;
 </head>
 <body>
 <div class="container">
-<!-- NAVIGATION PRINCIPALE -->
-<div class="navbar">
-<button class="nav-btn active" onclick="switchPage('accueil')">🏠 Accueil</button>
-<button class="nav-btn" onclick="switchPage('urgences')">🚨 Urgences</button>
-<button class="nav-btn" onclick="switchPage('pathologies')">🩺 Encyclopédie</button>
-<button class="nav-btn" onclick="switchPage('ressources')">📂 Fichiers</button>
-<button class="nav-btn" onclick="switchPage('quiz')">🧠 Quiz</button>
-<button class="nav-btn" onclick="switchPage('neema')">💼 Neema Digit</button>
+<!-- BOUTON DE MENU DÉPLIABLE (BURGER) -->
+<div class="menu-container">
+<button class="menu-toggle-btn" onclick="toggleMenu()">
+    <span>☰ Menu de Navigation</span>
+    <span id="menuArrow">▼</span>
+</button>
+<div id="dropdownNav" class="dropdown-nav">
+    <button class="nav-btn active" onclick="switchPage('accueil')">🏠 1. Accueil & Présentation</button>
+    <button class="nav-btn" onclick="switchPage('urgences')">🚨 2. Urgences & Premiers Secours</button>
+    <button class="nav-btn" onclick="switchPage('pathologies')">🩺 3. Encyclopédie & Pathologies</button>
+    <button class="nav-btn" onclick="switchPage('ressources')">📂 4. Fichiers & Documentation</button>
+    <button class="nav-btn" onclick="switchPage('quiz')">🧠 5. Quiz & Évaluation Médicale</button>
+    <button class="nav-btn" onclick="switchPage('neema')">💼 6. Espace Neema Digit SAS</button>
+</div>
 </div>
 
 <!-- PAGE 1 : ACCUEIL -->
@@ -358,51 +390,41 @@ color: #475569;
 <div class="badge">🩺 Portail Indépendant d'Information Médicale & Prévention</div>
 <header>
 <h1>L'instant Santé</h1>
-<p>La référence de l'information préventive et de l'éducation sanitaire en Afrique de l'Ouest.</p>
+<p>La référence de l'information préventive, de la physiologie et de l'éducation sanitaire en Afrique de l'Ouest.</p>
 </header>
 
 <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" alt="Consultation médicale de référence" class="medical-img">
-<div class="img-caption">Plateforme indépendante de diffusion des savoirs médicaux et d'accompagnement sanitaire.</div>
+<div class="img-caption">Plateforme indépendante de diffusion des savoirs médicaux et d'accompagnement sanitaire par Neema Digit SAS.</div>
 
-<h2>📚 Notre Mission et Notre Engagement</h2>
-<p><strong>L'instant Santé</strong> s'impose comme un carrefour d'excellence pour décrypter les grandes pathologies du quotidien. Conçu pour répondre aux exigences les plus strictes de vulgarisation scientifique, notre portail s'appuie sur une approche rigoureuse : allier la précision anatomique et clinique à une accessibilité universelle pour les populations.</p>
-<p>À travers des dossiers encyclopédiques de référence, nous offrons aux citoyens les clés indispensables pour comprendre l'origine des désordres physiologiques, identifier les facteurs environnementaux et adopter des comportements de prévention adaptés à leur mode de vie.</p>
-
-<div class="grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px; margin:25px 0;">
-<div class="card" onclick="switchPage('urgences')" style="cursor:pointer; background:#fef2f2; border:1px solid #fecaca; border-radius:12px; padding:25px;">
-<h3 style="color:#dc2626; margin-bottom:10px;">🚨 Numéros d'Urgence</h3>
-<p>Accédez instantanément aux contacts de secours, SAMU, sapeurs-pompiers et assistance médicale.</p>
-</div>
-<div class="card" onclick="switchPage('pathologies')" style="cursor:pointer; background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:25px;">
-<h3 style="color:var(--primary); margin-bottom:10px;">🫀 Encyclopédie & Soins</h3>
-<p>Analyse complète des pathologies vasculaires, métaboliques et des mesures préventives.</p>
-</div>
-</div>
+<h2>📚 Manifeste et Fondements Scientifiques de la Plateforme</h2>
+<p><strong>L'instant Santé</strong> s'impose comme un carrefour d'excellence pour décrypter les grandes pathologies du quotidien à travers une approche encyclopédique exhaustive. Conçu pour répondre aux exigences les plus strictes de vulgarisation scientifique, notre portail s'appuie sur une triple ambition : allier la précision anatomique et clinique, intégrer les facteurs environnementaux locaux, et garantir une accessibilité universelle aux savoirs de santé pour l'ensemble des citoyens.</p>
+<p>Face aux défis sanitaires contemporains, l'éducation préventive demeure la première ligne de défense de l'organisme. Nos dossiers de référence répertorient de manière analytique l'ensemble des mécanismes physiologiques, des facteurs de risque métaboliques et des protocoles d'accompagnement validés pour permettre à chacun de devenir acteur de sa propre santé.</p>
+<p>Chaque module est rédigé selon une méthodologie rigoureuse croisant sémiologie clinique, épidémiologie des maladies chroniques et recommandations hygiéno-diététiques internationales adaptées aux réalités tropicales et sahéliennes.</p>
 
 <div class="alert-box">
 <h3>🚨 Avertissement Médical Fondamental</h3>
-<p>Les contenus publiés sur ce portail possèdent une visée purement éducative, documentaire et préventive. En cas de détresse vitale, contactez immédiatement les services d'urgence de votre localité.</p>
+<p>Les contenus publiés sur ce portail possèdent une visée purement éducative, documentaire et préventive. En cas de détresse vitale ou de symptômes aigus persistants, contactez immédiatement les services d'urgence ou consultez un médecin qualifié.</p>
 </div>
 
 <div class="site-footer">
 <div class="footer-info">
-ℹ️ <strong>Informations utiles :</strong> Édité par Neema Digit SAS &bull; Ouagadougou, Burkina Faso &bull; Contact : +226 68884814
+ℹ️ <strong>Informations utiles :</strong> Édité par Neema Digit SAS • Ouagadougou, Burkina Faso • Contact : +226 68884814
 </div>
-<p>&copy; 2026 <strong>Neema Digit SAS</strong> &bull; Tous droits réservés.</p>
+<p>&copy; 2026 <strong>Neema Digit SAS</strong> • Tous droits réservés.</p>
 </div>
 </section>
 
-<!-- PAGE 2 : NUMÉROS D'URGENCE & DIVERS -->
+<!-- PAGE 2 : URGENCES & PREMIERS SECOURS -->
 <section id="urgences" class="page-section">
 <header>
-<h1>Urgences Médicales & Contacts Utiles</h1>
-<p>Répertoire des services d'intervention rapide et conseils de premiers secours en cas de crise.</p>
+<h1>Urgences Médicales & Interventions Rapides</h1>
+<p>Répertoire exhaustif des services d'urgence et protocoles de premiers secours en situation critique.</p>
 </header>
 
 <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80" alt="Urgences médicales" class="medical-img">
-<div class="img-caption">Assistance d'urgence et prise en charge rapide des détresses.</div>
+<div class="img-caption">Gestion des détresses et coordination des secours d'urgence.</div>
 
-<h2>📞 Contacts d'Urgence (Burkina Faso / International)</h2>
+<h2>📞 Répertoire Officiel des Numéros d'Urgence</h2>
 <div class="emergency-grid">
 <div class="emergency-card">
 <h3>🚒 Sapeurs-Pompiers</h3>
@@ -420,41 +442,122 @@ color: #475569;
 <div class="emergency-number">16</div>
 </div>
 <div class="emergency-card">
-<h3>💬 Assistance Neema Digit SAS</h3>
-<p>Support technique et renseignements du portail.</p>
+<h3>💬 Support Neema Digit SAS</h3>
+<p>Assistance technique de la plateforme.</p>
 <div class="emergency-number">+226 68884814</div>
 </div>
 </div>
 
-<h2>💡 Conseils Divers & Premiers Secours</h2>
-<p>En attendant l'arrivée des secours qualifiés ou lors d'une situation critique au quotidien, gardez en tête ces grands principes de base :</p>
+<h2>🛡️ Protocoles de Premiers Secours et Gestes Qui Sauvent</h2>
+<p>En attendant l'arrivée des secours qualifiés ou face à un accident domestique ou de la route, l'application immédiate de gestes de premiers secours conditionne souvent le pronostic vital du patient. Voici les directives fondamentales à maîtriser :</p>
 <ul>
-<li><strong>Rester calme et évaluer la situation :</strong> Sécuriser les lieux pour éviter un suraccident (couper le contact d'un véhicule, éloigner les objets dangereux).</li>
-<li><strong>Position Latérale de Sécurité (PLS) :</strong> Si une personne inconsciente respire, placez-la sur le côté pour libérer ses voies aériennes.</li>
-<li><strong>Compression en cas d'hémorragie :</strong> Appuyez directement sur la plaie qui saigne abondamment à l'aide d'un linge propre ou d'une compresse stérile.</li>
-<li><strong>Ne pas donner à boire :</strong> N'administrez jamais de liquide à une personne inconsciente ou victime d'un malaise cardiaque.</li>
+<li><strong>1. Évaluation et Sécurisation :</strong> Analysez l'environnement pour éliminer tout suraccident (couper le contact d'un véhicule accidenté, écarter un câble électrique, éloigner les badauds).</li>
+<li><strong>2. Vérification de la Conscience et de la Ventilation :</strong> Secouez délicatement les épaules de la victime et demandez à haute voix « Ça va ? ». Observez la soulevé du thorax pendant 10 secondes maximum.</li>
+<li><strong>3. Position Latérale de Sécurité (PLS) :</strong> Si la victime est inconsciente mais respire normalement, basculez-la délicatement sur le côté pour libérer ses voies aériennes supérieures des risques d'obstruction par la langue ou les sécrétions.</li>
+<li><strong>4. Hémorragies Abondantes :</strong> Exercez une pression directe et ferme sur la plaie qui saigne à l'aide d'un linge propre, d'un vêtement ou d'une compresse stérile en attendant les secours. Ne posez jamais de tourniquet sans formation spécifique.</li>
 </ul>
 
 <div class="site-footer">
 <div class="footer-info">
 ℹ️ <strong>Informations utiles :</strong> En cas de doute sérieux, privilégiez toujours un transport direct vers le centre médical le plus proche.
 </div>
-<p>&copy; 2026 <strong>Neema Digit SAS</strong> &bull; Tous droits réservés.</p>
+<p>&copy; 2026 <strong>Neema Digit SAS</strong> • Tous droits réservés.</p>
 </div>
 </section>
 
-<!-- PAGE 3 : PATHOLOGIES (ENCYCLOPÉDIE) -->
+<!-- PAGE 3 : ENCYCLOPÉDIE & PATHOLOGIES -->
 <section id="pathologies" class="page-section">
 <header>
-<h1>Encyclopédie Médicale & Fichiers Thématiques</h1>
-<p>Explorez nos dossiers exhaustifs de référence. Cliquez sur un module pour déployer l'analyse.</p>
+<h1>Encyclopédie Médicale & Dossiers Thématiques</h1>
+<p>Analyses cliniques approfondies. Cliquez sur un module pour déployer l'étude détaillée.</p>
 </header>
 
 <div class="accordion-group">
 <!-- MODULE 1 : HYPERTENSION -->
 <div class="accordion-item">
 <div class="accordion-header" onclick="toggleAccordion(this)">
-    <span>🫀 1. L'Hypertension Artérielle : Physiopathologie et Enjeux Cliniques</span>
+    <span>🫀 1. L'Hypertension Artérielle : Physiopathologie, Risques et Prise en Charge</span>
     <span>▼</span>
 </div>
-<div class="accordion-content
+<div class="accordion-content">
+    <img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80" alt="Suivi de la tension artérielle" class="medical-img">
+    <div class="img-caption">Surveillance clinique et mesure des paramètres tensionnels systémiques.</div>
+    
+    <h3>Définition et Cadre Nosologique</h3>
+    <p>L'hypertension artérielle (HTA) se caractérise par une augmentation chronique de la pression exercée par le sang sur la paroi des artères. Sur le plan sémiologique, une valeur tensionnelle mesurée au cabinet médical supérieure ou égale à 140/90 mmHg, confirmée lors de mesures répétées, définit l'état hypertensif.</p>
+    
+    <h3>Mécanismes Physiopathologiques Avancés</h3>
+    <p>Le système cardiovasculaire maintient l'homéostasie tensionnelle grâce à la modulation du débit cardiaque et des résistances vasculaires périphériques (RVP). Dans l'HTA essentielle, l'élévation des RVP provient d'un remodelage structurel de la média artériolaire, associant une hypertrophie des cellules musculaires lisses, une fibrose de la matrice extracellulaire et un dysfonctionnement endothélial caractérisé par un déficit de production d'oxyde nitrique (NO), puissant vasodilatateur naturel.</p>
+    
+    <h3>Facteurs Étiologiques et Épidémiologiques</h3>
+    <ul>
+        <li><strong>L'excès de sodium alimentaire :</strong> L'apport excessif en sel perturbe l'équilibre osmotique cellulaire, favorise la rétention hydrosodée et rigidifie la paroi artérielle.</li>
+        <li><strong>Le stress oxydatif et sympathique :</strong> La suractivation chronique du système nerveux sympathique libère des catécholamines provoquant une vasoconstriction persistante.</li>
+        <li><strong>Les facteurs métaboliques :</strong> Le surpoids viscéral, la résistance à l'insuline et la dyslipidémie potentialisent considérablement le risque athéromateux.</li>
+    </ul>
+
+    <h3>Protocoles d'Accompagnement et Prévention</h3>
+    <p>La prévention non pharmacologique repose sur l'adoption d'un régime hyposodé strict (moins de 5 grammes de sel par jour), l'enrichissement de l'alimentation en potassium, l'arrêt absolu du tabac et la pratique régulière d'une activité physique d'endurance (marche rapide, natation, cyclisme) d'au moins 30 minutes par jour.</p>
+</div>
+</div>
+
+<!-- MODULE 2 : DIABÈTE -->
+<div class="accordion-item">
+<div class="accordion-header" onclick="toggleAccordion(this)">
+    <span>🩸 2. Diabète de Type 2 : Métabolisme Glucidique et Complications Vasculaires</span>
+    <span>▼</span>
+</div>
+<div class="accordion-content">
+    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80" alt="Suivi de la glycémie" class="medical-img">
+    <div class="img-caption">Analyse biologique et gestion rigoureuse de la glycémie sanguine.</div>
+    
+    <h3>Définition et Physiopathologie</h3>
+    <p>Le diabète sucré de type 2 est une affection métabolique chronique caractérisée par une hyperglycémie permanente. Ses fondements physiopathologiques reposent sur une résistance tissulaire périphérique à l'action de l'insuline (insulinorésistance affectant les muscles squelettiques, le tissu adipeux et le foie), couplée secondairement à une altération qualitative et quantitative de l'insulinosécrétion par les cellules bêta des îlots de Langerhans pancréatiques.</p>
+    
+    <h3>Symptomatologie Clinique et Signes d'Alerte</h3>
+    <p>Longtemps asymptomatique, le diabète de type 2 évolue sournoisement. Lorsque l'hyperglycémie franchit le seuil de rénalité, apparaissent la polyurie (besoins fréquents d'uriner), la polydipsie (soif intense), une asthénie physique marquée, ainsi qu'une propension accrue aux infections cutanées et une mauvaise cicatrisation des plaies.</p>
+
+    <h3>Facteurs de Risque Majeurs</h3>
+    <ul>
+        <li><strong>Hérédité et génétique :</strong> Antécédents familiaux directs de diabète de type 2.</li>
+        <li><strong>Alimentation et obésité :</strong> Consommation chronique de sucres à index glycémique élevé et accumulation de graisses viscérales.</li>
+        <li><strong>Sédentarité :</strong> L'absence d'exercice physique diminue l'expression des transporteurs de glucose (GLUT4) au niveau musculaire.</li>
+    </ul>
+</div>
+</div>
+
+<!-- MODULE 3 : ŒDÈMES ET INSUFFISANCE VEINEUSE -->
+<div class="accordion-item">
+<div class="accordion-header" onclick="toggleAccordion(this)">
+    <span>🦶 3. Rétention d'Eau, Œdèmes et Insuffisance Veineuse Périphérique</span>
+    <span>▼</span>
+</div>
+<div class="accordion-content">
+    <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80" alt="Circulation sanguine" class="medical-img">
+    <div class="img-caption">Physiologie du retour veineux et prévention des stases dans les membres inférieurs.</div>
+    
+    <h3>Physiologie et Mécanismes de Stase</h3>
+    <p>Le système veineux des membres inférieurs lutte en permanence contre la gravité pour ramener le sang vers le cœur. Cette ascension est assurée par la contraction des muscles de la jambe (pompe du mollet) et par des valvules anti-reflux situées à l'intérieur des veines. Lorsque ces valvules perdent leur étanchéité ou que la tonicité veineuse diminue, le sang stagne dans les parties déclives, provoquant une augmentation de la pression capillaire et la fuite de plasma dans les tissus interstitiels (œdème).</p>
+    
+    <h3>Le Signe Clinique du Cratère (Godet)</h3>
+    <p>L'œdème de stase se reconnaît cliniquement par le « signe du cratère » ou du godet : une pression ferme exercée avec le pouce pendant cinq secondes sur la face interne de la cheville ou le tibia laisse une empreinte visible qui met plusieurs secondes à s'effacer.</p>
+</div>
+</div>
+</div>
+
+<div class="site-footer">
+<div class="footer-info">
+ℹ️ <strong>Informations utiles :</strong> Dossiers encyclopédiques validés pour l'éducation sanitaire.
+</div>
+<p>&copy; 2026 <strong>Neema Digit SAS</strong> • Tous droits réservés.</p>
+</div>
+</section>
+
+<!-- PAGE 4 : FICHIERS & RESSOURCES -->
+<section id="ressources" class="page-section">
+<header>
+<h1>Ressources Documentaires & Mémos Pratiques</h1>
+<p>Téléchargez nos guides et documents d'éducation sanitaire pour un usage hors-ligne.</p>
+</header>
+
+<img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80" alt="Documentation 

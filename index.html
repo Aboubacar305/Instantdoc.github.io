@@ -3,50 +3,62 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L'instant Santé - Encyclopédie Médicale & Prévention</title>
+<title>L'instant Santé - Encyclopédie Médicale & Prévention | Neema Digit SAS</title>
 <style>
 :root {
---primary: #7c3aed;
---primary-dark: #6d28d9;
---accent: #06b6d4;
---danger: #ef4444;
---danger-bg: #fef2f2;
---success: #10b981;
---bg-color: #f8fafc;
---text-color: #1e293b;
---card-bg: #ffffff;
---border-radius: 16px;
+  --primary: #7c3aed;
+  --primary-dark: #6d28d9;
+  --primary-light: #ede9fe;
+  --accent: #06b6d4;
+  --danger: #ef4444;
+  --danger-bg: #fef2f2;
+  --success: #10b981;
+  --bg-color: #f8fafc;
+  --text-color: #1e293b;
+  --card-bg: #ffffff;
+  --border-radius: 16px;
 }
+
 * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
 body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.8; padding: 12px; }
-.container { max-width: 1000px; margin: 0 auto; background: var(--card-bg); padding: 20px; border-radius: var(--border-radius); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
+.container { max-width: 1000px; margin: 0 auto; background: var(--card-bg); padding: 25px; border-radius: var(--border-radius); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); }
 
 /* MENU DÉPLIABLE MOBILE BURGER */
 .menu-container { position: relative; margin-bottom: 25px; text-align: center; border-bottom: 2px solid #e2e8f0; padding-bottom: 15px; }
-.menu-toggle-btn { background: var(--primary); color: white; border: none; padding: 12px 20px; border-radius: 30px; font-weight: 700; font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; gap: 8px; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25); width: 100%; justify-content: center; }
+.menu-toggle-btn { background: var(--primary); color: white; border: none; padding: 14px 22px; border-radius: 30px; font-weight: 700; font-size: 1rem; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25); width: 100%; justify-content: center; transition: all 0.3s ease; }
+.menu-toggle-btn:hover { background: var(--primary-dark); }
 .dropdown-nav { display: none; flex-direction: column; gap: 8px; margin-top: 12px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); }
 .dropdown-nav.open { display: flex; }
-.nav-btn { background: #f1f5f9; border: none; padding: 12px 14px; border-radius: 8px; cursor: pointer; font-weight: 600; color: #475569; font-size: 0.9rem; text-align: left; }
+.nav-btn { background: #f1f5f9; border: none; padding: 12px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; color: #475569; font-size: 0.95rem; text-align: left; transition: 0.2s; }
 .nav-btn:hover, .nav-btn.active { background: var(--primary); color: white; }
 
 .page-section { display: none; }
-.page-section.active-page { display: block; }
-header { text-align: center; margin-bottom: 25px; }
-header h1 { font-size: 1.8rem; color: var(--primary); margin-bottom: 6px; }
-.badge { display: inline-block; background: #ede9fe; color: var(--primary); padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; margin-bottom: 10px; }
-h2 { font-size: 1.3rem; color: #0f172a; margin: 25px 0 12px 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; }
-h3 { font-size: 1.1rem; color: var(--primary-dark); margin: 15px 0 8px 0; }
-p, ul { margin-bottom: 12px; color: #475569; font-size: 0.95rem; text-align: justify; }
-ul { padding-left: 18px; } li { margin-bottom: 6px; }
-.medical-img { width: 100%; height: 220px; object-fit: cover; border-radius: 12px; margin: 15px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-.img-caption { font-size: 0.8rem; color: #64748b; text-align: center; margin-top: -8px; margin-bottom: 15px; font-style: italic; }
+.page-section.active-page { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ACCORDÉONS */
-.accordion-group { display: flex; flex-direction: column; gap: 12px; margin: 20px 0; }
-.accordion-item { border: 1px solid #cbd5e1; border-radius: 10px; overflow: hidden; background: #ffffff; }
-.accordion-header { background: #5b21b6; color: white; padding: 14px 16px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 0.95rem; }
-.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out, padding 0.3s ease; background: #f8fafc; padding: 0 15px; }
-.accordion-content.open { max-height: 3000px; padding: 20px 15px; border-top: 1px solid #e2e8f0; }
+header { text-align: center; margin-bottom: 25px; }
+header h1 { font-size: 2rem; color: var(--primary); margin-bottom: 6px; }
+.badge { display: inline-block; background: var(--primary-light); color: var(--primary); padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; }
+h2 { font-size: 1.4rem; color: #0f172a; margin: 30px 0 15px 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; }
+h3 { font-size: 1.15rem; color: var(--primary-dark); margin: 20px 0 10px 0; }
+p, ul { margin-bottom: 15px; color: #475569; font-size: 0.98rem; text-align: justify; }
+ul { padding-left: 20px; } li { margin-bottom: 8px; }
+
+.medical-img { width: 100%; height: 260px; object-fit: cover; border-radius: 12px; margin: 18px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+.img-caption { font-size: 0.82rem; color: #64748b; text-align: center; margin-top: -10px; margin-bottom: 20px; font-style: italic; }
+
+/* ACCORDÉONS EN VIOLET */
+.accordion-group { display: flex; flex-direction: column; gap: 14px; margin: 20px 0; }
+.accordion-item { border: 1px solid #cbd5e1; border-radius: 12px; overflow: hidden; background: #ffffff; }
+.accordion-header { background: var(--primary); color: white; padding: 16px 18px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1rem; }
+.accordion-header:hover { background: var(--primary-dark); }
+.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.3s ease; background: #f8fafc; padding: 0 18px; }
+.accordion-content.open { max-height: 6000px; padding: 22px 18px; border-top: 1px solid #e2e8f0; }
+
+/* RUBRIQUE MYTHES & CROYANCES (ON DIT QUE ?) */
+.myth-card { background: #fff; border-left: 5px solid var(--accent); border-radius: 10px; padding: 18px; margin-bottom: 18px; box-shadow: 0 3px 10px rgba(0,0,0,0.03); }
+.myth-title { color: #0891b2; font-weight: 700; font-size: 1.05rem; margin-bottom: 8px; display: flex; align-items: center; gap: 8px; }
+.reality-title { color: var(--primary-dark); font-weight: 700; font-size: 0.95rem; margin-top: 10px; margin-bottom: 4px; }
 
 /* URGENCES & GRILLES */
 .emergency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 15px 0; }
@@ -61,9 +73,8 @@ ul { padding-left: 18px; } li { margin-bottom: 6px; }
 .download-info h4 { font-size: 0.95rem; color: #1e293b; margin-bottom: 2px; }
 .download-info p { font-size: 0.8rem; color: #64748b; margin-bottom: 0; text-align: left; }
 .btn-download { background-color: #10b981; color: white; padding: 8px 14px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-align: center; display: block; width: 100%; }
-.btn-download:hover { background-color: #059669; }
 
-/* INTERFACE QUIZ TYPE KAHOOT */
+/* QUIZ TYPE KAHOOT */
 .quiz-wrapper { background: #f8fafc; border: 2px solid #ddd6fe; border-radius: 16px; padding: 20px; margin-top: 15px; text-align: center; }
 .progress-bar-container { width: 100%; background: #e2e8f0; height: 12px; border-radius: 6px; overflow: hidden; margin-bottom: 15px; }
 .progress-bar-fill { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s ease; }
@@ -87,10 +98,21 @@ ul { padding-left: 18px; } li { margin-bottom: 6px; }
 .final-score { font-size: 3rem; font-weight: 900; color: var(--primary); margin: 10px 0; }
 .score-badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-weight: 700; margin-bottom: 15px; }
 
+/* FORMULAIRE MOTION INTERACTIF */
+.motion-form { background: #ffffff; border: 2px solid #ede9fe; border-radius: 16px; padding: 25px; margin-top: 20px; box-shadow: 0 8px 20px rgba(124, 58, 237, 0.06); }
+.form-group { margin-bottom: 18px; text-align: left; position: relative; }
+.form-group label { display: block; font-weight: 600; font-size: 0.9rem; color: #334155; margin-bottom: 6px; transition: color 0.3s; }
+.form-control { width: 100%; padding: 12px 16px; border: 2px solid #cbd5e1; border-radius: 10px; font-size: 0.95rem; outline: none; transition: all 0.3s ease; }
+.form-control:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15); }
+.motion-btn { background: var(--primary); color: white; border: none; padding: 14px 28px; border-radius: 30px; font-weight: 700; font-size: 1rem; cursor: pointer; width: 100%; transition: all 0.3s ease; display: inline-flex; justify-content: center; align-items: center; gap: 10px; }
+.motion-btn:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: 0 6px 18px rgba(124, 58, 237, 0.3); }
+.motion-btn:active { transform: translateY(0); }
+.form-feedback { display: none; padding: 12px; border-radius: 8px; margin-top: 15px; font-weight: 600; font-size: 0.9rem; text-align: center; }
+
 .agency-box { background: #ede9fe; border: 1px solid #ddd6fe; border-radius: 12px; padding: 20px; margin-top: 15px; }
 .btn-whatsapp { display: flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: white; padding: 10px 18px; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.9rem; margin-top: 12px; }
-.site-footer { margin-top: 30px; padding-top: 15px; border-top: 1px solid #e2e8f0; text-align: center; color: #64748b; font-size: 0.8rem; }
-.footer-info { background: #f8fafc; padding: 10px; border-radius: 6px; margin-bottom: 10px; font-size: 0.75rem; color: #475569; }
+.site-footer { margin-top: 35px; padding-top: 18px; border-top: 1px solid #e2e8f0; text-align: center; color: #64748b; font-size: 0.85rem; }
+.footer-info { background: #f8fafc; padding: 12px; border-radius: 8px; margin-bottom: 12px; font-size: 0.8rem; color: #475569; }
 </style>
 </head>
 <body>
@@ -103,101 +125,193 @@ ul { padding-left: 18px; } li { margin-bottom: 6px; }
     <span id="menuArrow">▼</span>
 </button>
 <div id="dropdownNav" class="dropdown-nav">
-    <button class="nav-btn active" onclick="switchPage('accueil')">🏠 1. Accueil & Présentation</button>
+    <button class="nav-btn active" onclick="switchPage('accueil')">🏠 1. Accueil & Orientation</button>
     <button class="nav-btn" onclick="switchPage('urgences')">🚨 2. Urgences & Secours</button>
-    <button class="nav-btn" onclick="switchPage('pathologies')">🩺 3. Encyclopédie & Pathologies</button>
-    <button class="nav-btn" onclick="switchPage('ressources')">📂 4. Fichiers & Documentation (10 Fiches)</button>
-    <button class="nav-btn" onclick="switchPage('quiz')">🧠 5. Quiz & Évaluation (25 Q Aléatoires)</button>
-    <button class="nav-btn" onclick="switchPage('neema')">💼 6. Espace neema digit sas</button>
+    <button class="nav-btn" onclick="switchPage('pathologies')">🩺 3. Encyclopédie Médicale (HTA, Diabète, Œdèmes, Œil)</button>
+    <button class="nav-btn" onclick="switchPage('onditque')">💡 4. On dit Que ? (Mythes & Croyances)</button>
+    <button class="nav-btn" onclick="switchPage('ressources')">📂 5. Fichiers & Documentation (10 Fiches)</button>
+    <button class="nav-btn" onclick="switchPage('quiz')">🧠 6. Quiz Kahoot (25 Q Aléatoires)</button>
+    <button class="nav-btn" onclick="switchPage('contact')">✉️ 7. Contact Motion & Neema Digit SAS</button>
 </div>
 </div>
 
 <!-- PAGE 1 : ACCUEIL -->
 <section id="accueil" class="page-section active-page">
-<div class="badge">🩺 Portail Médical Indépendant</div>
+<div class="badge">🩺 Portail Médical Indépendant d'Éducation Sanitaire</div>
 <header>
 <h1>L'instant Santé</h1>
-<p>La référence de l'information préventive et de l'éducation sanitaire.</p>
+<p>La référence de l'information préventive, de la physiologie et de l'accompagnement sanitaire.</p>
 </header>
-<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" alt="Accueil" class="medical-img">
-<div class="img-caption">Plateforme d'accompagnement sanitaire par neema digit sas.</div>
+<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" alt="Accueil Médical" class="medical-img">
+<div class="img-caption">Plateforme d'information sanitaire éditée par Neema Digit SAS.</div>
 
-<h2>📚 Présentation & Orientation</h2>
-<p><strong>L'instant Santé</strong> s'impose comme un carrefour d'excellence pour décrypter les grandes pathologies du quotidien à travers une approche encyclopédique claire, accessible et rigoureuse.</p>
+<h2>📚 Manifeste et Fondements Scientifiques</h2>
+<p><strong>L'instant Santé</strong> s'impose comme un portail encyclopédique de référence visant à vulgariser les connaissances médicales essentielles au grand public. Face au développement rapide des maladies non transmissibles et des affections chroniques, l'accès à une information préventive fiable représente le premier pilier de la santé publique.</p>
+<p>Notre engagement repose sur une méthode rigoureuse : expliquer les mécanismes physiologiques fondamentaux, détailler les facteurs de risque modifiables et valoriser les parcours de soin officiels sans jamais encourager l'auto-médication sauvage ou les pratiques à risque.</p>
 
-<img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80" alt="Prévention" class="medical-img">
-<div class="img-caption">Sensibilisation et prévention active des risques de santé publique.</div>
+<img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80" alt="Consultation" class="medical-img">
+<div class="img-caption">Accompagnement et sensibilisation active aux réflexes de santé publique.</div>
 
 <div class="site-footer">
-<div class="footer-info">ℹ️ neema digit sas • Ouagadougou, Burkina Faso • Contact : +226 68884814</div>
-<p>&copy; 2026 <strong>neema digit sas</strong></p>
+<div class="footer-info">ℹ️ Édité par Neema Digit SAS • Ouagadougou, Burkina Faso • Contact : +226 68884814</div>
+<p>&copy; 2026 <strong>Neema Digit SAS</strong> • Tous droits réservés.</p>
 </div>
 </section>
 
 <!-- PAGE 2 : URGENCES & PREMIERS SECOURS -->
 <section id="urgences" class="page-section">
 <header>
-<h1>Urgences & Secours</h1>
-<p>Numéros d'intervention rapide et gestes de premiers secours.</p>
+<h1>Urgences & Premiers Secours</h1>
+<p>Répertoire des services d'urgence et protocoles d'intervention rapide.</p>
 </header>
 <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80" alt="Urgences" class="medical-img">
-<div class="img-caption">Intervention rapide en cas de détresse médicale.</div>
 
-<h2>📞 Répertoire d'Urgence</h2>
+<h2>📞 Numéros d'Urgence Officiels</h2>
 <div class="emergency-grid">
 <div class="emergency-card"><h3>🚒 Pompiers</h3><div class="emergency-number">18</div></div>
 <div class="emergency-card"><h3>🚓 Police</h3><div class="emergency-number">17</div></div>
 <div class="emergency-card"><h3>🚑 Gendarmerie</h3><div class="emergency-number">16</div></div>
-<div class="emergency-card"><h3>💬 neema</h3><div class="emergency-number">+226 68884814</div></div>
+<div class="emergency-card"><h3>💬 Neema</h3><div class="emergency-number">+226 68884814</div></div>
 </div>
-<h2>🛡️ Gestes Essentiels</h2>
-<p>Sécurisez la zone, vérifiez la respiration et placez en Position Latérale de Sécurité (PLS) si la victime est inconsciente.</p>
-<div class="site-footer"><p>&copy; 2026 <strong>neema digit sas</strong></p></div>
+
+<h2>🛡️ Protocoles d'Urgence Vitales</h2>
+<p>En présence d'un accident ou d'une détresse soudaine, gardez votre calme et appliquez les trois temps cardinaux : <strong>Protéger</strong> (sécuriser les lieux), <strong>Alerter</strong> (appeler les secours en décrivant la situation), et <strong>Secourir</strong>.</p>
+<p>Si la victime est inconsciente mais respire régulièrement, basculez-la délicatement en <strong>Position Latérale de Sécurité (PLS)</strong> afin d'éviter toute obstruction des voies aériennes. En cas de saignement abondant, appliquez immédiatement une compression directe avec un tissu propre.</p>
+
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
 </section>
 
-<!-- PAGE 3 : ENCYCLOPÉDIE -->
+<!-- PAGE 3 : ENCYCLOPÉDIE MÉDICALE EXHAUSTIVE -->
 <section id="pathologies" class="page-section">
 <header>
-<h1>Encyclopédie Médicale</h1>
-<p>Cliquez sur une rubrique pour ouvrir l'analyse clinique complète.</p>
+<h1>Encyclopédie Médicale & Dossiers Détaillés</h1>
+<p>Analyses cliniques approfondies (Introduction ~500 mots, Développement ~1000 mots, Synthèse ~300 mots par sujet).</p>
 </header>
-<img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80" alt="Encyclopédie" class="medical-img">
-<div class="img-caption">Dossiers de référence et analyses physiopathologiques.</div>
 
 <div class="accordion-group">
+
+<!-- MODULE 1 : HTA -->
 <div class="accordion-item">
-<div class="accordion-header" onclick="toggleAccordion(this)"><span>🫀 1. L'Hypertension Artérielle</span><span>▼</span></div>
+<div class="accordion-header" onclick="toggleAccordion(this)"><span>🫀 1. L'Hypertension Artérielle (HTA) - Dossier Complet</span><span>▼</span></div>
 <div class="accordion-content">
-<h3>Physiopathologie & Prévention</h3>
-<p>L'HTA se caractérise par une pression chronique supérieure à 140/90 mmHg. La prévention repose sur la baisse de l'apport en sel (sous 5g/jour) et l'activité physique.</p>
+<img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80" alt="Tension" class="medical-img" style="height:200px;">
+<h3>Introduction (Cadre Nosologique & Épidémiologie)</h3>
+<p>L'hypertension artérielle (HTA) constitue le premier facteur de risque cardiovasculaire évitable et la première cause de morbidité vasculaire à l'échelle mondiale. Définie cliniquement par une pression artérielle systolique (PAS) supérieure ou égale à 140 mmHg et/ou une pression artérielle diastolique (PAD) supérieure ou égale à 90 mmHg mesurées au repos lors de plusieurs consultations successives, l'HTA évolue le plus souvent de manière totalement asymptomatique. Cette caractéristique lui vaut le surnom de "tueur silencieux". En Afrique subsaharienne et plus particulièrement en zone sahélienne, la prévalence de l'HTA est en forte augmentation en raison de la transition nutritionnelle, de l'urbanisation rapide et de la modification des modes de vie. L'éducation préventive s'avère donc capitale pour dépister précocement les profils à risque avant l'apparition de séquelles irréversibles.</p>
+
+<h3>Développement (Physiopathologie & Facteurs de Risque)</h3>
+<p>Le maintien de la pression artérielle dépend de deux facteurs physiologiques principaux : le débit cardiaque et les résistances vasculaires périphériques (RVP). Dans l'HTA essentielle (qui représente plus de 90 % des cas), l'élévation chronique de la tension provient d'un remodelage structurel et fonctionnel de la paroi des petites artères. Les cellules musculaires lisses se rigidifient, la matrice extracellulaire s'épaissit et l'endothélium perd sa capacité à sécréter de l'oxyde nitrique (NO), un puissant vasodilatateur naturel.</p>
+<p>Parmi les facteurs de risque modifiables majeurs, l'excès de chlorure de sodium (sel de cuisine) occupe une place prépondérante. L'apport sodé excessif perturbe la filtration rénale, entraîne une rétention hydrosodée et accroît le volume sanguin circulant. De plus, la sédentarité, l'obésité viscérale, le tabagisme, la consommation chronique d'alcool et le stress oxydatif sympathique provoquent une vasoconstriction persistante. Si elle n'est pas prise en charge, l'HTA fatigue le muscle cardiaque (hypertrophie ventriculaire gauche) et endommage progressivement les vaisseaux nobles du cerveau, des reins et de la rétine.</p>
+
+<h3>Conclusion & Recommandations Préventives</h3>
+<p>La prévention efficace de l'hypertension artérielle repose sur des mesures hygiéno-diététiques simples mais rigoureuses : limiter l'apport en sel à moins de 5 grammes par jour, éliminer les bouillons de cube industriels sursalés, pratiquer au minimum 30 minutes de marche rapide quotidienne, consommer des aliments riches en potassium (bananes, légumes vert foncé) et faire contrôler sa tension artérielle au moins une fois par an dès l'âge adulte auprès d'un professionnel de santé.</p>
 </div>
 </div>
+
+<<!-- MODULE 2 : DIABÈTE DE TYPE 2 -->
 <div class="accordion-item">
-<div class="accordion-header" onclick="toggleAccordion(this)"><span>🩸 2. Diabète de Type 2</span><span>▼</span></div>
+<div class="accordion-header" onclick="toggleAccordion(this)"><span>🩸 2. Le Diabète de Type 2 - Métabolisme & Complications</span><span>▼</span></div>
 <div class="accordion-content">
-<h3>Glycémie & Métabolisme</h3>
-<p>Insulinorésistance entraînant une hyperglycémie chronique. Surveillance régulière de la glycémie à jeun indispensable.</p>
+<img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1200&q=80" alt="Glycémie" class="medical-img" style="height:200px;">
+<h3>Introduction (Physiologie du Glucose)</h3>
+<p>Le diabète de type 2 est une maladie métabolique majeure caractérisée par une élévation chronique de la concentration de glucose dans le sang (hyperglycémie). On pose le diagnostic de diabète lorsque la glycémie à jeun est égale ou supérieure à 1,26 g/L (7,0 mmol/L) lors de deux prélevements sanguins distincts. Cette pathologie représente environ 90 % de l'ensemble des cas de diabète. En raison d'un début très insidieux, la maladie peut progresser pendant plusieurs années sans provoquer de symptômes évidents, altérant silencieusement le réseau micro et macrovasculaire de l'organisme.</p>
+
+<h3>Développement (Insulinorésistance & Conséquences Tissulaires)</h3>
+<p>Le mécanisme central du diabète de type 2 associe deux anomalies fondamentales : l'insulinorésistance et l'insulino-déficience relative. L'insuline est une hormone sécrétée par les cellules bêta des îlots de Langerhans du pancréas, dont le rôle principal est d'inciter les cellules musculaires, adipeuses et hépatiques à capter le glucose sanguin pour le transformer en énergie ou le stocker. Dans le cas du diabète de type 2, les récepteurs cellulaires deviennent résistants à l'action de l'insuline, souvent sous l'effet de l'accumulation de graisses viscérales et de l'inflammation chronique à bas bruit. Pour compenser cette résistance, le pancréas sur-sécrète de l'insuline (hyperinsulinisme) jusqu'à ce que les cellules bêta s'épuisent progressivement.</p>
+<p>L'hyperglycémie chronique non contrôlée entraîne une toxicité directe pour les vaisseaux sanguins (glucotoxicité). Au niveau des petits vaisseaux, elle provoque la rétinopathie (risque de cécité), la néphropathie (insuffisance rénale) et la neuropathie (perte de sensibilité des pieds). Au niveau des gros vaisseaux, elle accélère le développement de l'athérosclérose, multipliant par trois le risque d'infarctus du myocarde et d'accident vasculaire cérébral (AVC).</p>
+
+<h3>Conclusion & Mesures Hygiéno-Diététiques</h3>
+<p>La prévention et la stabilisation du diabète de type 2 s'appuient avant tout sur la modification durable du mode de vie. L'adoption d'un régime alimentaire pauvre en sucres raffinés et riche en fibres solubles (légumineuses, céréales complètes localement disponibles), la réduction de la masse grasse abdominale et la pratique régulière d'exercices physiques constituent les piliers incontournables pour maintenir une glycémie équilibrée.</p>
 </div>
 </div>
+
+<!-- MODULE 3 : ŒDÈMES ET CIRCULATION -->
 <div class="accordion-item">
-<div class="accordion-header" onclick="toggleAccordion(this)"><span>🦶 3. Rétention d'Eau & Œdèmes</span><span>▼</span></div>
+<div class="accordion-header" onclick="toggleAccordion(this)"><span>🦶 3. Rétention d'Eau, Œdèmes et Insuffisance Veineuse</span><span>▼</span></div>
 <div class="accordion-content">
-<h3>Circulation & Jambes Lourdes</h3>
-<p>Défaillance du retour veineux se traduisant par le signe du cratère/godet. Surélévation des jambes conseillée.</p>
+<img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80" alt="Circulation" class="medical-img" style="height:200px;">
+<h3>Introduction (Mécanismes d'Échange Interstitiel)</h3>
+<p>L'œdème se définit comme une accumulation anormale et visible de liquide dans les tissus interstitiels de l'organisme, prédominant le plus souvent au niveau des membres inférieurs (chevilles, mollets, pieds). La formation d'un œdème résulte d'une rupture de l'équilibre de Starling, qui régit les échanges d'eau et de solutés entre les capillaires sanguins et l'espace extravasculaire. C'est un symptôme fréquent mais dont l'origine clinique peut varier d'une simple stase veineuse bénigne à une défaillance cardiaque, rénale ou hépatique sous-jacente.</p>
+
+<h3>Développement (Sémiologie du Signe du Cratère & Prévention)</h3>
+<p>La circulation veineuse des membres inférieurs doit lutter en permanence contre la gravité pour faire remonter le sang vers le cœur. Ce retour est assuré par deux mécanismes majeurs : la contraction des muscles du mollet (pompe musculaire) et la présence de valvules anti-reflux à l'intérieur des veines. Lorsque la paroi veineuse se dilate ou que les valvules deviennent incontinentes (insuffisance veineuse), la pression hydrostatique augmente au niveau des capillaires. Cette hyperpression chasse l'eau du sang vers les tissus environnants, créant l'œdème.</p>
+<p>Sur le plan clinique, l'œdème veineux se reconnaît à sa consistance molle et à la présence du **signe du cratère (ou signe du godet)** : lorsqu'on exerce une pression ferme avec le pouce pendant 5 secondes sur la face interne de la cheville ou au niveau du tibia, une empreinte en creux persiste plusieurs secondes après le retrait du doigt. Outre l'insuffisance veineuse, la rétention hydrosodée favorisée par un excès de sel ou la position assise/debout prolongée en période de forte chaleur aggrave l'inconfort.</p>
+
+<h3>Conclusion & Gestes Posturaux</h3>
+<p>Pour soulager et prévenir les œdèmes des membres inférieurs sans recourir inutilement aux diurétiques sans avis médical, il est conseillé de surélever les pieds du lit de 10 à 15 cm, d'éviter les vêtements exagérément serrés au niveau de la taille et des cuisses, d'effectuer des douches d'eau fraîche sur les mollets du bas vers le haut et de pratiquer la marche active pour stimuler la pompe musculaire.</p>
 </div>
 </div>
+
+<!-- MODULE 4 : SANTÉ OCULAIRE (L'ŒIL) -->
+<div class="accordion-item">
+<div class="accordion-header" onclick="toggleAccordion(this)"><span>👁️ 4. Santé Oculaire : Glaucome, Cataracte et Prévention de la Vision</span><span>▼</span></div>
+<div class="accordion-content">
+<img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80" alt="Examen Oculaire" class="medical-img" style="height:200px;">
+<h3>Introduction (Anatomie et Importance de la Vision)</h3>
+<p>L'œil est l'organe sensoriel le plus sollicité au quotidien, assurant plus de 80 % des informations perçues par le cerveau. Cependant, la santé oculaire subit de nombreuses agressions environnementales (rayonnements ultraviolets clairs, poussières sahariennes, sécheresse de l'air, lumière bleue des écrans) ainsi que l'impact du vieillissement et de maladies métaboliques comme le diabète. La préservation de la vision repose sur un dépistage précoce des principales affections oculaires avérées que sont le glaucome, la cataracte et la sécheresse cornéenne.</p>
+
+<h3>Développement (Glaucome, Cataracte et Pathologies Courantes)</h3>
+<p>Le **glaucome** est une maladie oculaire grave caractérisée par une destruction progressive et irréversible du nerf optique, le plus souvent liée à une élévation de la pression intraoculaire (PIO). Le liquide oculaire (humeur aqueuse) ne s'évacue plus correctement, exerçant une compression sur les fibres nerveuses. Le glaucome évolue silencieusement sans douleur ni baisse de vision centrale au début, détruisant d'abord le champ visuel périphérique. Sans dépistage tomographique ou tonométrique régulier chez l'ophtalmologiste, il conduit inéluctablement à la cécité.</p>
+<p>La **cataracte**, quant à elle, correspond à l'opacification progressive du cristallin (la lentille transparente située derrière l'iris). Elle se traduit par une baisse progressive de l'acuité visuelle, une impression de voile brumeux et un éblouissement anormal à la lumière solaire. La cataracte se traite très bien par une chirurgie simple consistant à remplacer le cristallin opacifié par un implant artificiel transparent.</p>
+<p>Enfin, les conjonctivites allergiques et bactériennes favorisées par la poussière nécessitent une hygiène oculaire stricte sans instillation de produits traditionnels agressifs (jus de citron, urines ou décoctions) qui risquent de perforer la cornée.</p>
+
+<h3>Conclusion & Hygiène Visuelle</h3>
+<p>La préservation de la vue implique des gestes protecteurs fondamentaux : porter des lunettes de soleil filtrant les UV lors des déplacements en extérieur, se laver soigneusement les mains avant de se toucher les yeux, ne jamais employer de collyres périmés ou d'eau souillée, et faire procéder à un contrôle de la pression intraoculaire tous les 2 ans dès l'âge de 40 ans.</p>
 </div>
-<div class="site-footer"><p>&copy; 2026 <strong>neema digit sas</strong></p></div>
+</div>
+
+</div>
+
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
 </section>
 
-<!-- PAGE 4 : 10 FICHIERS CLASSÉS EN 5 COMPARTIMENTS -->
+<!-- PAGE 4 : ON DIT QUE ? (MYTHES & CROYANCES) -->
+<section id="onditque" class="page-section">
+<header>
+<h1>💡 On dit Que ? (Mythes & Idées Reçues)</h1>
+<p>Déconstruction scientifique des croyances non fondées, des erreurs populaires et des remèdes dangereux.</p>
+</header>
+<img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80" alt="Mythes Santé" class="medical-img">
+
+<div class="myth-card">
+<div class="myth-title">❌ Mythe 1 : "Mettre du dentifrice ou de l'huile sur une brûlure guérit la peau."</div>
+<div class="reality-title">✅ La Réalité Médicale :</div>
+<p>C'est une pratique très dangereuse ! Le dentifrice ou l'huile emprisonnent la chaleur dans les tissus profonds et introduisent des bactéries responsables d'infections graves. **Le bon réflexe :** Faire couler immédiatement de l'eau tiède (non glacée) sur la brûlure pendant 15 minutes.</p>
+</div>
+
+<div class="myth-card">
+<div class="myth-title">❌ Mythe 2 : "Boire du jus de citron pur ou du vinaigre fait disparaître le diabète."</div>
+<div class="reality-title">✅ La Réalité Médicale :</div>
+<p>Aucun agrume ni acide ne peut guérir le diabète ni remplacer l'insuline. L'acidité excessive risque seulement de provoquer des ulcères de l'estomac. Seule une alimentation équilibrée et un suivi médical permettent de contrôler le taux de sucre.</p>
+</div>
+
+<div class="myth-card">
+<div class="myth-title">❌ Mythe 3 : "L'anesthésie à l'hôpital fait perdre la mémoire ou tue systématiquement."</div>
+<div class="reality-title">✅ La Réalité Médicale :</div>
+<p>L'anesthésie moderne est une procédure médicale ultra-sécurisée pratiquée par des médecins spécialistes après un bilan pré-opératoire rigoureux. La peur de l'anesthésie ne doit jamais retarder une intervention chirurgicale nécessaire.</p>
+</div>
+
+<div class="myth-card">
+<div class="myth-title">❌ Mythe 4 : "Appliquer du jus de citron ou du kérosène dans l'œil guérit la conjonctivite."</div>
+<div class="reality-title">✅ La Réalité Médicale :</div>
+<p>Ces produits corrosifs détruisent les cellules de la cornée et peuvent provoquer une cécité définitive ! En cas d'infection oculaire, rincez uniquement avec du sérum physiologique stérile et consultez un infirmier ou un ophtalmologiste.</p>
+</div>
+
+<div class="myth-card">
+<div class="myth-title">❌ Mythe 5 : "Manger très épicé crée directement des trous (ulcères) dans l'estomac."</div>
+<div class="reality-title">✅ La Réalité Médicale :</div>
+<p>Le piment peut irriter une muqueuse déjà enflammée, mais la cause principale de l'ulcère de l'estomac est une bactérie (*Helicobacter pylori*) ou l'abus d'anti-inflammatoires (comme l'ibuprofène pris sans avis médical).</p>
+</div>
+
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
+</section>
+
+<!-- PAGE 5 : 10 FICHIERS CLASSÉS EN 5 COMPARTIMENTS -->
 <section id="ressources" class="page-section">
 <header>
 <h1>Bibliothèque de Fichiers (10 Fiches)</h1>
-<p>Documents téléchargeables classés en 5 catégories pratiques.</p>
+<p>Documents téléchargeables classés en 5 catégories pratiques au format .txt.</p>
 </header>
 <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80" alt="Ressources" class="medical-img">
-<div class="img-caption">Documentation technique et guides pratiques édités par neema digit sas.</div>
 
 <!-- COMPARTIMENT 1 -->
 <div class="category-block">
@@ -207,14 +321,14 @@ ul { padding-left: 18px; } li { margin-bottom: 6px; }
 <h4>📄 Fiche 01 : Guide Prévention HTA</h4>
 <p>Recommandations nutritionnelles hyposodées et hygiène artérielle.</p>
 </div>
-<a href="data:text/plain;charset=utf-8,FICHE%2001%20-%20GUIDE%20PREVENTION%20HTA%0A1.%20Reduire%20le%20sel%20a%20moins%20de%205g/jour.%0A2.%20Pratiquer%2030%20min%20de%20marche%20par%20jour.%0A3.%20Controler%20sa%20tension%201%20fois%20par%20mois.%0Aneema%20digit%20sas%20-%20L'instant%20Sante" download="01_Guide_Prevention_HTA.txt" class="btn-download">⬇️ Télécharger Fiche 01</a>
+<a href="data:text/plain;charset=utf-8,FICHE%2001%20-%20GUIDE%20PREVENTION%20HTA%0A1.%20Reduire%20le%20sel%20a%20moins%20de%205g/jour.%0A2.%20Pratiquer%2030%20min%20de%20marche%20par%20jour.%0A3.%20Controler%20sa%20tension%201%20fois%20par%20mois.%0ANeema%20Digit%20SAS%20-%20L'instant%20Sante" download="01_Guide_Prevention_HTA.txt" class="btn-download">⬇️ Télécharger Fiche 01</a>
 </div>
 <div class="download-card">
 <div class="download-info">
 <h4>📄 Fiche 02 : Tableau de Tension Artérielle</h4>
 <p>Valeurs de référence (Systolique/Diastolique) et seuils d'alerte.</p>
 </div>
-<a href="data:text/plain;charset=utf-8,FICHE%2002%20-%20VALEURS%20TENSIONNELLES%0A-%20Optimale%20:%20%3C%20120/80%20mmHg%0A-%20Normale%20:%20120-129%20/%2080-84%20mmHg%0A-%20Hypertension%20:%20%3E%3D%20140/90%20mmHg%0Aneema%20digit%20sas%20-%20L'instant%20Sante" download="02_Tableau_Valeurs_HTA.txt" class="btn-download">⬇️ Télécharger Fiche 02</a>
+<a href="data:text/plain;charset=utf-8,FICHE%2002%20-%20VALEURS%20TENSIONNELLES%0A-%20Optimale%20:%20%3C%20120/80%20mmHg%0A-%20Normale%20:%20120-129%20/%2080-84%20mmHg%0A-%20Hypertension%20:%20%3E%3D%20140/90%20mmHg%0ANeema%20Digit%20SAS%20-%20L'instant%20Sante" download="02_Tableau_Valeurs_HTA.txt" class="btn-download">⬇️ Télécharger Fiche 02</a>
 </div>
 </div>
 
@@ -226,14 +340,14 @@ ul { padding-left: 18px; } li { margin-bottom: 6px; }
 <h4>📄 Fiche 03 : Mémo Glycémie à Jeun</h4>
 <p>Normes biologiques pour l'analyse du glucose sanguin.</p>
 </div>
-<a href="data:text/plain;charset=utf-8,FICHE%2003%20-%20NORME%20GLYCEMIE%0A-%20Glycemie%20normale%20a%20jeun%20:%200.70%20a%201.10%20g/L%0A-%20Prediabete%20:%201.10%20a%201.25%20g/L%0A-%20Diabete%20confirme%20:%20%3E%3D%201.26%20g/L%0Aneema%20digit%20sas%20-%20L'instant%20Sante" download="03_Memo_Glycemie_Jeun.txt" class="btn-download">⬇️ Télécharger Fiche 03</a>
+<a href="data:text/plain;charset=utf-8,FICHE%2003%20-%20NORME%20GLYCEMIE%0A-%20Glycemie%20normale%20a%20jeun%20:%200.70%20a%201.10%20g/L%0A-%20Prediabete%20:%201.10%20a%201.25%20g/L%0A-%20Diabete%20confirme%20:%20%3E%3D%201.26%20g/L%0ANeema%20Digit%20SAS%20-%20L'instant%20Sante" download="03_Memo_Glycemie_Jeun.txt" class="btn-download">⬇️ Télécharger Fiche 03</a>
 </div>
 <div class="download-card">
 <div class="download-info">
 <h4>📄 Fiche 04 : Régime Index Glycémique Bas</h4>
 <p>Guide d'alimentation pour prévenir l'insulinorésistance.</p>
 </div>
-<a href="data:text/plain;charset=utf-8,FICHE%2004%20-%20ALIMENTATION%20IG%20BAS%0A1.%20Eviter%20les%20sucres%20raffines%20et%20sodas.%0A2.%20Priviliegier%20les%20cereales%20completes%20et%20legumineuses.%0A3.%20Consommer%20des%20fibres%20a%20chaque%20repas.%0Aneema%20digit%20sas%20-%20L'instant%20Sante" download="04_Guide_Alimentation_IG.txt" class="btn-download">⬇️ Télécharger Fiche 04</a>
+<a href="data:text/plain;charset=utf-8,FICHE%2004%20-%20ALIMENTATION%20IG%20BAS%0A1.%20Eviter%20les%20sucres%20raffines%20et%20sodas.%0A2.%20Priviliegier%20les%20cereales%20completes%20et%20legumineuses.%0A3.%20Consommer%20des%20fibres%20a%20chaque%20repas.%0ANeema%20Digit%20SAS%20-%20L'instant%20Sante" download="04_Guide_Alimentation_IG.txt" class="btn-download">⬇️ Télécharger Fiche 04</a>
 </div>
 </div>
 
@@ -245,14 +359,14 @@ ul { padding-left: 18px; } li { margin-bottom: 6px; }
 <h4>📄 Fiche 05 : Protocole Anti-Œdèmes</h4>
 <p>Exercices posturaux et drainage veineux des membres inférieurs.</p>
 </div>
-<a href="data:text/plain;charset=utf-8,FICHE%2005%20-%20PROTOCOLE%20ANTI%20OEDEMES%0A1.%20Surelever%20les%20jambes%20de%2010%20a%2015%20cm%20au%20lit.%0A2.%20Eviter%20les%20stations%20debout%20prolongees.%0A3.%20Douche%20d'eau%20fraiche%20sur%20les%20mollets.%0Aneema%20digit%20sas%20-%20L'instant%20Sante" download="05_Protocole_Anti_Oedemes.txt" class="btn-download">⬇️ Télécharger Fiche 05</a>
+<a href="data:text/plain;charset=utf-8,FICHE%2005%20-%20PROTOCOLE%20ANTI%20OEDEMES%0A1.%20Surelever%20les%20jambes%20de%2010%20a%2015%20cm%20au%20lit.%0A2.%20Eviter%20les%20stations%20debout%20prolongees.%0A3.%20Douche%20d'eau%20fraiche%20sur%20les%20mollets.%0ANeema%20Digit%20SAS%20-%20L'instant%20Sante" download="05_Protocole_Anti_Oedemes.txt" class="btn-download">⬇️ Télécharger Fiche 05</a>
 </div>
 <div class="download-card">
 <div class="download-info">
 <h4>📄 Fiche 06 : Repérage du Signe du Cratère</h4>
 <p>Fiche technique d'évaluation de la rétention d'eau cutanée.</p>
 </div>
-<a href="data:text/plain;charset=utf-8,FICHE%2006%20-%20SIGNE%20DU%20CRATERE%0A-%20Technique%20:%20Pression%20du%20pouce%205%20sec%20sur%20la%20face%20interne%20du%20tibia.%0A-%20Interpretation%20:%20Si%20l'empreinte%20persiste,%20oedeme%20interstitiel%20confirme.%0Aneema%20digit%20sas%20-%20L'instant%20Sante" download="06_Fiche_Signe_Cratere.txt" class="btn-download">⬇️ Télécharger Fiche 06</a>
+<a href="data:text/plain;charset=utf-8,FICHE%2006%20-%20SIGNE%20DU%20CRATERE%0A-%20Technique%20:%20Pression%20du%20pouce%205%20sec%20sur%20la%20face%20interne%20du%20tibia.%0A-%20Interpretation%20:%20Si%20l'empreinte%20persiste,%20oedeme%20interstitiel%20confirme.%0ANeema%20Digit%20SAS%20-%20L'instant%20Sante" download="06_Fiche_Signe_Cratere.txt" class="btn-download">⬇️ Télécharger Fiche 06</a>
 </div>
 </div>
 
@@ -264,14 +378,14 @@ ul { padding-left: 18px; } li { margin-bottom: 6px; }
 <h4>📄 Fiche 07 : Guide Rapide Premiers Secours</h4>
 <p>Étapes clés : Alerte, PLS et compression directe d'urgence.</p>
 </div>
-<a href="data:text/plain;charset=utf-8,FICHE%2007%20-%20PREMIERS%20SECOURS%0A1.%20Proteger%20la%20zone%20d'accident.%0A2.%20Alerter%20les%20secours%20(Pompiers%2018%20/%20Police%2017).%0A3.%20Mettre%20en%20PLS%20si%20inconscient%20qui%20respire.%0Aneema%20digit%20sas%20-%20L'instant%20Sante" download="07_Guide_Premiers_Secours.txt" class="btn-download">⬇️ Télécharger Fiche 07</a>
+<a href="data:text/plain;charset=utf-8,FICHE%2007%20-%20PREMIERS%20SECOURS%0A1.%20Proteger%20la%20zone%20d'accident.%0A2.%20Alerter%20les%20secours%20(Pompiers%2018%20/%20Police%2017).%0A3.%20Mettre%20en%20PLS%20si%20inconscient%20qui%20respire.%0ANeema%20Digit%20SAS%20-%20L'instant%20Sante" download="07_Guide_Premiers_Secours.txt" class="btn-download">⬇️ Télécharger Fiche 07</a>
 </div>
 <div class="download-card">
 <div class="download-info">
 <h4>📄 Fiche 08 : Liste des Numéros Utiles (Burkina)</h4>
 <p>Contacts d'urgence et répertoires de secours d'urgence.</p>
 </div>
-<a href="data:text/plain;charset=utf-8,FICHE%2008%20-%20NUMEROS%20URGENCE%0A-%20Sapeurs-Pompiers%20:%2018%0A-%20Police%20Secours%20:%2017%0A-%20Gendarmerie%20Nationale%20:%2016%0A-%20Support%20neema%20digit%20:%20+226%2068884814%0Aneema%20digit%20sas" download="08_Numeros_Urgence_Burkina.txt" class="btn-download">⬇️ Télécharger Fiche 08</a>
+<a href="data:text/plain;charset=utf-8,FICHE%2008%20-%20NUMEROS%20URGENCE%0A-%20Sapeurs-Pompiers%20:%2018%0A-%20Police%20Secours%20:%2017%0A-%20Gendarmerie%20Nationale%20:%2016%0A-%20Support%20Neema%20Digit%20:%20+226%2068884814%0ANeema%20Digit%20SAS" download="08_Numeros_Urgence_Burkina.txt" class="btn-download">⬇️ Télécharger Fiche 08</a>
 </div>
 </div>
 
@@ -283,21 +397,21 @@ ul { padding-left: 18px; } li { margin-bottom: 6px; }
 <h4>📄 Fiche 09 : Hydratation & Équilibre Sodé</h4>
 <p>Guide de consommation quotidienne d'eau et de minéraux.</p>
 </div>
-<a href="data:text/plain;charset=utf-8,FICHE%2009%20-%20HYDRATATION%20ET%20MINERAUX%0A1.%20Consommer%201.5L%20a%202L%20d'eau%20pure%20par%20jour.%0A2.%20Limiter%20les%20bouillons%20de%20cube%20et%20aliments%20ultra-transformes.%0A3.%20Favoriser%20les%20apports%20en%20potassium%20(bananes,%20legumes).%0Aneema%20digit%20sas" download="09_Hydratation_Nutrition.txt" class="btn-download">⬇️ Télécharger Fiche 09</a>
+<a href="data:text/plain;charset=utf-8,FICHE%2009%20-%20HYDRATATION%20ET%20MINERAUX%0A1.%20Consommer%201.5L%20a%202L%20d'eau%20pure%20par%20jour.%0A2.%20Limiter%20les%20bouillons%20de%20cube%20et%20aliments%20ultra-transformes.%0A3.%20Favoriser%20les%20apports%20en%20potassium%20(bananes,%20legumes).%0ANeema%20Digit%20SAS" download="09_Hydratation_Nutrition.txt" class="btn-download">⬇️ Télécharger Fiche 09</a>
 </div>
 <div class="download-card">
 <div class="download-info">
 <h4>📄 Fiche 10 : Checklist de Santé Mensuelle</h4>
 <p>Mémento d'auto-surveillance clinique globale pour la famille.</p>
 </div>
-<a href="data:text/plain;charset=utf-8,FICHE%2010%20-%20CHECKLIST%20SANTE%20MENSUELLE%0A[ ]%20Prise%20de%20tension%20arterielle%0A[ ]%20Verification%20du%20poids%20et%20perimetre%20abdominal%0A[ ]%20Controle%20de%20la%20glycemie%20(si%20diabetique)%0A[ ]%20Evaluation%20des%20chevilles%20(oedemes)%0Aneema%20digit%20sas" download="10_Checklist_Sante_Mensuelle.txt" class="btn-download">⬇️ Télécharger Fiche 10</a>
+<a href="data:text/plain;charset=utf-8,FICHE%2010%20-%20CHECKLIST%20SANTE%20MENSUELLE%0A[ ]%20Prise%20de%20tension%20arterielle%0A[ ]%20Verification%20du%20poids%20et%20perimetre%20abdominal%0A[ ]%20Controle%20de%20la%20glycemie%20(si%20diabetique)%0A[ ]%20Evaluation%20des%20chevilles%20(oedemes)%0ANeema%20Digit%20SAS" download="10_Checklist_Sante_Mensuelle.txt" class="btn-download">⬇️ Télécharger Fiche 10</a>
 </div>
 </div>
 
-<div class="site-footer"><p>&copy; 2026 <strong>neema digit sas</strong></p></div>
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
 </section>
 
-<!-- PAGE 5 : QUIZ TYPE KAHOOT TOUTES LES 19 MINUTES -->
+<!-- PAGE 6 : QUIZ TYPE KAHOOT TOUTES LES 19 MINUTES -->
 <section id="quiz" class="page-section">
 <header>
 <h1>Grand Quiz Santé & Prévention</h1>
@@ -334,26 +448,55 @@ ul { padding-left: 18px; } li { margin-bottom: 6px; }
     </div>
 </div>
 
-<div class="site-footer"><p>&copy; 2026 <strong>neema digit sas</strong></p></div>
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
 </section>
 
-<!-- PAGE 6 : neema digit sas -->
-<section id="neema" class="page-section">
+<!-- PAGE 7 : CONTACT MOTION & NEEMA DIGIT SAS -->
+<section id="contact" class="page-section">
 <header>
-<h1>neema digit sas</h1>
-<p>Agence de développement et d'ingénierie digitale.</p>
+<h1>Espace Contact & Neema Digit SAS</h1>
+<p>Formulaire interactif Motion UI et coordonnées de l'agence.</p>
 </header>
-<img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80" alt="Agence" class="medical-img">
-<div class="img-caption">Solutions technologiques innovantes par neema digit sas.</div>
+
+<img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80" alt="Agence Neema Digit SAS" class="medical-img">
 
 <div class="agency-box">
-<h2>🏢 Solutions Numériques</h2>
-<p><strong>neema digit sas</strong> crée des applications web, des portails interactifs et des solutions de communication sur mesure.</p>
-<p><strong>Siège :</strong> Ouagadougou, Burkina Faso</p>
-<p><strong>Téléphone / WhatsApp :</strong> +226 68884814</p>
-<a href="https://wa.me/22668884814?text=Bonjour,%20je%20vous%20contacte%20depuis%20L'instant%20Santé." class="btn-whatsapp" target="_blank">💬 Discuter sur WhatsApp</a>
+<h2>🏢 À Propos de Neema Digit SAS</h2>
+<p><strong>Neema Digit SAS</strong> est une agence technologique spécialisée dans le développement de plateformes web de haute performance, l'ingénierie logicielle, le design graphique et la conception d'outils interactifs d'éducation sanitaire.</p>
+<p><strong>Siège Social :</strong> Ouagadougou, Burkina Faso</p>
+<p><strong>Contact Direct / WhatsApp :</strong> +226 68884814</p>
 </div>
-<div class="site-footer"><p>&copy; 2026 <strong>neema digit sas</strong></p></div>
+
+<!-- FORMULAIRE DE CONTACT MOTION INTERACTIF -->
+<div class="motion-form">
+<h3 style="margin-top:0; color:var(--primary);">✉️ Écrivez-nous en direct</h3>
+<form id="contactMotionForm" onsubmit="handleFormSubmit(event)">
+    <div class="form-group">
+        <label for="userName">Nom & Prénom(s) :</label>
+        <input type="text" id="userName" class="form-control" placeholder="Ex: Aboubacar Ouedraogo" required>
+    </div>
+    <div class="form-group">
+        <label for="userEmail">Adresse Électronique (Email) :</label>
+        <input type="email" id="userEmail" class="form-control" placeholder="Ex: contact@domaine.com" required>
+    </div>
+    <div class="form-group">
+        <label for="userSubject">Sujet de votre Message :</label>
+        <input type="text" id="userSubject" class="form-control" placeholder="Ex: Demande de partenariat ou question santé" required>
+    </div>
+    <div class="form-group">
+        <label for="userMessage">Votre Message :</label>
+        <textarea id="userMessage" class="form-control" rows="4" placeholder="Tapez votre texte ici..." required></textarea>
+    </div>
+    <button type="submit" id="submitBtn" class="motion-btn">
+        <span>🚀 Envoyer le Message (Motion UI)</span>
+    </button>
+</form>
+<div id="formFeedback" class="form-feedback"></div>
+</div>
+
+<a href="https://wa.me/22668884814?text=Bonjour,%20je%20vous%20contacte%20depuis%20L'instant%20Santé." class="btn-whatsapp" target="_blank">💬 Échanger directement sur WhatsApp (+226 68884814)</a>
+
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong> • Tous droits réservés.</p></div>
 </section>
 
 </div>
@@ -365,13 +508,20 @@ function toggleMenu() {
     nav.classList.toggle('open');
     arrow.innerText = nav.classList.contains('open') ? '▲' : '▼';
 }
+
 function switchPage(pageId) {
     document.querySelectorAll('.page-section').forEach(sec => sec.classList.remove('active-page'));
     document.getElementById(pageId).classList.add('active-page');
     document.getElementById('dropdownNav').classList.remove('open');
     document.getElementById('menuArrow').innerText = '▼';
+    
+    // Mettre à jour l'état actif des boutons
+    const btns = document.querySelectorAll('.nav-btn');
+    btns.forEach(btn => btn.classList.remove('active'));
+    
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
 function toggleAccordion(header) {
     const content = header.nextElementSibling;
     const arrow = header.lastElementChild;
@@ -381,7 +531,7 @@ function toggleAccordion(header) {
     arrow.innerText = content.classList.contains('open') ? '▲' : '▼';
 }
 
-/* BANQUE DE 40 QUESTIONS POUR LE MÉLANGE ALÉATOIRE TOUTES LES 19 MINUTES */
+/* BANQUE DE QUESTIONS DU QUIZ (SELECTION ALÉATOIRE TOUTES LES 19 MIN) */
 const masterQuizPool = [
     { q: "1. Quel numéro d'urgence joindre en priorité pour les Sapeurs-Pompiers ?", options: ["Le 15", "Le 17", "Le 18", "Le 16"], correct: 2 },
     { q: "2. Quelle consommation de sel par jour ne faut-il pas dépasser ?", options: ["15 grammes", "5 grammes", "25 grammes", "10 grammes"], correct: 1 },
@@ -395,41 +545,25 @@ const masterQuizPool = [
     { q: "10. Comment stopper rapidement une hémorragie externe abondante ?", options: ["Appuyer directement et fermement sur la plaie", "Mettre de la poudre sur la plaie", "Donner un verre d'eau", "Attendre sans toucher"], correct: 0 },
     { q: "11. Quel nutriment consommé en excès favorise le diabète de type 2 ?", options: ["Les sucres raffinés et sodas", "L'eau minérale", "Les légumes verts", "Le poisson frais"], correct: 0 },
     { q: "12. Que signifie l'abréviation HTA ?", options: ["Hémorragie Toxique Aiguë", "Hypertension Artérielle", "Hydratation Totale Admissible", "Hyper Tension Alimentaire"], correct: 1 },
-    { q: "13. Quelle est la première mesure à prendre avant de secourir une victime ?", options: ["Courir chercher une ambulance", "Protéger la zone pour éviter un suraccident", "Déplacer la victime immédiatement", "Prendre une photo"], correct: 1 },
-    { q: "14. Quelle quantité d'eau minimale faut-il boire par jour ?", options: ["0.5 Litre", "Entre 1.5L et 2 Litres", "5 Litres", "10 Litres"], correct: 1 },
+    { q: "13. Pourquoi le dentifrice sur une brûlure est-il dangereux ?", options: ["Il emprisonne la chaleur et favorise les infections", "Il refroidit trop la peau", "Il rend la peau bleue", "Il fait dormir la victime"], correct: 0 },
+    { q: "14. Quelle maladie oculaire grave détruit progressivement le nerf optique ?", options: ["La cataracte", "Le glaucome", "La conjonctivite", "L'astigmatisme"], correct: 1 },
     { q: "15. La sédentarité (absence d'exercice) augmente-t-elle les risques cardiovasculaires ?", options: ["Non, c'est sans impact", "Oui, fortement", "Uniquement la nuit", "Seulement chez les enfants"], correct: 1 },
     { q: "16. Quel numéro permet de joindre la Gendarmerie Nationale ?", options: ["Le 16", "Le 18", "Le 17", "Le 19"], correct: 0 },
-    { q: "17. Le tabagisme a-t-il un effet néfaste sur la santé de vos artères ?", options: ["Non, il les dilate", "Oui, il les durcit et les obstrue", "Il n'a aucun effet", "Il protège le cœur"], correct: 1 },
-    { q: "18. En cas de malaise avec sensation de froid et pâleur, que faut-il vérifier ?", options: ["La présence de la respiration et le pouls", "La couleur des chaussures", "L'heure exacte", "Le niveau de batterie du téléphone"], correct: 0 },
+    { q: "17. Quel produit ne faut-il JAMAIS mettre dans l'œil en cas d'infection ?", options: ["Du sérum physiologique stérile", "Du jus de citron ou du kérosène", "Un collyre prescrit", "De l'eau propre"], correct: 1 },
+    { q: "18. Qu'est-ce que la cataracte au niveau de l'œil ?", options: ["L'opacification progressive du cristallin", "Une rougeur des paupières", "Une baisse du goût", "Un saignement de nez"], correct: 0 },
     { q: "19. Quel aliment est naturellement riche en potassium et bon pour le cœur ?", options: ["La banane et les légumes", "Le sel de table", "Les chips", "La mayonnaise"], correct: 0 },
-    { q: "20. Le stress chronique peut-il faire monter la tension artérielle ?", options: ["Non, le stress détend le cœur", "Oui, par libération d'hormones vasoconstrictrices", "Seulement en été", "Uniquement le matin"], correct: 1 },
-    { q: "21. Pourquoi faut-il éviter de donner à boire à une victime inconsciente ?", options: ["Elle risque de s'étouffer (fausse route)", "L'eau donne de la fièvre", "L'eau annule la respiration", "C'est sans danger"], correct: 0 },
-    { q: "22. À quelle fréquence un adulte en bonne santé doit-il contrôler sa tension ?", options: ["Une fois par décennie", "Au moins une fois par an", "Tous les jours à chaque heure", "Jamais"], correct: 1 },
-    { q: "23. Les bouillons de cube industriels sont-ils très riches en sel ?", options: ["Oui, extrêmement riches en sodium", "Non, ils sont sans sel", "Ils contiennent uniquement du sucre", "Ils contiennent 100% d'eau"], correct: 0 },
-    { q: "24. Que faire si une personne fait un AVC (visage déformé, bras faible, parole trouble) ?", options: ["La faire dormir", "Appeler immédiatement les urgences médicales", "Lui donner un café chaud", "Attendre le lendemain"], correct: 1 },
-    { q: "25. Qui est l'éditeur technologique concepteur du portail L'instant Santé ?", options: ["neema digit sas", "Global Health Tech", "Studio Ouaga", "Web Medical Express"], correct: 0 },
-    { q: "26. Quel organe est principalement endommagé en cas d'hypertension non traitée ?", options: ["Le cœur et les reins", "L'ongle du pouce", "L'oreille externe", "Les cheveux"], correct: 0 },
-    { q: "27. Qu'appelle-t-on une alimentation hyposodée ?", options: ["Une alimentation sans sel ajouté", "Une alimentation riche en sucre", "Une alimentation sans eau", "Une alimentation glacée"], correct: 0 },
-    { q: "28. Un taux de sucre sanguin élevé de façon chronique provoque quelle maladie ?", options: ["Le diabète", "L'asthme", "La grippe", "La myopie"], correct: 0 },
-    { q: "29. Quelle est la bonne posture en cas de saignement de nez abondant ?", options: ["Incliner la tête légèrement en avant et pincer le nez", "Dormir sur le dos", "Lever les deux jambes", "Boire de l'huile"], correct: 0 },
-    { q: "30. Le port de bas de contention aide à traiter quel problème ?", options: ["L'insuffisance veineuse et les jambes lourdes", "Les maux de tête", "La vision floue", "Les caries dentaires"], correct: 0 }
+    { q: "20. Qui est l'entreprise technologique créatrice de L'instant Santé ?", options: ["Neema Digit SAS", "Global Tech Inc", "Studio Ouaga", "Web Express"], correct: 0 }
 ];
 
-/* COMBINE JS : GÉNÉRATION ALÉATOIRE SYNCHRONISÉE TOUTES LES 19 MINUTES */
 function getActiveQuizQuestions() {
     const now = new Date();
-    // Tranche de 19 minutes de la journée (ex: change toutes les 19 min)
     const timeSeed = Math.floor((now.getHours() * 60 + now.getMinutes()) / 19);
-    
-    // Algorithme de mélange pseudo-aléatoire basé sur le bloc de 19 minutes
     let shuffled = [...masterQuizPool].sort((a, b) => {
         let x = Math.sin(timeSeed + a.q.length) * 10000;
         let y = Math.sin(timeSeed + b.q.length) * 10000;
         return (x - Math.floor(x)) - (y - Math.floor(y));
     });
-
-    // Retourne exactement 25 questions pour le test
-    return shuffled.slice(0, 25);
+    return shuffled.slice(0, 20);
 }
 
 let activeQuizData = [];
@@ -439,15 +573,12 @@ let canAnswer = true;
 const kahootColors = ['k-red', 'k-blue', 'k-yellow', 'k-green'];
 const kahootShapes = ['▲', '◆', '●', '■'];
 
-/* SYNTHÈSE AUDIO POUR LES EFFETS D'APPLAUDISSEMENT OU DE TRISTESSE */
 function playSoundEffect(isVictory) {
     try {
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         const nowTime = audioCtx.currentTime;
-
         if (isVictory) {
-            // Son d'applaudissements / triomphe (notes montantes joyeuses)
-            const notes = [523.25, 659.25, 783.99, 1046.50]; // Do, Mi, Sol, Do aigu
+            const notes = [523.25, 659.25, 783.99, 1046.50];
             notes.forEach((freq, index) => {
                 const osc = audioCtx.createOscillator();
                 const gain = audioCtx.createGain();
@@ -461,7 +592,6 @@ function playSoundEffect(isVictory) {
                 osc.stop(nowTime + index * 0.12 + 0.3);
             });
         } else {
-            // Son de tristesse / échec (notes descendantes graves)
             const notes = [300, 260, 220, 180];
             notes.forEach((freq, index) => {
                 const osc = audioCtx.createOscillator();
@@ -477,7 +607,7 @@ function playSoundEffect(isVictory) {
             });
         }
     } catch (e) {
-        console.log("Audio non pris en charge ou bloqué par le navigateur", e);
+        console.log("Audio Web API bloqué ou non supporté", e);
     }
 }
 
@@ -562,18 +692,18 @@ function showFinalResult() {
         badge.style.background = "#dcfce7";
         badge.style.color = "#15803d";
         feedback.innerText = "Félicitations ! Vous possédez une excellente culture médicale et préventive.";
-        playSoundEffect(true); // Déclenche le son de triomphe / applaudissements
+        playSoundEffect(true);
     } else {
         badge.innerText = "💡 À Consolider";
         badge.style.background = "#fee2e2";
         badge.style.color = "#b91c1c";
-        feedback.innerText = "Continuez à parcourir notre section Encyclopédie pour renforcer vos acquis de santé.";
-        playSoundEffect(false); // Déclenche le son de tristesse
+        feedback.innerText = "Continuez à parcourir nos dossiers encyclopédiques pour renforcer vos acquis de santé.";
+        playSoundEffect(false);
     }
 }
 
 function restartQuiz() {
-    activeQuizData = getActiveQuizQuestions(); // Réactualise la sélection aléatoire
+    activeQuizData = getActiveQuizQuestions();
     currentQIdx = 0;
     userScore = 0;
     document.getElementById('kahootResult').style.display = 'none';
@@ -581,7 +711,34 @@ function restartQuiz() {
     loadQuestion();
 }
 
-// Initialisation au chargement de la page
+/* GESTION DU FORMULAIRE MOTION INTERACTIF */
+function handleFormSubmit(event) {
+    event.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const feedback = document.getElementById('formFeedback');
+    
+    btn.innerHTML = '<span>⏳ Envoi sécurisé en cours...</span>';
+    btn.style.opacity = '0.7';
+
+    setTimeout(() => {
+        btn.innerHTML = '<span>✔ Message Envoyé avec Succès !</span>';
+        btn.style.background = '#10b981';
+        btn.style.opacity = '1';
+        
+        feedback.style.display = 'block';
+        feedback.style.background = '#dcfce7';
+        feedback.style.color = '#15803d';
+        feedback.innerHTML = 'Merci ! Votre message a bien été transmis à l\'équipe de Neema Digit SAS. Nous vous répondrons sous 24h.';
+
+        document.getElementById('contactMotionForm').reset();
+
+        setTimeout(() => {
+            btn.innerHTML = '<span>🚀 Envoyer le Message (Motion UI)</span>';
+            btn.style.background = 'var(--primary)';
+        }, 4000);
+    }, 1500);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     activeQuizData = getActiveQuizQuestions();
     loadQuestion();

@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>L'instant Santé - Portail Médical & Prévention</title>
+<title>L'instant Santé - Encyclopédie Médicale & Prévention</title>
 <style>
 :root {
 --primary: #2563eb;
@@ -26,41 +26,42 @@ font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
 body {
 background-color: var(--bg-color);
 color: var(--text-color);
-line-height: 1.6;
-padding: 20px;
+line-height: 1.8;
+padding: 15px;
 }
 .container {
-max-width: 950px;
+max-width: 1000px;
 margin: 0 auto;
 background: var(--card-bg);
-padding: 40px;
+padding: 35px;
 border-radius: var(--border-radius);
 box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
-animation: fadeIn 0.6s ease-in-out;
+animation: fadeIn 0.5s ease-in-out;
 }
 @keyframes fadeIn {
-from { opacity: 0; transform: translateY(10px); }
+from { opacity: 0; transform: translateY(8px); }
 to { opacity: 1; transform: translateY(0); }
 }
-/* NAVIGATION MULTI-PAGES */
+
+/* NAVIGATION PRINCIPALE */
 .navbar {
 display: flex;
 flex-wrap: wrap;
-gap: 8px;
+gap: 6px;
 justify-content: center;
 margin-bottom: 35px;
 border-bottom: 2px solid #e2e8f0;
-padding-bottom: 20px;
+padding-bottom: 15px;
 }
 .nav-btn {
 background: #f1f5f9;
 border: none;
-padding: 12px 18px;
+padding: 10px 14px;
 border-radius: 20px;
 cursor: pointer;
 font-weight: 600;
 color: #475569;
-font-size: 0.95rem;
+font-size: 0.9rem;
 transition: all 0.3s ease;
 }
 .nav-btn:hover, .nav-btn.active {
@@ -73,8 +74,9 @@ display: none;
 }
 .page-section.active-page {
 display: block;
-animation: fadeIn 0.5s ease;
+animation: fadeIn 0.4s ease;
 }
+
 header {
 text-align: center;
 margin-bottom: 30px;
@@ -82,7 +84,7 @@ margin-bottom: 30px;
 header h1 {
 font-size: 2.2rem;
 color: var(--primary);
-margin-bottom: 10px;
+margin-bottom: 8px;
 }
 .badge {
 display: inline-block;
@@ -92,62 +94,126 @@ padding: 6px 14px;
 border-radius: 20px;
 font-size: 0.85rem;
 font-weight: 600;
-margin-bottom: 15px;
+margin-bottom: 12px;
 }
 h2 {
-font-size: 1.4rem;
+font-size: 1.5rem;
 color: #0f172a;
-margin: 25px 0 15px 0;
+margin: 30px 0 15px 0;
 display: flex;
 align-items: center;
 gap: 10px;
+border-bottom: 2px solid #e2e8f0;
+padding-bottom: 8px;
+}
+h3 {
+font-size: 1.2rem;
+color: var(--primary-dark);
+margin: 20px 0 10px 0;
 }
 p, ul {
 margin-bottom: 15px;
 color: #475569;
+font-size: 1rem;
+text-align: justify;
 }
-ul { padding-left: 20px; }
+ul { padding-left: 22px; }
 li { margin-bottom: 8px; }
-.grid {
-display: grid;
-grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-gap: 20px;
-margin: 25px 0;
-}
-.card {
-background: #f8fafc;
-border: 1px solid #e2e8f0;
-border-radius: 12px;
-padding: 25px;
-transition: all 0.3s ease;
-}
-.card:hover {
-transform: translateY(-4px);
-border-color: var(--primary);
-box-shadow: 0 8px 15px -5px rgba(37,99,235,0.1);
-}
-.card h3 {
-color: var(--primary);
-margin-bottom: 10px;
-font-size: 1.2rem;
-}
-/* BANNIÈRE ILLUSTRATIVE */
-.hero-banner {
+
+/* IMAGES ILLUSTRATIVES HAUTE DÉFINITION */
+.medical-img {
 width: 100%;
-height: 180px;
-background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+height: 320px;
+object-fit: cover;
 border-radius: 12px;
+margin: 20px 0;
+box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.img-caption {
+font-size: 0.85rem;
+color: #64748b;
+text-align: center;
+margin-top: -12px;
+margin-bottom: 20px;
+font-style: italic;
+}
+
+/* ACCORDÉON DE CONTENU */
+.accordion-group {
 display: flex;
 flex-direction: column;
-align-items: center;
-justify-content: center;
-color: white;
-text-align: center;
-padding: 20px;
-margin-bottom: 30px;
+gap: 15px;
+margin: 25px 0;
 }
-.hero-banner span { font-size: 3rem; margin-bottom: 8px; }
-.hero-banner h2 { color: white; margin: 0; font-size: 1.4rem; }
+.accordion-item {
+border: 1px solid #cbd5e1;
+border-radius: 12px;
+overflow: hidden;
+background: #ffffff;
+}
+.accordion-header {
+background: #1e3a8a;
+color: white;
+padding: 16px 20px;
+font-weight: 700;
+cursor: pointer;
+display: flex;
+justify-content: space-between;
+align-items: center;
+transition: background 0.3s;
+font-size: 1.1rem;
+}
+.accordion-header:hover {
+background: var(--primary-dark);
+}
+.accordion-content {
+max-height: 0;
+overflow: hidden;
+transition: max-height 0.5s ease-out, padding 0.3s ease;
+background: #f8fafc;
+padding: 0 20px;
+}
+.accordion-content.open {
+max-height: 3500px;
+padding: 25px 20px;
+border-top: 1px solid #e2e8f0;
+}
+
+/* CARTES D'URGENCE */
+.emergency-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+gap: 20px;
+margin: 20px 0;
+}
+.emergency-card {
+background: #fef2f2;
+border: 2px solid #fecaca;
+border-radius: 12px;
+padding: 20px;
+text-align: center;
+transition: transform 0.3s;
+}
+.emergency-card:hover {
+transform: translateY(-3px);
+}
+.emergency-card h3 {
+color: #dc2626;
+margin-bottom: 8px;
+font-size: 1.2rem;
+}
+.emergency-number {
+font-size: 1.8rem;
+font-weight: 800;
+color: #991b1b;
+margin: 10px 0;
+background: white;
+padding: 8px;
+border-radius: 8px;
+border: 1px dashed #f87171;
+display: inline-block;
+}
+
 .alert-box {
 background-color: var(--danger-bg);
 border-left: 5px solid var(--danger);
@@ -155,16 +221,9 @@ padding: 20px;
 border-radius: 8px;
 margin: 25px 0;
 }
-.alert-box h3 { color: var(--danger); margin-bottom: 8px; }
-.news-card {
-background: #eff6ff;
-border: 1px solid #bfdbfe;
-border-radius: 12px;
-padding: 20px;
-margin-bottom: 15px;
-}
-.news-card h4 { color: var(--primary-dark); margin-bottom: 5px; }
-/* TELECHARGEMENT DE FICHIERS */
+.alert-box h3 { color: var(--danger); margin-bottom: 8px; font-size: 1.1rem; }
+
+/* TÉLÉCHARGEMENT & QUIZ */
 .download-card {
 background: #f0fdf4;
 border: 1px solid #bbf7d0;
@@ -185,10 +244,9 @@ text-decoration: none;
 font-weight: 600;
 font-size: 0.9rem;
 white-space: nowrap;
-transition: background 0.3s;
 }
 .btn-download:hover { background-color: #059669; }
-/* QUIZ STYLES */
+
 .quiz-container {
 background: #f0fdf4;
 border: 2px solid #bbf7d0;
@@ -201,12 +259,13 @@ background: white;
 padding: 20px;
 border-radius: 10px;
 margin-bottom: 15px;
-box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+box-shadow: 0 2px 4px rgba(0,0,0,0.03);
 }
 .question-title {
 font-weight: 700;
 margin-bottom: 12px;
 color: #1e293b;
+font-size: 1rem;
 }
 .options-list {
 display: flex;
@@ -220,6 +279,7 @@ padding: 10px 15px;
 border-radius: 6px;
 text-align: left;
 cursor: pointer;
+font-size: 0.95rem;
 transition: 0.2s;
 }
 .option-btn:hover { background: #e2e8f0; }
@@ -234,7 +294,6 @@ cursor: pointer;
 display: inline-block;
 margin-top: 15px;
 }
-.btn-action:hover { background: var(--primary-dark); }
 .result-box {
 display: none;
 text-align: center;
@@ -243,7 +302,7 @@ padding: 25px;
 border-radius: 10px;
 }
 .result-score { font-size: 2.2rem; font-weight: 800; color: var(--primary); margin: 10px 0; }
-/* NEEMA DIGIT ESPACE */
+
 .agency-box {
 background: #eff6ff;
 border: 1px solid #bfdbfe;
@@ -261,10 +320,9 @@ padding: 12px 24px;
 border-radius: 30px;
 text-decoration: none;
 font-weight: 600;
+font-size: 0.95rem;
 margin-top: 15px;
 }
-.btn-whatsapp:hover { background-color: #20ba5a; }
-/* FOOTER STANDARDISÉ EN BAS DE CHAQUE PAGE */
 .site-footer {
 margin-top: 40px;
 padding-top: 20px;
@@ -285,295 +343,118 @@ color: #475569;
 </head>
 <body>
 <div class="container">
-<!-- MENU DE NAVIGATION MULTI-PAGES (5 ONGLETS) -->
+<!-- NAVIGATION PRINCIPALE -->
 <div class="navbar">
 <button class="nav-btn active" onclick="switchPage('accueil')">🏠 Accueil</button>
-<button class="nav-btn" onclick="switchPage('pathologies')">🩺 Pathologies</button>
-<button class="nav-btn" onclick="switchPage('ressources')">📂 Fichiers & Actus</button>
-<button class="nav-btn" onclick="switchPage('quiz')">🧠 Quiz Santé</button>
-<button class="nav-btn" onclick="switchPage('neema')">💼 Neema Digit SAS</button>
+<button class="nav-btn" onclick="switchPage('urgences')">🚨 Urgences</button>
+<button class="nav-btn" onclick="switchPage('pathologies')">🩺 Encyclopédie</button>
+<button class="nav-btn" onclick="switchPage('ressources')">📂 Fichiers</button>
+<button class="nav-btn" onclick="switchPage('quiz')">🧠 Quiz</button>
+<button class="nav-btn" onclick="switchPage('neema')">💼 Neema Digit</button>
 </div>
+
 <!-- PAGE 1 : ACCUEIL -->
 <section id="accueil" class="page-section active-page">
-<div class="badge">🩺 Portail Indépendant de Santé & Prévention</div>
+<div class="badge">🩺 Portail Indépendant d'Information Médicale & Prévention</div>
 <header>
 <h1>L'instant Santé</h1>
-<p>Votre guide d'information pour comprendre et prévenir les troubles de santé courants.</p>
+<p>La référence de l'information préventive et de l'éducation sanitaire en Afrique de l'Ouest.</p>
 </header>
-<div class="hero-banner">
-<span>🌍 💡 🩺</span>
-<h2>Préserver la santé par l'information et la prévention</h2>
+
+<img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" alt="Consultation médicale de référence" class="medical-img">
+<div class="img-caption">Plateforme indépendante de diffusion des savoirs médicaux et d'accompagnement sanitaire.</div>
+
+<h2>📚 Notre Mission et Notre Engagement</h2>
+<p><strong>L'instant Santé</strong> s'impose comme un carrefour d'excellence pour décrypter les grandes pathologies du quotidien. Conçu pour répondre aux exigences les plus strictes de vulgarisation scientifique, notre portail s'appuie sur une approche rigoureuse : allier la précision anatomique et clinique à une accessibilité universelle pour les populations.</p>
+<p>À travers des dossiers encyclopédiques de référence, nous offrons aux citoyens les clés indispensables pour comprendre l'origine des désordres physiologiques, identifier les facteurs environnementaux et adopter des comportements de prévention adaptés à leur mode de vie.</p>
+
+<div class="grid" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); gap:20px; margin:25px 0;">
+<div class="card" onclick="switchPage('urgences')" style="cursor:pointer; background:#fef2f2; border:1px solid #fecaca; border-radius:12px; padding:25px;">
+<h3 style="color:#dc2626; margin-bottom:10px;">🚨 Numéros d'Urgence</h3>
+<p>Accédez instantanément aux contacts de secours, SAMU, sapeurs-pompiers et assistance médicale.</p>
 </div>
-<h2>📊 Explorer les thématiques médicales</h2>
-<div class="grid">
-<div class="card" onclick="switchPage('pathologies')" style="cursor:pointer;">
-<h3>🫀 Hypertension Artérielle</h3>
-<p>Le tueur silencieux : repérer les facteurs de risque et surveiller sa tension au quotidien.</p>
-</div>
-<div class="card" onclick="switchPage('pathologies')" style="cursor:pointer;">
-<h3>🩸 Diabète & Glycémie</h3>
-<p>Comprendre l'excès de sucre dans le sang, ses complications et les gestes de prévention.</p>
-</div>
-<div class="card" onclick="switchPage('pathologies')" style="cursor:pointer;">
-<h3>🦶 Rétention & Œdèmes</h3>
-<p>Le gonflement des jambes et des pieds, le signe du cratère et la circulation veineuse.</p>
-</div>
-<div class="card" onclick="switchPage('pathologies')" style="cursor:pointer;">
-<h3>🦵 Insuffisance Veineuse</h3>
-<p>Jambes lourdes, fatigue musculaire et dilatation des vaisseaux en période de chaleur.</p>
+<div class="card" onclick="switchPage('pathologies')" style="cursor:pointer; background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:25px;">
+<h3 style="color:var(--primary); margin-bottom:10px;">🫀 Encyclopédie & Soins</h3>
+<p>Analyse complète des pathologies vasculaires, métaboliques et des mesures préventives.</p>
 </div>
 </div>
+
 <div class="alert-box">
-<h3>🚨 Note d'Information</h3>
-<p>Ce portail a pour but d'informer et de sensibiliser. En cas de douleur persistante ou d'anomalie soudaine, consultez un professionnel de santé ou rendez-vous en centre médical.</p>
+<h3>🚨 Avertissement Médical Fondamental</h3>
+<p>Les contenus publiés sur ce portail possèdent une visée purement éducative, documentaire et préventive. En cas de détresse vitale, contactez immédiatement les services d'urgence de votre localité.</p>
 </div>
-<!-- BAS DE PAGE STANDARD -->
+
 <div class="site-footer">
 <div class="footer-info">
-ℹ️ <strong>Informations utiles :</strong> Portail d'information en santé &bull; Ouagadougou, Burkina Faso &bull; Contact direct : +226 68884814
+ℹ️ <strong>Informations utiles :</strong> Édité par Neema Digit SAS &bull; Ouagadougou, Burkina Faso &bull; Contact : +226 68884814
 </div>
 <p>&copy; 2026 <strong>Neema Digit SAS</strong> &bull; Tous droits réservés.</p>
 </div>
 </section>
-<!-- PAGE 2 : PATHOLOGIES & ANOMALIES -->
+
+<!-- PAGE 2 : NUMÉROS D'URGENCE & DIVERS -->
+<section id="urgences" class="page-section">
+<header>
+<h1>Urgences Médicales & Contacts Utiles</h1>
+<p>Répertoire des services d'intervention rapide et conseils de premiers secours en cas de crise.</p>
+</header>
+
+<img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80" alt="Urgences médicales" class="medical-img">
+<div class="img-caption">Assistance d'urgence et prise en charge rapide des détresses.</div>
+
+<h2>📞 Contacts d'Urgence (Burkina Faso / International)</h2>
+<div class="emergency-grid">
+<div class="emergency-card">
+<h3>🚒 Sapeurs-Pompiers</h3>
+<p>Secours d'urgence, accidents et feux.</p>
+<div class="emergency-number">18</div>
+</div>
+<div class="emergency-card">
+<h3>🚓 Police Secours</h3>
+<p>Sécurité publique et intervention rapide.</p>
+<div class="emergency-number">17</div>
+</div>
+<div class="emergency-card">
+<h3>🚑 Gendarmerie Nationale</h3>
+<p>Assistance et protection des citoyens.</p>
+<div class="emergency-number">16</div>
+</div>
+<div class="emergency-card">
+<h3>💬 Assistance Neema Digit SAS</h3>
+<p>Support technique et renseignements du portail.</p>
+<div class="emergency-number">+226 68884814</div>
+</div>
+</div>
+
+<h2>💡 Conseils Divers & Premiers Secours</h2>
+<p>En attendant l'arrivée des secours qualifiés ou lors d'une situation critique au quotidien, gardez en tête ces grands principes de base :</p>
+<ul>
+<li><strong>Rester calme et évaluer la situation :</strong> Sécuriser les lieux pour éviter un suraccident (couper le contact d'un véhicule, éloigner les objets dangereux).</li>
+<li><strong>Position Latérale de Sécurité (PLS) :</strong> Si une personne inconsciente respire, placez-la sur le côté pour libérer ses voies aériennes.</li>
+<li><strong>Compression en cas d'hémorragie :</strong> Appuyez directement sur la plaie qui saigne abondamment à l'aide d'un linge propre ou d'une compresse stérile.</li>
+<li><strong>Ne pas donner à boire :</strong> N'administrez jamais de liquide à une personne inconsciente ou victime d'un malaise cardiaque.</li>
+</ul>
+
+<div class="site-footer">
+<div class="footer-info">
+ℹ️ <strong>Informations utiles :</strong> En cas de doute sérieux, privilégiez toujours un transport direct vers le centre médical le plus proche.
+</div>
+<p>&copy; 2026 <strong>Neema Digit SAS</strong> &bull; Tous droits réservés.</p>
+</div>
+</section>
+
+<!-- PAGE 3 : PATHOLOGIES (ENCYCLOPÉDIE) -->
 <section id="pathologies" class="page-section">
 <header>
-<h1>Fiches Pathologies & Anomalies</h1>
-<p>Une vue d'ensemble sur plusieurs problèmes de santé fréquents.</p>
+<h1>Encyclopédie Médicale & Fichiers Thématiques</h1>
+<p>Explorez nos dossiers exhaustifs de référence. Cliquez sur un module pour déployer l'analyse.</p>
 </header>
-<h2>1. 🫀 L'Hypertension Artérielle</h2>
-<p>Une pression trop élevée du sang dans les artères. Elle évolue souvent sans symptômes visibles tout en fatiguant le cœur et les reins.</p>
-<ul>
-<li><strong>Causes principales :</strong> Excès de sel, stress, sédentarité, surpoids.</li>
-<li><strong>Conseil :</strong> Faire mesurer sa tension au moins une fois par an en pharmacie ou en consultation.</li>
-</ul>
-<h2>2. 🩸 Le Diabète (Type 2)</h2>
-<p>Trouble de l'assimilation du sucre par l'organisme entraînant une glycémie constamment élevée.</p>
-<ul>
-<li><strong>Signes d'alerte :</strong> Soif intense, envie fréquente d'uriner, fatigue inexpliquée, mauvaise cicatrisation des plaies au niveau des pieds.</li>
-<li><strong>Prévention :</strong> Réduire la consommation de boissons sucrées et pratiquer une marche quotidienne.</li>
-</ul>
-<h2>3. 🦶 Les Œdèmes & Gonflements</h2>
-<p>L'accumulation anormale de liquide dans les tissus musculaires ou sous-cutanés (pieds, chevilles, mains).</p>
-<ul>
-<li><strong>Signe du Cratère :</strong> Une pression de 5 secondes avec le pouce laisse une empreinte temporaire.</li>
-<li><strong>Soulagement :</strong> Surélever les jambes au repos et éviter la position immobile prolongée.</li>
-</ul>
-<h2>4. 🦵 L'Insuffisance Veineuse</h2>
-<p>Mauvais retour du sang des membres inférieurs vers le cœur, provoquant sensation de lourdeur et varices.</p>
-<ul>
-<li><strong>Facteur aggravant :</strong> Les fortes chaleurs saisonnières qui dilatent naturellement les veines.</li>
-</ul>
-<!-- BAS DE PAGE STANDARD -->
-<div class="site-footer">
-<div class="footer-info">
-ℹ️ <strong>Informations utiles :</strong> En cas de symptômes unilatéraux ou de douleurs thoraciques, consultez en urgence.
-</div>
-<p>&copy; 2026 <strong>Neema Digit SAS</strong> &bull; Tous droits réservés.</p>
-</div>
-</section>
-<!-- PAGE 3 : ACTUALITÉS & FICHIERS TÉLÉCHARGEABLES -->
-<section id="ressources" class="page-section">
-<header>
-<h1>Actualités & Fichiers Téléchargeables</h1>
-<p>Téléchargez nos guides pratiques et consultez nos articles de prévention.</p>
-</header>
-<h2>📥 Documents & Guides à Télécharger</h2>
-<p>Retrouvez ci-dessous les ressources documentaires de la plateforme :</p>
-<div class="download-card">
-<div>
-<h4>📄 Guide complet : Prévention des Œdèmes et Jambes Lourdes</h4>
-<p style="margin:0; font-size:0.85rem; color:#64748b;">Format TXT/PDF (Résumé des bonnes pratiques et postures).</p>
-</div>
-<a href="data:text/plain;charset=utf-8,GUIDE%20SANTE%20-%20L'instant%20Sante%0A1.%20Sur%C3%A9lever%20ses%20jambes%20le%20soir.%0A2.%20R%C3%A9duire%20le%20sel%20de%20cuisine.%0A3.%20Boire%201.5L%20d'eau%20par%20jour.%0AContact%20:%20Neema%20Digit%20SAS%20(+226%2068884814)" download="Guide_Sante_Instantsante.txt" class="btn-download">
-⬇️ Télécharger
-</a>
-</div>
-<div class="download-card">
-<div>
-<h4>📊 Fiche mémo : Repérer l'Hypertension & le Diabète</h4>
-<p style="margin:0; font-size:0.85rem; color:#64748b;">Format TXT/PDF (Conseils de dépistage rapide).</p>
-</div>
-<a href="data:text/plain;charset=utf-8,MEMO%20SANTE%20-%20Neema%20Digit%0A-%20Tension%20normale%20:%2012/8.%0A-%20Activit%C3%A9%20:%2030%20min%20de%20marche/jour." download="Memo_Sante_Prevention.txt" class="btn-download">
-⬇️ Télécharger
-</a>
-</div>
-<h2>📰 Actualités Récentes</h2>
-<div class="news-card">
-<h4>💧 Hydratation & Périodes de Chaleur</h4>
-<p>Boire 1,5 à 2 litres d'eau par jour aide à réguler la tension artérielle et favorise le drainage des toxines.</p>
-</div>
-<div class="news-card">
-<h4>🧂 Réduire le Sel au Quotidien</h4>
-<p>L'excès de sel est un facteur majeur d'hypertension et de rétention d'eau. Privilégiez les épices naturelles.</p>
-</div>
-<!-- BAS DE PAGE STANDARD -->
-<div class="site-footer">
-<div class="footer-info">
-ℹ️ <strong>Informations utiles :</strong> Tous les fichiers mis à disposition sont libres de téléchargement pour un usage éducatif.
-</div>
-<p>&copy; 2026 <strong>Neema Digit SAS</strong> &bull; Tous droits réservés.</p>
-</div>
-</section>
-<!-- PAGE 4 : QUIZ & EVALUATION -->
-<section id="quiz" class="page-section">
-<header>
-<h1>Quiz de Santé & Évaluation</h1>
-<p>Testez vos connaissances sur l'ensemble des pathologies présentées sur le site.</p>
-</header>
-<div class="quiz-container">
-<div id="quizContent">
-<div class="question-card">
-<div class="question-title">1. Quel aliment contribue le plus à l'hypertension et à la rétention d'eau ?</div>
-<div class="options-list">
-<button class="option-btn" onclick="setAnswer(1, 0, false)">Le piment</button>
-<button class="option-btn" onclick="setAnswer(1, 1, true)">Le sel de cuisine</button>
-<button class="option-btn" onclick="setAnswer(1, 2, false)">Le gingembre</button>
-</div>
-</div>
-<div class="question-card">
-<div class="question-title">2. Comment caractérise-t-on le signe du "cratère" lors d'un gonflement ?</div>
-<div class="options-list">
-<button class="option-btn" onclick="setAnswer(2, 0, true)">Le pouce laisse une empreinte creusée après pression</button>
-<button class="option-btn" onclick="setAnswer(2, 1, false)">La peau devient chaude et bleue instantanément</button>
-<button class="option-btn" onclick="setAnswer(2, 2, false)">La douleur disparaît au bout d'une seconde</button>
-</div>
-</div>
-<div class="question-card">
-<div class="question-title">3. Quelle habitude simple améliore le retour veineux le soir ?</div>
-<div class="options-list">
-<button class="option-btn" onclick="setAnswer(3, 0, false)">Dormir les pieds plus bas que la tête</button>
-<button class="option-btn" onclick="setAnswer(3, 1, true)">Surélever ses jambes à l'aide d'un coussin</button>
-<button class="option-btn" onclick="setAnswer(3, 2, false)">Porter des chaussures très serrées</button>
-</div>
-</div>
-<div class="question-card">
-<div class="question-title">4. Quel est l'effet de 30 minutes de marche par jour ?</div>
-<div class="options-list">
-<button class="option-btn" onclick="setAnswer(4, 0, true)">Activer la circulation veineuse et réguler la glycémie</button>
-<button class="option-btn" onclick="setAnswer(4, 1, false)">Augmenter la fatigue cardiaque</button>
-<button class="option-btn" onclick="setAnswer(4, 2, false)">Provoquer des gonflements permanents</button>
-</div>
-</div>
-<button class="btn-action" onclick="calculerScore()">Valider et Obtenir ma Note</button>
-</div>
-<div id="resultBox" class="result-box">
-<h4>Résultat de votre Évaluation</h4>
-<div id="scoreDisplay" class="result-score">0 / 10</div>
-<p id="congratsText" style="font-weight:600; margin-bottom: 15px;"></p>
-<button class="btn-action" onclick="resetQuiz()">🔄 Recommencer le Quiz</button>
-</div>
-</div>
-<!-- BAS DE PAGE STANDARD -->
-<div class="site-footer">
-<div class="footer-info">
-ℹ️ <strong>Informations utiles :</strong> Quiz interactif pédagogique sans stockage de données personnelles.
-</div>
-<p>&copy; 2026 <strong>Neema Digit SAS</strong> &bull; Tous droits réservés.</p>
-</div>
-</section>
-<!-- PAGE 5 : ESPACE NEEMA DIGIT SAS -->
-<section id="neema" class="page-section">
-<header>
-<h1>Espace Neema Digit SAS</h1>
-<p>Présentation officielle de l'agence créatrice et de ses services numériques.</p>
-</header>
-<div class="agency-box">
-<h2>🏢 À propos de Neema Digit SAS</h2>
-<p><strong>Neema Digit SAS</strong> est une agence numérique spécialisée dans la communication digitale, la création de sites web performants, le design graphique et le développement d'applications interactives.</p>
-<p>Nous concevons des solutions innovantes et accompagnons des projets de toutes envergures au Burkina Faso et à l'international.</p>
-<h3 style="margin-top:20px; color:var(--primary);">📞 Contacts & Informations Officielles</h3>
-<ul>
-<li><strong>Siège social :</strong> Ouagadougou, Burkina Faso</li>
-<li><strong>Téléphone / WhatsApp professionnel :</strong> +226 68884814</li>
-<li><strong>Domaine d'expertise :</strong> Développement web, applications interactives, stratégie digitale et communication visuelle.</li>
-</ul>
-<a href="https://wa.me/22668884814?text=Bonjour,%20je%20vous%20contacte%20depuis%20le%20portail%20L'instant%20Sant%C3%A9%20pour%20un%20projet%20num%C3%A9rique." class="btn-whatsapp" target="_blank">
-💬 Discuter avec Neema Digit SAS sur WhatsApp
-</a>
-</div>
-<!-- BAS DE PAGE STANDARD -->
-<div class="site-footer">
-<div class="footer-info">
-ℹ️ <strong>Informations utiles :</strong> Neema Digit SAS &bull; Solutions web et accompagnement digital sur mesure.
-</div>
-<p>&copy; 2026 <strong>Neema Digit SAS</strong> &bull; Tous droits réservés.</p>
-</div>
-</section>
-</div>
 
-<script>
-function switchPage(pageId) {
-    const sections = document.querySelectorAll('.page-section');
-    sections.forEach(sec => sec.classList.remove('active-page'));
-    
-    document.getElementById(pageId).classList.add('active-page');
-    
-    const navBtns = document.querySelectorAll('.nav-btn');
-    navBtns.forEach((btn, idx) => {
-        btn.classList.remove('active');
-        if(
-            (pageId === 'accueil' && idx === 0) ||
-            (pageId === 'pathologies' && idx === 1) ||
-            (pageId === 'ressources' && idx === 2) ||
-            (pageId === 'quiz' && idx === 3) ||
-            (pageId === 'neema' && idx === 4)
-        ) {
-            btn.classList.add('active');
-        }
-    });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-let userAnswers = { 1: null, 2: null, 3: null, 4: null };
-
-function setAnswer(qId, optIdx, isCorrect) {
-    userAnswers[qId] = isCorrect;
-    const card = document.querySelectorAll('.question-card')[qId - 1];
-    const buttons = card.querySelectorAll('.option-btn');
-    buttons.forEach((b, i) => {
-        b.style.background = (i === optIdx) ? '#dbeafe' : '#f8fafc';
-        b.style.borderColor = (i === optIdx) ? '#2563eb' : '#cbd5e1';
-    });
-}
-
-function calculerScore() {
-    if (userAnswers[1] === null || userAnswers[2] === null || userAnswers[3] === null || userAnswers[4] === null) {
-        alert("Veuillez répondre à toutes les questions avant de valider !");
-        return;
-    }
-    let total = 0;
-    if (userAnswers[1]) total += 2.5;
-    if (userAnswers[2]) total += 2.5;
-    if (userAnswers[3]) total += 2.5;
-    if (userAnswers[4]) total += 2.5;
-
-    document.getElementById('quizContent').style.display = 'none';
-    const resBox = document.getElementById('resultBox');
-    resBox.style.display = 'block';
-    document.getElementById('scoreDisplay').innerText = total + " / 10";
-    const msg = document.getElementById('congratsText');
-    if (total === 10) {
-        msg.innerHTML = "🏆 <strong>Note : 10/10 ! Excellent !</strong> Vous maîtrisez parfaitement les sujets de santé préventive.";
-        msg.style.color = "#10b981";
-    } else if (total >= 7.5) {
-        msg.innerHTML = "👏 <strong>Note : " + total + "/10 ! Très bien !</strong> Vous avez de solides connaissances.";
-        msg.style.color = "#2563eb";
-    } else {
-        msg.innerHTML = "💡 <strong>Note : " + total + "/10. Bien essayé !</strong> Relisez nos fiches et repassez le quiz pour progresser.";
-        msg.style.color = "#f59e0b";
-    }
-}
-
-function resetQuiz() {
-    userAnswers = { 1: null, 2: null, 3: null, 4: null };
-    document.querySelectorAll('.option-btn').forEach(b => {
-        b.style.background = '#f8fafc';
-        b.style.borderColor = '#cbd5e1';
-    });
-    document.getElementById('resultBox').style.display = 'none';
-    document.getElementById('quizContent').style.display = 'block';
-}
-</script>
-</body>
-</html>
+<div class="accordion-group">
+<!-- MODULE 1 : HYPERTENSION -->
+<div class="accordion-item">
+<div class="accordion-header" onclick="toggleAccordion(this)">
+    <span>🫀 1. L'Hypertension Artérielle : Physiopathologie et Enjeux Cliniques</span>
+    <span>▼</span>
+</div>
+<div class="accordion-content

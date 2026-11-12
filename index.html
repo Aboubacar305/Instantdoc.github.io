@@ -1,3 +1,236 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'instant Santé - Compagnon de Vie & Prévention Internationale | Neema Digit SAS</title>
+<style>
+:root {
+  --primary: #7c3aed;
+  --primary-dark: #6d28d9;
+  --primary-light: #ede9fe;
+  --accent: #06b6d4;
+  --danger: #ef4444;
+  --success: #10b981;
+  --bg-color: #f8fafc;
+  --text-color: #1e293b;
+  --card-bg: #ffffff;
+  --border-radius: 16px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', system-ui, -apple-system, sans-serif; }
+body { background-color: var(--bg-color); color: var(--text-color); line-height: 1.8; padding: 12px; position: relative; overflow-x: hidden; }
+.container { max-width: 1000px; margin: 0 auto; background: var(--card-bg); padding: 25px; border-radius: var(--border-radius); box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05); position: relative; z-index: 10; }
+
+/* DÉCORATIONS ANIMÉES DE FÊTES DE FIN D'ANNÉE & BALLONS */
+.festive-element {
+  position: fixed;
+  top: 25%;
+  font-size: 2.2rem;
+  z-index: 1;
+  pointer-events: none;
+  animation: floatAnim 4s ease-in-out infinite alternate;
+}
+.festive-left { left: 10px; }
+.festive-right { right: 10px; animation-delay: 2s; }
+@keyframes floatAnim {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-25px) rotate(12deg); }
+}
+
+/* LUMIÈRES MULTICOLORES D'ANIMATION */
+@keyframes neonGlow {
+  0% { border-color: #7c3aed; box-shadow: 0 0 10px rgba(124, 58, 237, 0.3); }
+  33% { border-color: #06b6d4; box-shadow: 0 0 15px rgba(6, 182, 212, 0.4); }
+  66% { border-color: #ec4899; box-shadow: 0 0 15px rgba(236, 72, 153, 0.4); }
+  100% { border-color: #10b981; box-shadow: 0 0 15px rgba(16, 185, 129, 0.4); }
+}
+
+/* MENU FLOTTANT CORRIGÉ (STICKY) */
+.menu-container { 
+  position: sticky; 
+  top: 10px; 
+  z-index: 99999; 
+  margin-bottom: 25px; 
+  text-align: center; 
+}
+.menu-toggle-btn { 
+  background: var(--primary); 
+  color: white; 
+  border: none; 
+  padding: 14px 22px; 
+  border-radius: 30px; 
+  font-weight: 700; 
+  font-size: 1rem; 
+  cursor: pointer; 
+  display: inline-flex; 
+  align-items: center; 
+  gap: 10px; 
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.4); 
+  width: 100%; 
+  justify-content: center; 
+  backdrop-filter: blur(8px);
+  transition: background 0.3s;
+}
+.menu-toggle-btn:hover { background: var(--primary-dark); }
+.dropdown-nav { display: none; flex-direction: column; gap: 8px; margin-top: 12px; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 10px; box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+.dropdown-nav.open { display: flex; }
+.nav-btn { background: #f1f5f9; border: none; padding: 12px 16px; border-radius: 8px; cursor: pointer; font-weight: 600; color: #475569; font-size: 0.95rem; text-align: left; transition: 0.2s; }
+.nav-btn:hover, .nav-btn.active { background: var(--primary); color: white; }
+
+.page-section { display: none; }
+.page-section.active-page { display: block; animation: fadeIn 0.4s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+header { text-align: center; margin-bottom: 25px; }
+header h1 { font-size: 2rem; color: var(--primary); margin-bottom: 6px; }
+.badge { display: inline-block; background: var(--primary-light); color: var(--primary); padding: 5px 14px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 10px; }
+h2 { font-size: 1.4rem; color: #0f172a; margin: 30px 0 15px 0; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; }
+h3 { font-size: 1.15rem; color: var(--primary-dark); margin: 20px 0 10px 0; }
+p, ul { margin-bottom: 15px; color: #475569; font-size: 0.98rem; text-align: justify; }
+ul { padding-left: 20px; } li { margin-bottom: 8px; }
+
+.medical-img { width: 100%; height: 260px; object-fit: cover; border-radius: 12px; margin: 18px 0; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+.img-caption { font-size: 0.82rem; color: #64748b; text-align: center; margin-top: -10px; margin-bottom: 20px; font-style: italic; }
+
+/* LOGO & PROFIL PDG */
+.brand-header-logo { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 10px; }
+.brand-header-logo img { width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid var(--primary); }
+
+.ceo-profile-card { text-align: center; background: linear-gradient(135deg, #ede9fe 0%, #ffffff 100%); border: 2px solid var(--primary); border-radius: 20px; padding: 25px; margin-bottom: 25px; box-shadow: 0 10px 25px rgba(124, 58, 237, 0.1); }
+.ceo-avatar-container img { width: 140px; height: 140px; border-radius: 50%; object-fit: cover; border: 4px solid var(--primary); box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3); margin-bottom: 12px; }
+
+/* BARRE DE RECHERCHE 2026 */
+.search-box-container { margin: 25px 0; background: #f1f5f9; padding: 18px; border-radius: 14px; border: 1px solid #cbd5e1; }
+.search-input-wrapper { display: flex; gap: 8px; background: #ffffff; border: 2px solid var(--primary); border-radius: 30px; padding: 6px 14px; box-shadow: 0 4px 15px rgba(124, 58, 237, 0.15); }
+.search-input-wrapper input { border: none; outline: none; width: 100%; font-size: 0.95rem; padding: 8px; }
+.search-results-area { margin-top: 15px; display: none; background: #ffffff; border: 1px solid #cbd5e1; border-radius: 12px; padding: 15px; animation: fadeIn 0.3s ease; }
+
+/* BLOCS DE CODE PYTHON INTÉGRÉS */
+.python-code-box { background: #0f172a; color: #38bdf8; padding: 18px; border-radius: 12px; font-family: 'Courier New', Courier, monospace; font-size: 0.9rem; overflow-x: auto; margin: 15px 0; border-left: 5px solid var(--primary); text-align: left; }
+.python-comment { color: #94a3b8; font-style: italic; }
+.python-keyword { color: #f43f5e; font-weight: bold; }
+.python-string { color: #a3e635; }
+
+/* ESPACE PUB COMIQUE */
+.comic-ad-banner { background: #fef08a; border: 3px dashed #ca8a04; border-radius: 16px; padding: 15px; margin: 25px 0; text-align: center; position: relative; }
+.comic-ad-badge { position: absolute; top: -12px; right: 15px; background: #eab308; color: #000; font-weight: 800; font-size: 0.75rem; padding: 2px 10px; border-radius: 10px; text-transform: uppercase; }
+
+/* ACCORDÉONS */
+.accordion-group { display: flex; flex-direction: column; gap: 14px; margin: 20px 0; }
+.accordion-item { border: 1px solid #cbd5e1; border-radius: 12px; overflow: hidden; background: #ffffff; }
+.accordion-header { background: var(--primary); color: white; padding: 16px 18px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1rem; }
+.accordion-header:hover { background: var(--primary-dark); }
+.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.3s ease; background: #f8fafc; padding: 0 18px; }
+.accordion-content.open { max-height: 15000px; padding: 22px 18px; border-top: 1px solid #e2e8f0; }
+
+/* RUBRIQUE MYTHES & CROYANCES */
+.myth-card { background: #fff; border-left: 5px solid var(--accent); border-radius: 10px; padding: 20px; margin-bottom: 22px; box-shadow: 0 3px 10px rgba(0,0,0,0.03); }
+.myth-title { color: #0891b2; font-weight: 700; font-size: 1.1rem; margin-bottom: 8px; }
+.reality-title { color: var(--primary-dark); font-weight: 700; font-size: 1rem; margin-top: 12px; margin-bottom: 6px; }
+
+/* URGENCES & GRILLES */
+.emergency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 15px 0; }
+.emergency-card { background: #fef2f2; border: 1px solid #fecaca; border-radius: 10px; padding: 12px; text-align: center; }
+.emergency-card h3 { color: #dc2626; margin-bottom: 4px; font-size: 0.95rem; }
+.emergency-number { font-size: 1.4rem; font-weight: 800; color: #991b1b; margin: 4px 0; background: white; padding: 4px 8px; border-radius: 6px; border: 1px dashed #f87171; display: inline-block; }
+
+/* FICHIERS */
+.category-block { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; margin-bottom: 20px; }
+.category-title { font-size: 1.1rem; color: var(--primary-dark); font-weight: 700; margin-bottom: 12px; border-left: 4px solid var(--primary); padding-left: 10px; }
+.download-card { background: #ffffff; border: 1px solid #cbd5e1; border-radius: 10px; padding: 12px; margin-bottom: 10px; display: flex; flex-direction: column; gap: 8px; }
+.btn-download { background-color: #10b981; color: white; padding: 8px 14px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 0.85rem; text-align: center; display: block; width: 100%; }
+
+/* QUIZ KAHOOT ANIMÉ (BALLONS & NÉONS) */
+.quiz-wrapper { background: #f8fafc; border: 3px solid #7c3aed; border-radius: 16px; padding: 20px; margin-top: 15px; text-align: center; animation: neonGlow 4s infinite; }
+.quiz-name-box { margin-bottom: 20px; background: white; padding: 15px; border-radius: 12px; border: 1px solid #cbd5e1; }
+.progress-bar-container { width: 100%; background: #e2e8f0; height: 12px; border-radius: 6px; overflow: hidden; margin-bottom: 15px; }
+.progress-bar-fill { height: 100%; background: var(--primary); width: 0%; transition: width 0.3s ease; }
+.quiz-header-meta { display: flex; justify-content: space-between; font-weight: 700; font-size: 0.9rem; color: var(--primary-dark); margin-bottom: 15px; }
+.kahoot-card { background: white; border-radius: 14px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 15px; border: 1px solid #cbd5e1; }
+.kahoot-question { font-size: 1.1rem; font-weight: 700; color: #0f172a; margin-bottom: 18px; }
+.kahoot-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+@media (min-width: 600px) { .kahoot-grid { grid-template-columns: 1fr 1fr; } }
+.kahoot-btn { border: none; padding: 14px 16px; border-radius: 10px; font-weight: 700; font-size: 0.95rem; color: white; cursor: pointer; text-align: left; display: flex; align-items: center; gap: 10px; transition: transform 0.1s; }
+.kahoot-btn:active { transform: scale(0.98); }
+.kahoot-btn.k-red { background: #e11d48; }
+.kahoot-btn.k-blue { background: #2563eb; }
+.kahoot-btn.k-yellow { background: #d97706; }
+.kahoot-btn.k-green { background: #059669; }
+.kahoot-btn.disabled { opacity: 0.7; cursor: not-allowed; }
+.kahoot-btn.correct-anim { background: #10b981 !important; box-shadow: 0 0 18px #10b981; transform: scale(1.03); }
+.kahoot-btn.wrong-anim { background: #ef4444 !important; opacity: 0.5; }
+.next-btn { background: var(--primary); color: white; border: none; padding: 12px 25px; border-radius: 25px; font-weight: 700; font-size: 1rem; cursor: pointer; margin-top: 15px; display: none; width: 100%; box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3); }
+.result-card { display: none; background: white; border-radius: 14px; padding: 25px; text-align: center; }
+.final-score { font-size: 3rem; font-weight: 900; color: var(--primary); margin: 10px 0; }
+.score-badge { display: inline-block; padding: 6px 16px; border-radius: 20px; font-weight: 700; margin-bottom: 15px; }
+
+/* FORMULAIRE MOTION */
+.motion-form { background: #ffffff; border: 2px solid #ede9fe; border-radius: 16px; padding: 25px; margin-top: 20px; box-shadow: 0 8px 20px rgba(124, 58, 237, 0.06); }
+.form-group { margin-bottom: 18px; text-align: left; }
+.form-group label { display: block; font-weight: 600; font-size: 0.9rem; color: #334155; margin-bottom: 6px; }
+.form-control { width: 100%; padding: 12px 16px; border: 2px solid #cbd5e1; border-radius: 10px; font-size: 0.95rem; outline: none; transition: all 0.3s ease; }
+.form-control:focus { border-color: var(--primary); box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.15); }
+.motion-btn { background: var(--primary); color: white; border: none; padding: 14px 28px; border-radius: 30px; font-weight: 700; font-size: 1rem; cursor: pointer; width: 100%; transition: all 0.3s ease; display: inline-flex; justify-content: center; align-items: center; gap: 10px; }
+.motion-btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
+.form-feedback { display: none; padding: 12px; border-radius: 8px; margin-top: 15px; font-weight: 600; font-size: 0.9rem; text-align: center; }
+
+.btn-whatsapp { display: flex; align-items: center; justify-content: center; gap: 8px; background-color: #25d366; color: white; padding: 10px 18px; border-radius: 25px; text-decoration: none; font-weight: 600; font-size: 0.9rem; margin-top: 12px; }
+.site-footer { margin-top: 35px; padding-top: 18px; border-top: 1px solid #e2e8f0; text-align: center; color: #64748b; font-size: 0.85rem; }
+.footer-info { background: #f8fafc; padding: 12px; border-radius: 8px; margin-bottom: 12px; font-size: 0.8rem; color: #475569; }
+</style>
+</head>
+<body>
+
+<!-- DÉCORATIONS DE FÊTES DE FIN D'ANNÉE & BALLONS FLOTTANTS -->
+<div class="festive-element festive-left" id="festiveLeft">🎈🎄🎈</div>
+<div class="festive-element festive-right" id="festiveRight">🎁✨🎈</div>
+
+<div class="container">
+
+<!-- BOUTON DE MENU FLOTTANT CORRIGÉ (STICKY) -->
+<div class="menu-container">
+<button class="menu-toggle-btn" onclick="toggleMenu()">
+    <span>☰ Menu de Navigation (Accès Rapide)</span>
+    <span id="menuArrow">▼</span>
+</button>
+<div id="dropdownNav" class="dropdown-nav">
+    <button class="nav-btn active" onclick="switchPage('accueil')">🏠 1. Accueil & Compagnon de Vie</button>
+    <button class="nav-btn" onclick="switchPage('urgences')">🚨 2. Urgences & Secours</button>
+    <button class="nav-btn" onclick="switchPage('pathologies')">🩺 3. Encyclopédie, Python & Maux Détaillés</button>
+    <button class="nav-btn" onclick="switchPage('onditque')">💡 4. On dit Que ? (Mythes Approfondis)</button>
+    <button class="nav-btn" onclick="switchPage('ressources')">📂 5. Fichiers & Documentation (10 Fiches)</button>
+    <button class="nav-btn" onclick="switchPage('quiz')">🧠 6. Quiz Kahoot (Ballons & Fun)</button>
+    <button class="nav-btn" onclick="switchPage('neema')">💼 7. Espace Neema Digit SAS & PDG (Dossier Investisseurs)</button>
+</div>
+</div>
+
+<!-- PAGE 1 : ACCUEIL -->
+<section id="accueil" class="page-section active-page">
+<div class="badge">💙 Ton Ami & Compagnon de Vie</div>
+<header>
+<div class="brand-header-logo">
+    <img src="1000017573.jpg" alt="Logo Neema Digit SAS">
+    <h1>L'instant Santé</h1>
+</div>
+<p>La plateforme chaleureuse, immersive et moderne pour guider la jeunesse au quotidien.</p>
+</header>
+
+<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Jeunes souriants" class="medical-img">
+<div class="img-caption">L'instant Santé : grandir, s'informer et s'épanouir en toute complicité.</div>
+
+<h2>🌟 Lire c'est la vie : Manifeste et Philosophie du Portail</h2>
+<p>Bienvenue sur <strong>L'instant Santé</strong>, ton véritable ami au quotidien. Conçu spécialement pour la jeunesse par l'équipe experte de <strong>Neema Digit SAS</strong>, notre portail s'articule autour d'une conviction absolue : <em>lire, c'est la vie</em>. Dans un monde moderne où les flux d'informations numériques défilent à une vitesse fulgurante sur les réseaux sociaux, s'arrêter pour lire des contenus fouillés, structurés et scientifiquement rigoureux constitue un acte de liberté intellectuelle et de préservation de soi. La lecture n'est pas qu'un simple exercice scolaire ; elle est le carburant de l'esprit, le ciment de la pensée critique et le premier rempart contre l'obscurantisme, les rumeurs infondées et les fausses pistes sanitaires qui pullulent en ligne.</p>
+<p>Notre plateforme a été imaginée pour t'accompagner avec une bienveillance inconditionnelle dans la découverte de ton propre corps, la compréhension des mécanismes physiologiques et la prévention des petits et grands maux de la vie de tous les jours. Parce que la santé ne se résume pas à franchir les portes d'un hôpital en cas de crise, nous sommes là pour décrypter, conseiller et instaurer un dialogue constructif sur les sujets qui impactent ton bien-être : la gestion du stress des examens, l'équilibre du sommeil face aux écrans, l'importance d'une alimentation saine, la protection de ta vision et la maîtrise de ton énergie vitale. À travers chaque article et chaque module de ce site, nous t'offrons des clés concrètes pour devenir l'acteur principal de ta propre santé, en toute autonomie et sans aucun jugement moral.</p>
+<p>Pour soutenir cette vision ambitieuse à l'échelle internationale, l'ingénierie logicielle et l'architecture web de ce portail ont été repensées pour garantir une scalabilité irréprochable. L'intégration de modules algorithmiques en Python directement au sein de nos encyclopédies médicales transforme un simple site d'information en un véritable laboratoire interactif de santé préventive. Les investisseurs et jurys internationaux y trouveront la preuve incontestable d'un savoir-faire technologique de pointe, associant l'impact social fort à la puissance de l'automatisation logicielle.</p>
+
+<img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80" alt="Jeunesse connectée" class="medical-img">
+<div class="img-caption">Un écosystème technologique et sanitaire conçu pour répondre aux standards mondiaux.</div>
+
+<h2>🚀 Nos Engagements et Fonctionnalités pour te Garder Connecté au Bien-être</h2>
+<p>Pour que ton expérience sur <strong>L'instant Santé</strong> soit unique et profondément enrichissante, nous avons développé un écosystème de fonctionnalités modernes, fluides et captivantes. Notre ambition est de retenir ton attention non pas par des artifice superficiels, mais par la pertinence, la beauté et la richesse de nos contenus. Chaque rubrique a été calibrée pour te maintenir en éveil intellectuel, stimuler ta curiosité scientifique et t'offrir des outils pratiques immédiatement applicables dans ton quotidien de jeune actif, d'étudiant ou d'entrepreneur.</p>
+<p>Parmi nos piliers fonctionnels, tu disposes d'un accès permanent à notre encyclopédie médicale ultra-détaillée, traitant des affections cardiovasculaires, métaboliques et oculaires avec une précision chirurgicale tout en restant parfaitement accessible. Tu peux également explorer notre espace exclusif <em>« On dit Que ? »</em>, conçu pour démolir un à un les mythes urbains et les recettes de grand-mère potentiellement dangereux pour ta santé physique. S'ajoute à cela notre grande bibliothèque numérique contenant 10 fiches pratiques téléchargeables en un clic, te permettant de constituer ta propre documentation médicale de poche. Enfin, pour pimenter ton apprentissage, notre Quiz Kahoot interactif te met au défi à travers des parties rythmées, sonorisées et dotées d'un système de tirage aléatoire infini pour tester tes réflexes préventifs. Tu l'auras compris : ici, apprendre rime avec plaisir, rigueur et liberté.</p>
 <!-- BARRE DE RECHERCHE 2026 (ENCYCLOPÉDIE) -->
 <div class="search-box-container">
   <h3>🔍 Recherche Intelligente 2026 (Maux & Symptômes)</h3>

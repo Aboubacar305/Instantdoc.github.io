@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -117,12 +118,12 @@ ul { padding-left: 20px; } li { margin-bottom: 8px; }
 .accordion-header { background: var(--primary); color: white; padding: 16px 18px; font-weight: 700; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-size: 1rem; }
 .accordion-header:hover { background: var(--primary-dark); }
 .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.5s ease-out, padding 0.3s ease; background: #f8fafc; padding: 0 18px; }
-.accordion-content.open { max-height: 6000px; padding: 22px 18px; border-top: 1px solid #e2e8f0; }
+.accordion-content.open { max-height: 10000px; padding: 22px 18px; border-top: 1px solid #e2e8f0; }
 
 /* RUBRIQUE MYTHES & CROYANCES */
-.myth-card { background: #fff; border-left: 5px solid var(--accent); border-radius: 10px; padding: 18px; margin-bottom: 18px; box-shadow: 0 3px 10px rgba(0,0,0,0.03); }
-.myth-title { color: #0891b2; font-weight: 700; font-size: 1.05rem; margin-bottom: 8px; }
-.reality-title { color: var(--primary-dark); font-weight: 700; font-size: 0.95rem; margin-top: 10px; margin-bottom: 4px; }
+.myth-card { background: #fff; border-left: 5px solid var(--accent); border-radius: 10px; padding: 20px; margin-bottom: 22px; box-shadow: 0 3px 10px rgba(0,0,0,0.03); }
+.myth-title { color: #0891b2; font-weight: 700; font-size: 1.1rem; margin-bottom: 8px; }
+.reality-title { color: var(--primary-dark); font-weight: 700; font-size: 1rem; margin-top: 12px; margin-bottom: 6px; }
 
 /* URGENCES & GRILLES */
 .emergency-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 15px 0; }
@@ -192,15 +193,15 @@ ul { padding-left: 20px; } li { margin-bottom: 8px; }
 <div id="dropdownNav" class="dropdown-nav">
     <button class="nav-btn active" onclick="switchPage('accueil')">🏠 1. Accueil & Compagnon de Vie</button>
     <button class="nav-btn" onclick="switchPage('urgences')">🚨 2. Urgences & Secours</button>
-    <button class="nav-btn" onclick="switchPage('pathologies')">🩺 3. Encyclopédie & Maux (HTA, Diabète, Œil)</button>
-    <button class="nav-btn" onclick="switchPage('onditque')">💡 4. On dit Que ? (Mythes & Croyances)</button>
+    <button class="nav-btn" onclick="switchPage('pathologies')">🩺 3. Encyclopédie & Maux Détaillés</button>
+    <button class="nav-btn" onclick="switchPage('onditque')">💡 4. On dit Que ? (Mythes Approfondis)</button>
     <button class="nav-btn" onclick="switchPage('ressources')">📂 5. Fichiers & Documentation (10 Fiches)</button>
     <button class="nav-btn" onclick="switchPage('quiz')">🧠 6. Quiz Kahoot (Ballons & Fun)</button>
     <button class="nav-btn" onclick="switchPage('neema')">💼 7. Espace Neema Digit SAS & PDG</button>
 </div>
 </div>
 
-<!-- PAGE 1 : ACCUEIL -->
+<!-- PAGE 1 : ACCUEIL (CONTENU ULTRA-ÉTOFFÉ > 1000 MOTS AVEC BARRE DE RECHERCHE) -->
 <section id="accueil" class="page-section active-page">
 <div class="badge">💙 Ton Ami & Compagnon de Vie</div>
 <header>
@@ -208,16 +209,24 @@ ul { padding-left: 20px; } li { margin-bottom: 8px; }
     <img src="1000017573.jpg" alt="Logo Neema Digit SAS">
     <h1>L'instant Santé</h1>
 </div>
-<p>La plateforme chaleureuse et moderne pour guider les jeunes au quotidien.</p>
+<p>La plateforme chaleureuse, immersive et moderne pour guider la jeunesse au quotidien.</p>
 </header>
 
 <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Jeunes souriants" class="medical-img">
-<div class="img-caption">L'instant Santé : grandir, vivre et s'informer en toute complicité.</div>
+<div class="img-caption">L'instant Santé : grandir, s'informer et s'épanouir en toute complicité.</div>
 
-<h2>🌟 Ton Compagnon de Route pour une Vie Saine</h2>
-<p>Bienvenue sur <strong>L'instant Santé</strong>, ton véritable ami au quotidien. Conçu spécialement pour la jeunesse, notre portail t'accompagne avec bienveillance dans la compréhension de ton corps, la prévention des petits et grands maux, et la gestion de ta santé sans aucun jugement.</p>
+<h2>🌟 Lire c'est la vie : Manifeste et Philosophie du Portail</h2>
+<p>Bienvenue sur <strong>L'instant Santé</strong>, ton véritable ami au quotidien. Conçu spécialement pour la jeunesse par l'équipe experte de <strong>Neema Digit SAS</strong>, notre portail s'articule autour d'une conviction absolue : <em>lire, c'est la vie</em>. Dans un monde moderne où les flux d'informations numériques défilent à une vitesse fulgurante sur les réseaux sociaux, s'arrêter pour lire des contenus fouillés, structurés et scientifiquement rigoureux constitue un acte de liberté intellectuelle et de préservation de soi. La lecture n'est pas qu'un simple exercice scolaire ; elle est le carburant de l'esprit, le ciment de la pensée critique et le premier rempart contre l'obscurantisme, les rumeurs infondées et les fausses pistes sanitaires qui pullulent en ligne.</p>
+<p>Notre plateforme a été imaginée pour t'accompagner avec une bienveillance inconditionnelle dans la découverte de ton propre corps, la compréhension des mécanismes physiologiques et la prévention des petits et grands maux de la vie de tous les jours. Parce que la santé ne se résume pas à franchir les portes d'un hôpital en cas de crise, nous sommes là pour décrypter, conseiller et instaurer un dialogue constructif sur les sujets qui impactent ton bien-être : la gestion du stress des examens, l'équilibre du sommeil face aux écrans, l'importance d'une alimentation saine, la protection de ta vision et la maîtrise de ton énergie vitale. À travers chaque article et chaque module de ce site, nous t'offrons des clés concrètes pour devenir l'acteur principal de ta propre santé, en toute autonomie et sans aucun jugement moral.</p>
 
-<!-- BARRE DE RECHERCHE 2026 D'ANOMALIES -->
+<img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80" alt="Jeunesse connectée" class="medical-img">
+<div class="img-caption">Un espace de confiance conçu pour répondre aux aspirations de la nouvelle génération.</div>
+
+<h2>🚀 Nos Engagements et Fonctionnalités pour te Garder Connecté au Bien-être</h2>
+<p>Pour que ton expérience sur <strong>L'instant Santé</strong> soit unique et profondément enrichissante, nous avons développé un écosystème de fonctionnalités modernes, fluides et captivantes. Notre ambition est de retenir ton attention non pas par des artifice superficiels, mais par la pertinence, la beauté et la richesse de nos contenus. Chaque rubrique a été calibrée pour te maintenir en éveil intellectuel, stimuler ta curiosité scientifique et t'offrir des outils pratiques immédiatement applicables dans ton quotidien de jeune actif, d'étudiant ou d'entrepreneur.</p>
+<p>Parmi nos piliers fonctionnels, tu disposes d'un accès permanent à notre encyclopédie médicale ultra-détaillée, traitant des affections cardiovasculaires, métaboliques et oculaires avec une précision chirurgicale tout en restant parfaitement accessible. Tu peux également explorer notre espace exclusif <em>« On dit Que ? »</em>, conçu pour démolir un à un les mythes urbains et les recettes de grand-mère potentiellement dangereux pour ta santé physique. S'ajoute à cela notre grande bibliothèque numérique contenant 10 fiches pratiques téléchargeables en un clic, te permettant de constituer ta propre documentation médicale de poche. Enfin, pour pimenter ton apprentissage, notre Quiz Kahoot interactif te met au défi à travers des parties rythmées, sonorisées et dotées d'un système de tirage aléatoire infini pour tester tes réflexes préventifs. Tu l'auras compris : ici, apprendre rime avec plaisir, rigueur et liberté.</p>
+
+<!-- BARRE DE RECHERCHE 2026 D'ANOMALIES (PRÉSENTE UNIQUEMENT SUR ACCUEIL & ENCYCLOPÉDIE) -->
 <div class="search-box-container">
   <h3>🔍 Recherche Intelligente 2026 (Maux & Symptômes)</h3>
   <p style="font-size:0.85rem; margin-bottom:10px;">Tape un mot-clé (fatigue, acné, yeux, stress...) pour trouver instantanément des repères utiles :</p>
@@ -246,70 +255,124 @@ ul { padding-left: 20px; } li { margin-bottom: 8px; }
 <section id="urgences" class="page-section">
 <header>
 <h1>Urgences & Secours Rapides</h1>
-<p>Les contacts indispensables et gestes qui sauvent.</p>
+<p>Les contacts indispensables et protocoles d'intervention vitale.</p>
 </header>
 <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=1200&q=80" alt="Urgences" class="medical-img">
 
-<h2>📞 Répertoire d'Urgence</h2>
+<h2>📞 Répertoire d'Urgence Officiel</h2>
 <div class="emergency-grid">
 <div class="emergency-card"><h3>🚒 Pompiers</h3><div class="emergency-number">18</div></div>
 <div class="emergency-card"><h3>🚓 Police</h3><div class="emergency-number">17</div></div>
 <div class="emergency-card"><h3>🚑 Gendarmerie</h3><div class="emergency-number">16</div></div>
 <div class="emergency-card"><h3>💬 Neema</h3><div class="emergency-number">+226 68884814</div></div>
 </div>
+
+<h2>🛡️ Protocoles de Sécurité Immédiate et Conduite à Tenir</h2>
+<p>Face à une situation d'urgence médicale ou d'accident, chaque seconde compte. La première règle absolue est de ne jamais céder à la panique. Prenez une fraction de seconde pour analyser l'environnement : assurez-vous qu'il n'y a aucun danger immédiat pour vous-même avant de porter assistance (incendie, câbles électriques, circulation routière). Si la zone est sécurisée, approchez-vous de la victime pour évaluer son état de conscience en lui posant des questions simples et en lui secouant doucement les épaules.</p>
+<p>Si la personne ne répond pas et ne réagit pas, vérifiez immédiatement sa respiration en observant les mouvements de sa cage thoracique et en approchant votre joue de sa bouche pendant 10 secondes maximum. Si elle respire mais reste inconsciente, basculez-la délicatement en Position Latérale de Sécurité (PLS) afin de dégager ses voies aériennes supérieures et d'éviter tout risque d'étouffement par des liquides ou des vomissements. Dans le même temps, désignez une personne précise dans la foule pour contacter les services d'urgence compétents en communiquant clairement le lieu exact, la nature du problème et le nombre de victimes.</p>
 <div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
 </section>
 
-<!-- PAGE 3 : ENCYCLOPÉDIE MÉDICALE -->
+<!-- PAGE 3 : ENCYCLOPÉDIE MÉDICALE (AVEC BARRE DE RECHERCHE ET TEXTES > 1000 MOTS) -->
 <section id="pathologies" class="page-section">
 <header>
 <h1>Encyclopédie & Dossiers Détaillés</h1>
-<p>Comprendre les pathologies sans excès alarmiste.</p>
+<p>Comprendre les pathologies en profondeur avec des analyses médicales rigoureuses.</p>
 </header>
 <img src="https://images.unsplash.com/photo-1584515979956-d9f6e5d09982?auto=format&fit=crop&w=1200&q=80" alt="Encyclopédie" class="medical-img">
 
+<!-- BARRE DE RECHERCHE 2026 ÉGALEMENT PRÉSENTE SUR L'ENCYCLOPÉDIE -->
+<div class="search-box-container">
+  <h3>🔍 Recherche Intelligente 2026 (Maux & Symptômes)</h3>
+  <p style="font-size:0.85rem; margin-bottom:10px;">Tape un mot-clé pour explorer directement nos dossiers encyclopédiques :</p>
+  <div class="search-input-wrapper">
+    <input type="text" id="encycloSearchInput" placeholder="Ex: tension, diabète, yeux, fatigue..." onkeyup="executeEncycloSearch()">
+    <button onclick="executeEncycloSearch()" style="background:#7c3aed; color:white; border:none; padding:8px 18px; border-radius:20px; cursor:pointer; font-weight:700;">Chercher</button>
+  </div>
+  <div id="encycloSearchResultsArea" class="search-results-area"></div>
+</div>
+
 <div class="accordion-group">
+
+<!-- MODULE 1 : HTA -->
 <div class="accordion-item">
-<div class="accordion-header" onclick="toggleAccordion(this)"><span>🫀 1. L'Hypertension Artérielle (HTA)</span><span>▼</span></div>
+<div class="accordion-header" onclick="toggleAccordion(this)"><span>🫀 1. L'Hypertension Artérielle (HTA) - Analyse Approfondie</span><span>▼</span></div>
 <div class="accordion-content">
-<h3>Introduction (Le Tueur Silencieux)</h3>
-<p>L'hypertension artérielle (HTA) est une affection chronique caractérisée par une pression anormalement élevée du sang dans les artères (supérieure ou égale à 140/90 mmHg).</p>
-<h3>Développement (Physiopathologie & Risques)</h3>
-<p>Le cœur pompe le sang à travers les vaisseaux. Lorsque les artères deviennent rigides, le cœur force davantage, ce qui fatigue le muscle cardiaque.</p>
-<h3>Conclusion & Prévention</h3>
-<p>Adopter une alimentation pauvre en sel et faire de l'exercice protège durablement le cœur.</p>
+<h3>Introduction : Le Tueur Silencieux de notre Époque</h3>
+<p>L'hypertension artérielle (HTA) représente l'une des affections chroniques les plus insidieuses et répandues à travers le globe. Souvent qualifiée de « tueur silencieux », elle se caractérise par une élévation chronique de la pression du sang circulant dans les artères, atteignant ou dépassant durablement le seuil critique de 140/90 mmHg. Longtemps perçue comme une pathologie exclusive des personnes âgées, l'HTA gagne aujourd'hui du terrain chez les jeunes adultes en raison de modes de vie de plus en plus sédentaires, d'une alimentation ultratransformée excessivement riche en sodium et de niveaux de stress psychologique accrus. Comprendre ses mécanismes intimes est la première étape indispensable pour s'en prémunir efficacement dès le plus jeune âge.</p>
+<h3>Développement : Physiopathologie, Facteurs de Risque et Conséquences Vasculaires</h3>
+<p>Pour comprendre l'hypertension, il faut visualiser le système cardiovasculaire comme un réseau complexe de tuyaux (les artères, artérioles et capillaires) dans lequel le cœur agit comme une pompe infatigable. À chaque contraction cardiaque, le sang est éjecté sous pression pour irriguer l'ensemble des organes vitaux. Lorsque les parois artérielles perdent leur élasticité naturelle (phénomène d'artériosclérose) ou que le diamètre interne des vaisseaux se réduit (vasoconstriction chronique liée au stress ou à l'accumulation de plaques d'athérome), le cœur est contraint de fournir un effort démesuré pour maintenir un débit sanguin adéquat. Cette surcharge de travail chronique provoque à la longue une hypertrophie du muscle cardiaque (le myocarde s'épuise) et fragilise considérablement la structure des parois vasculaires.</p>
+<p>Parmi les principaux facteurs favorisant l'émergence précoce de l'HTA chez les jeunes, on retrouve l'hérédité génétique, le surpoids et l'obésité abdominale, la consommation excessive de sel de table et de bouillons cubes industriels, le tabagisme actif ou passif, la sédentarité prononcée ainsi que l'anxiété chronique. Les répercussions d'une tension artérielle non contrôlée sur le long terme sont dramatiques : elle multiplie significativement les risques d'accidents vasculaires cérébraux (AVC), d'infarctus du myocarde, d'insuffisance rénale chronique sévère et de lésions rétiniennes irréversibles. Le corps s'habituant à cet état de surpression, les symptômes avant-coureurs tels que les céphalées matinales, les vertiges, les bourdonnements d'oreilles ou les palpitations ne surviennent souvent que lorsque la maladie est déjà bien installée.</p>
+<h3>Conclusion et Stratégies de Prévention Quotidienne</h3>
+<p>La prise en charge et la prévention de l'hypertension artérielle reposent fondamentalement sur l'adoption d'une hygiène de vie saine et rigoureuse. Il est impératif de réduire drastiquement l'apport en sel dans l'alimentation quotidienne, de privilégier les aliments frais riches en potassium (légumes verts, bananes, agrumes) qui favorisent l'élimination rénale du sodium, et de pratiquer une activité physique régulière d'au moins trente minutes par jour (marche rapide, natation, course à pied). De plus, l'apprentissage de techniques de gestion du stress, l'arrêt définitif du tabac et le contrôle médical périodique de sa tension artérielle constituent les piliers absolus pour préserver la santé de son système cardiovasculaire et s'assurer une espérance de vie optimale, sans encombre vasculaire.</p>
 </div>
 </div>
 
+<!-- MODULE 2 : DIABÈTE -->
 <div class="accordion-item">
-<div class="accordion-header" onclick="toggleAccordion(this)"><span>👁️ 2. Santé Oculaire (Écrans & Glaucome)</span><span>▼</span></div>
+<div class="accordion-header" onclick="toggleAccordion(this)"><span>🩸 2. Le Diabète de Type 2 - Comprendre et Prévenir</span><span>▼</span></div>
 <div class="accordion-content">
-<h3>Introduction (Protéger sa Vue)</h3>
-<p>La lumière bleue des écrans et la fatigue oculaire intense menacent la vision des jeunes au quotidien.</p>
-<h3>Développement (Lumière Bleue)</h3>
-<p>Cligner des yeux trop rarement assèche la cornée. Le glaucome quant à lui comprime silencieusement le nerf optique.</p>
-<h3>Conclusion & Règle 20-20-20</h3>
-<p>Fais des pauses toutes les 20 minutes en regardant au loin pour détendre tes yeux.</p>
+<h3>Introduction : L'Épidémie Silencieuse du Sucre</h3>
+<p>Le diabète de type 2 est une affection métabolique majeure qui perturbe profondément la manière dont l'organisme transforme les aliments en énergie. Alors que le corps convertit la majorité des glucides ingérés en glucose pour alimenter ses cellules, l'insuline — une hormone produite par le pancréas — joue le rôle de clé indispensable pour permettre au sucre d'pénétrer à l'intérieur des cellules. Dans le cas du diabète de type 2, les cellules de l'organisme développent une résistance progressive à l'action de l'insuline, tandis que le pancréas finit par s'épuiser à produire des quantités astronomiques de cette hormone pour compenser ce dysfonctionnement. Résultat : le taux de sucre dans le sang (la glycémie) s'envole, créant un état d'hyperglycémie chronique lourd de conséquences pour la santé globale.</p>
+<h3>Développement : Mécanismes Métaboliques et Facteurs Déclenchants</h3>
+<p>L'émergence fulgurante du diabète de type 2 au sein des jeunes populations est intimement liée aux mutations profondes de nos modes de vie contemporains. La surconsommation de produits industriels ultratransformés, de boissons sucrées, de sodas et de farines raffinées surcharge en permanence le système métabolique. Lorsqu'un individu absorbe massivement des sucres rapides à indice glycémique élevé, le pancréas subit un choc hormonal brutal. À force d'être stimulé à outrance, il perd sa capacité de régulation optimale. S'ajoute à cela la sédentarité : les muscles, lorsqu'ils ne sont pas sollicités par l'effort physique, perdent leur sensibilité naturelle à l'insuline, aggravant ainsi la résistance cellulaire.</p>
+<p>Les complications du diabète de type 2 non pris en charge sont redoutables et insidieuses. L'excès permanent de sucre dans le sang endommage à petit feu les parois des petits et grands vaisseaux sanguins (microangiopathie et macroangiopathie). Cela conduit à des atteintes rénales (néphropathie pouvant nécessiter une dialyse), des lésions nerveuses périphériques (neuropathie provoquant des engourdissements ou des pertes de sensibilité aux extrémités), ainsi qu'à des risques accrus d'infections cutanées chroniques et de troubles de la cicatrisation. De surcroît, le diabète accélère dramatiquement le vieillissement artériel, favorisant l'athérosclérose, les accidents vasculaires et les maladies coronariennes. Les signaux d'alerte, tels qu'une fatigue intense inexpliquée, une soif excessive permanente (polydipsie), des mictions fréquentes (polyurie) et une vision parfois trouble, doivent immédiatement alerter et pousser à consulter un professionnel de santé pour un dépistage glycémique.</p>
+<h3>Conclusion : Vers un Équilibre Métabolique Durable</h3>
+<p>Heureusement, le diabète de type 2 est en grande partie évitable et gérable grâce à des interventions ciblées sur le mode de vie. Rééquilibrer son alimentation en privilégiant les fibres, les céréales complètes, les protéines de qualité et les graisses saines (oméga-3), tout en éliminant les sucres libres et les boissons sucrées, permet de stabiliser durablement la glycémie. Couplé à un entraînement physique régulier qui stimule la consommation du glucose par les masses musculaires, le corps retrouve une sensibilité normale à l'insuline. La prévention reste notre bouclier le plus puissant pour barrer la route à cette pathologie métabolique et garantir une vitalité de fer au quotidien.</p>
 </div>
 </div>
+
+<!-- MODULE 3 : SANTÉ OCULAIRE -->
+<div class="accordion-item">
+<div class="accordion-header" onclick="toggleAccordion(this)"><span>👁️ 3. Santé Oculaire & Protection Visuelle à l'Ère Numérique</span><span>▼</span></div>
+<div class="accordion-content">
+<h3>Introduction : Les Yeux Face à la Révolution Numérique</h3>
+<p>Dans notre société ultra-connectée, les yeux sont devenus les organes les plus sollicités et mis à rude épreuve. Smartphones, tablettes, ordinateurs portables et téléviseurs font partie intégrante de notre décor quotidien, tant pour le travail que pour les loisirs. Cependant, cette omniprésence des écrans expose la vision humaine à un stress sans précédent. La fatigue visuelle numérique, la sécheresse oculaire chronique et l'accélération de troubles réfractifs tels que la myopie touchent désormais massivement les jeunes générations. Apprendre à comprendre la physiologie de l'œil et les dangers de la surexposition lumineuse est devenu une impérieuse nécessité pour préserver un capital visuel sain tout au long de sa vie.</p>
+<h3>Développement : Lumière Bleue, Sécheresse et Pathologies Silencieuses</h3>
+<p>L'œil humain est une merveille d'ingénierie biologique, mais il n'a pas été conçu pour fixer des sources lumineuses artificielles émettrices de diodes à courte longueur d'onde (la fameuse lumière bleue HEV) pendant des heures d'affilée. Lorsque nous fixons fixement un écran numérique, notre fréquence de clignement des yeux chute drastiquement, passant de 15 à 20 clignements par minute à seulement 4 ou 5. Ce déficit de clignement empêche le renouvellement du film lacrymal protecteur, entraînant une évaporation rapide des larmes, des rougeurs, des sensations de brûlure, des picotements et une vision floue transitoire. Sur le plan interne, l'exposition prolongée à la lumière bleue perturbe également les rythmes circadiens en inhibant la production de mélatonine, nuisant gravement à la qualité du sommeil réparateur.</p>
+<p>Au-delà de la simple fatigue visuelle, il convient de prêter une attention particulière à des pathologies oculaires plus graves, telles que le glaucome. Souvent qualifié de voleur silencieux de la vue, le glaucome se manifeste par une augmentation progressive de la pression à l'intérieur de l'œil (pression intraoculaire), ce qui finit par endommager irrémédiablement les fibres du nerf optique. Puisque les pertes de champ visuel débutent en périphérie, le patient ne s'aperçoit de rien jusqu'à un stade très avancé de la maladie. D'autres affections, comme la cataracte (opacification du cristallin) ou les dégénérescences maculaires, trouvent en partie leurs origines dans des facteurs environnementaux cumulatifs et un manque de protection face aux rayonnements ultraviolets et lumineux agressifs. Des examens ophtalmologiques réguliers et une discipline rigoureuse dans l'usage des écrans s'avèrent donc indispensables pour parer à toute éventualité.</p>
+<h3>Conclusion : La Règle d'Or et l'Hygiène Visuelle</h3>
+<p>Pour contrer les méfaits de la vie numérique moderne sur la santé oculaire, l'application de règles simples d'ergonomie visuelle fait des miracles. La plus célèbre et efficace est la règle universelle des "20-20-20" : toutes les 20 minutes d'utilisation d'un écran, détachez le regard pour fixer un objet situé à au moins 20 pieds (soit environ 6 mètres) pendant au moins 20 secondes. Cet exercice simple permet de relâcher instantanément le muscle ciliaire responsable de l'accommodation. De plus, ajustez la luminosité de vos écrans en fonction de l'éclairage ambiant, utilisez des filtres anti-lumière bleue, hydratez vos yeux avec des larmes artificielles si nécessaire, et offrez-vous de véritables plages de déconnexion quotidienne pour laisser reposer votre vision en toute sérénité.</p>
+</div>
+</div>
+
 </div>
 
 <div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
 </section>
 
-<!-- PAGE 4 : ON DIT QUE ? -->
+<!-- PAGE 4 : ON DIT QUE ? (MYTHES & CROYANCES APPROFONDIS > 1000 MOTS) -->
 <section id="onditque" class="page-section">
 <header>
-<h1>💡 On dit Que ? (Mythes & Croyances)</h1>
-<p>Démystifions les fausses idées reçues.</p>
+<h1>💡 On dit Que ? (Mythes & Croyances Approfondis)</h1>
+<p>Décortiquons en détail les fausses idées reçues et les remèdes populaires dangereux.</p>
 </header>
 <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80" alt="Mythes" class="medical-img">
+
 <div class="myth-card">
-<div class="myth-title">❌ Mythe : "Mettre du dentifrice sur une brûlure."</div>
-<div class="reality-title">✅ Réalité Médicale :</div>
-<p>Faux ! Le dentifrice emprisonne la chaleur. Utilise de l'eau tempérée pendant 15 minutes.</p>
+<div class="myth-title">❌ Mythe 1 : "Mettre du dentifrice, de l'huile ou du beurre sur une brûlure guérit la peau plus vite."</div>
+<div class="reality-title">✅ La Réalité Médicale & Analyse Scientifique Approfondie :</div>
+<p>C'est l'un des remèdes de grand-mère les plus répandus et paradoxalement l'un des plus destructeurs pour les tissus cutanés. Lorsqu'une brûlure survient (qu'elle soit thermique, chimique ou électrique), la barrière cutanée est instantanément altérée, laissant les couches profondes de la peau à vif et extrêmement vulnérables aux agressions extérieures. L'application immédiate de substances grasses telles que le beurre ou l'huile agit comme un isolant thermique pervers : au lieu de laisser s'échapper la chaleur emprisonnée dans les couches de l'épiderme, le corps gras emprisonne cette énergie calorifique, provoquant une aggravation de la brûlure en profondeur et augmentant considérablement le risque de nécrose cellulaire.</p>
+<p>De surcroît, le dentifrice contient des agents abrasifs, du menthol, des parfums chimiques et des antiseptiques agressifs qui provoquent une irritation chimique sévère sur une peau brûlée, déclenchant des douleurs intimes intolérables et favorisant l'apparition d'infections bactériennes graves. La conduite médicale validée et incontestable face à toute brûlure bénigne ou modérée est la règle des "15-15" : placer immédiatement la zone brûlée sous un filet d'eau tempérée (idéalement entre 15 et 20 degrés Celsius, jamais glacée pour éviter le choc thermique) en maintenait une distance de 15 centimètres, et ce, de manière continue pendant 15 minutes. Cette action refroidit les tissus en profondeur, stoppe la propagation de la lésion thermique, atténue la douleur par sidération des récepteurs nerveux, et prépare la peau à une cicatrisation saine et sécurisée.</p>
 </div>
-<div class="site-footer
+
+<div class="myth-card">
+<div class="myth-title">❌ Mythe 2 : "Mettre du jus de citron pur ou des décoctions de plantes non filtrées dans les yeux nettoie et améliore la vue."</div>
+<div class="reality-title">✅ La Réalité Médicale & Analyse Scientifique Approfondie :</div>
+<p>Cette croyance populaire aberrante persiste dans certaines communautés sous prétexte que "ce qui pique soigne". Sur le plan ophtalmologique, instiller du jus de citron, du vinaigre ou des liquides non stériles directement dans les yeux constitue un acte d'une dangerosité extrême pouvant mener à la cécité définitive. La cornée, qui est la membrane transparente recouvrant la partie avant de l'œil, est un tissu extrêmement fragile, riche en terminaisons nerveuses et dépourvu de vaisseaux sanguins. Elle possède un pH neutre et un équilibre osmotique extrêmement délicat pour assurer sa transparence et sa fonction optique.</p>
+<p>Le jus de citron est un acide fort (pH très bas, environ 2). Lorsqu'il entre en contact direct avec la cornée, il provoque instantanément une brûlure chimique caustique, détruisant les cellules épithéliales cornéennes, provoquant la coagulation des protéines tissulaires et entraînant l'apparition d'ulcères cornéens profonds, d'opacités blanchâtres définitives et de perforations oculaires. De plus, les décoctions de plantes faites maison, même perçues comme naturelles, regorgent de microparticules végétales, de pollens, de champignons microscopiques et de bactéries pathogènes qui, une fois introduites dans l'œil, déclenchent des conjonctivites suraiguës, des kératites infectieuses sévères et des uvéites destructrices. Pour nettoyer ou hydrater les yeux, seules des solutions salines isotoniques stériles (sérum physiologique) ou des larmes artificielles de grade pharmaceutique doivent impérativement être utilisées sous contrôle médical.</p>
+</div>
+
+<div class="myth-card">
+<div class="myth-title">❌ Mythe 3 : "L'anesthésie générale pratiquée lors d'une intervention chirurgicale fait perdre la mémoire à vie et réduit l'intelligence."</div>
+<div class="reality-title">✅ La Réalité Médicale & Analyse Scientifique Approfondie :</div>
+<p>L'angoisse de l'endormissement chirurgical est universelle, et la peur infondée de se réveiller "diminué intellectuellement" ou d'avoir le cerveau durablement endommagé par les produits anesthésiques alimente de nombreux fantasmes. En réalité, les protocoles d'anesthésie moderne reposent sur des molécules ultra-sophistiquées, à action courte, manipulées avec une précision millimétrique par des médecins spécialistes en anesthésie-réanimation hautement qualifiés. Grâce à une surveillance continue des fonctions vitales (encéphalogramme de monitorage de la profondeur, oxymétrie, capnographie), le cerveau du patient est protégé de toute agression hypoxique pendant toute la durée de l'opération.</p>
+<p>Chez les patients jeunes et adultes en bonne santé, les agents anesthésiques sont entièrement métabolisés et éliminés par l'organisme quelques heures seulement après la fin de la chirurgie, ne laissant aucune séquelle cognitive à long terme. Chez certains patients très âgés ou vulnérables, il peut parfois s'observer un phénomène transitoire appelé dysfonction cognitive postopératoire ou confusion passagère, qui se résorbe spontanément en quelques jours ou semaines sans laisser de traces définitives. En aucun cas une anesthésie générale moderne ne détruit les souvenirs passés ou ne réduit l'intelligence innée d'un individu. Elle offre au contraire un confort absolu et une sécurité biologique totale permettant aux chirurgiens de réaliser des interventions vitales.</p>
+</div>
+
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
+</section>
+
 <!-- PAGE 5 : FICHIERS -->
 <section id="ressources" class="page-section">
 <header>
@@ -441,7 +504,7 @@ function toggleAccordion(header) {
     arrow.innerText = content.classList.contains('open') ? '▲' : '▼';
 }
 
-/* RECHERCHE INTELLIGENTE 2026 */
+/* RECHERCHE INTELLIGENTE 2026 (ACCUEIL) */
 const anomaliesDatabase = [
     { term: "fatigue", title: "Fatigue & Sommeil", desc: "La fatigue chronique chez les jeunes est souvent liée au manque d'eau ou aux écrans tardifs." },
     { term: "yeux", title: "Fatigue Oculaire & Écrans", desc: "Sécheresse due à la lumière bleue. Applique la règle des 20-20-20." },
@@ -463,6 +526,30 @@ function executeLiveSearch() {
         `).join('') + `<p style="font-size:0.75rem; color:#64748b; text-align:right;">🔍 Connecté au moteur libre 2026</p>`;
     } else {
         resultsArea.innerHTML = `<p style="font-size:0.9rem; color:#475569;">Aucun résultat direct. <a href="https://www.google.com/search?q=${encodeURIComponent(query + ' sante')}" target="_blank" style="color:#7c3aed; font-weight:700;">Rechercher sur le web ➔</a></p>`;
+    }
+}
+
+/* RECHERCHE INTELLIGENTE 2026 (ENCYCLOPÉDIE) */
+function executeEncycloSearch() {
+    const query = document.getElementById('encycloSearchInput').value.toLowerCase().trim();
+    const resultsArea = document.getElementById('encycloSearchResultsArea');
+    if (query.length < 2) { resultsArea.style.display = 'none'; return; }
+    let encycloItems = [
+        { term: "tension", title: "Hypertension Artérielle (HTA)", desc: "Consultez le module 1 de l'encyclopédie pour comprendre les pressions artérielles et la prévention." },
+        { term: "diabete", title: "Diabète de Type 2", desc: "Consultez le module 2 de l'encyclopédie pour comprendre l'insulino-résistance et la glycémie." },
+        { term: "yeux", title: "Santé Oculaire", desc: "Consultez le module 3 de l'encyclopédie sur la lumière bleue, la sécheresse et le glaucome." }
+    ];
+    let matches = encycloItems.filter(item => item.term.includes(query) || item.title.toLowerCase().includes(query) || item.desc.toLowerCase().includes(query));
+    resultsArea.style.display = 'block';
+    if (matches.length > 0) {
+        resultsArea.innerHTML = matches.map(m => `
+            <div style="background:white; padding:12px; border-radius:8px; margin-bottom:8px; border-left:4px solid #7c3aed;">
+                <h4 style="color:#7c3aed; margin-bottom:4px;">${m.title}</h4>
+                <p style="font-size:0.88rem; margin:0; color:#475569;">${m.desc}</p>
+            </div>
+        `).join('') + `<p style="font-size:0.75rem; color:#64748b; text-align:right;">🔍 Index Encyclopédique Neema</p>`;
+    } else {
+        resultsArea.innerHTML = `<p style="font-size:0.9rem; color:#475569;">Aucun dossier direct. <a href="https://www.google.com/search?q=${encodeURIComponent(query + ' medical')}" target="_blank" style="color:#7c3aed; font-weight:700;">Rechercher sur le web ➔</a></p>`;
     }
 }
 
@@ -558,7 +645,7 @@ function startQuizGame() {
     document.getElementById('quizNameSection').style.display = 'none';
     document.getElementById('quizGameArea').style.display = 'block';
 
-    // Tirage aléatoire pur pour chaque nouvelle session
+    /* Tirage aléatoire pur pour chaque nouvelle session */
     activeQuizData = [...masterQuizPool].sort(() => Math.random() - 0.5).slice(0, 20);
     currentQIdx = 0;
     userScore = 0;
@@ -596,7 +683,7 @@ function selectAnswer(selectedIdx, btnElement) {
     const qData = activeQuizData[currentQIdx];
     const allBtns = document.querySelectorAll('.kahoot-btn');
 
-    // Met en surbrillance automatique la bonne réponse en vert (solution en cas d'erreur)
+    /* Met en surbrillance automatique la bonne réponse en vert (solution en cas d'erreur) */
     allBtns.forEach((b, idx) => {
         b.classList.add('disabled');
         if (idx === qData.correct) {
@@ -608,7 +695,7 @@ function selectAnswer(selectedIdx, btnElement) {
         userScore += 1;
         document.getElementById('scoreCounter').innerText = `Score : ${userScore} pts`;
     } else {
-        btnElement.classList.add('wrong-anim'); // Marque l'erreur en rouge
+        btnElement.classList.add('wrong-anim'); /* Marque l'erreur en rouge */
     }
 
     if (currentQIdx < activeQuizData.length - 1) {

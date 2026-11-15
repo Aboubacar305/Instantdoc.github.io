@@ -1,33 +1,243 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <link rel="stylesheet" href="style.css">
-<script src="app.js" defer></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="L'instant Santé : conseils de prévention, encyclopédie, quiz et fiches pour la jeunesse. Par Neema Digit SAS.">
 <title>L'instant Santé – Compagnon de Vie & Prévention | Neema Digit SAS</title>
-<link rel="stylesheet" href="style.css">
-<script src="app.js" defer></script>
-</head>
-<body>
+<style>
+/* L'instant Santé – style épuré : blanc + une couleur forte (vert) */
+:root{--accent:#0b7a4b;--accent-dark:#075c38;--accent-soft:#e8f5ee;--ink:#111827;--muted:#4b5563;--line:#e5e7eb;--bg:#fff;--panel:#f9fafb;--danger:#b91c1c;--r:10px}
+@media (prefers-color-scheme:dark){:root{--accent:#34d399;--accent-dark:#6ee7b7;--accent-soft:#0f2a20;--ink:#f3f4f6;--muted:#a1a8b3;--line:#262b33;--bg:#0c0f13;--panel:#14181d;--danger:#f87171}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7;padding:max(14px,env(safe-area-inset-top)) 16px max(24px,env(safe-area-inset-bottom))}
+.container{max-width:760px;margin:0 auto}
+.festive-element{display:none}
 
-<div class="festive-element festive-left" aria-hidden="true">🎈🎄🎈</div>
-<div class="festive-element festive-right" aria-hidden="true">🎁✨🎈</div>
+.menu-container{position:sticky;top:0;z-index:50;background:var(--bg);padding:8px 0 12px;border-bottom:1px solid var(--line);margin-bottom:28px}
+.menu-toggle-btn{width:100%;display:flex;justify-content:space-between;align-items:center;background:var(--ink);color:var(--bg);border:0;border-radius:var(--r);padding:13px 16px;font-size:.95rem;font-weight:600;font-family:inherit;cursor:pointer}
+.dropdown-nav{display:none;flex-direction:column;margin-top:8px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--bg)}
+.dropdown-nav.open{display:flex}
+.nav-btn{background:none;border:0;border-bottom:1px solid var(--line);padding:13px 16px;text-align:left;font-size:.95rem;font-weight:500;font-family:inherit;color:var(--ink);cursor:pointer}
+.nav-btn:last-child{border-bottom:0}
+.nav-btn:hover{background:var(--panel)}
+.nav-btn.active{color:var(--accent);font-weight:700;box-shadow:inset 3px 0 0 var(--accent)}
 
-<div class="container">
+.page-section{display:none}
+.page-section.active-page{display:block;animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.page-section.active-page{animation:none}}
 
-<div class="menu-container">
-<button class="menu-toggle-btn" onclick="toggleMenu()" aria-controls="dropdownNav">
-  <span>☰ Menu de Navigation</span><span id="menuArrow">▼</span>
-</button>
-<div id="dropdownNav" class="dropdown-nav">
-  <button class="nav-btn active" onclick="switchPage('accueil')">🏠 1. Accueil & Compagnon de Vie</button>
-  <button class="nav-btn" onclick="switchPage('urgences')">🚨 2. Urgences & Secours</button>
-  <button class="nav-btn" onclick="switchPage('pathologies')">🩺 3. Encyclopédie & Maux Détaillés</button>
-  <button class="nav-btn" onclick="switchPage('onditque')">💡 4. On dit Que ? (Mythes)</button>
-  <button class="nav-btn" onclick="switchPage('ressources')">📂 5. Fichiers & Documentation (10 Fiches)</button>
-  <button class="nav-btn" onclick="switchPage('quiz')">🧠 6. Quiz Kahoot</button>
-  <button class="nav-btn" onclick="switchPage('neema')">💼 7. Neema Digit SAS & PDG</button>
+header{margin-bottom:28px}
+header h1{font-size:clamp(1.7rem,6vw,2.4rem);line-height:1.15;font-weight:800;letter-spacing:-.02em}
+header p{color:var(--muted);margin-top:8px}
+h2{font-size:1.25rem;font-weight:700;margin:36px 0 12px;letter-spacing:-.01em}
+h3{font-size:1.02rem;font-weight:700;color:var(--accent);margin:22px 0 8px}
+p,ul{color:var(--muted);font-size:1rem;margin-bottom:14px;text-align:left}
+ul{padding-left:20px}li{margin-bottom:6px}
+strong{color:var(--ink)}
+a{color:var(--accent)}
+.badge{display:inline-block;color:var(--accent);background:var(--accent-soft);padding:4px 12px;border-radius:99px;font-size:.78rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-bottom:14px}
+
+.medical-img{width:100%;height:240px;object-fit:cover;border-radius:var(--r);margin:16px 0 8px}
+.img-caption{font-size:.82rem;color:var(--muted);margin-bottom:20px}
+.brand-header-logo{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.brand-header-logo img{width:56px;height:56px;border-radius:50%;object-fit:cover;border:3px solid #d4af37;box-shadow:0 0 0 3px var(--bg),0 0 0 5px #d4af37}
+.ceo-profile-card{border:1px solid var(--line);border-radius:var(--r);padding:24px;margin-bottom:24px;background:var(--panel)}
+.ceo-avatar-container img{width:128px;height:128px;border-radius:50%;object-fit:cover;border:4px solid #d4af37;box-shadow:0 0 0 4px var(--panel),0 0 0 7px #d4af37,0 8px 20px rgba(212,175,55,.35);margin-bottom:16px}
+
+.search-box-container{margin:28px 0;padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r)}
+.search-input-wrapper{display:flex;gap:8px;border:1.5px solid var(--ink);border-radius:var(--r);padding:4px;background:var(--bg)}
+.accordion-content{max-height:0;overflow:hidden;transition:max-height .45s ease-out;padding:0 16px}
+.accordion-content.open{max-height:15000px;padding:4px 16px 18px;border-top:1px solid var(--line)}
+
+.myth-card,.category-block{border:1px solid var(--line);border-radius:var(--r);padding:18px;margin-bottom:16px;background:var(--bg)}
+.myth-title{font-weight:700;margin-bottom:8px;color:var(--ink)}
+.reality-title{font-weight:700;color:var(--accent);margin:10px 0 6px;font-size:.95rem}
+.category-title{font-weight:700;margin-bottom:10px}
+.emergency-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0}
+.emergency-card{border:1px solid var(--line);border-radius:var(--r);padding:16px;text-align:center}
+.emergency-card h3{color:var(--muted);margin:0 0 4px;font-size:.85rem;font-weight:600}
+.emergency-number{font-size:2.2rem;font-weight:800;color:var(--danger);line-height:1.1}
+
+.btn-whatsapp,.btn-download,.motion-btn,.next-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#fff;border:0;border-radius:var(--r);padding:13px 18px;font-size:.95rem;font-weight:600;font-family:inherit;text-decoration:none;cursor:pointer;width:100%}
+.btn-whatsapp:hover,.btn-download:hover,.motion-btn:hover,.next-btn:hover{background:var(--accent-dark)}
+.next-btn{display:none;margin-top:14px}
+button:focus-visible,a:focus-visible,.accordion-header:focus-visible,.nav-btn:focus-visible,input:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.quiz-wrapper{border:1px solid var(--line);border-radius:var(--r);padding:20px;background:var(--panel);text-align:center}
+.progress-bar-container{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin-bottom:14px}
+.progress-bar-fill{height:100%;width:0;background:var(--accent);transition:width .3s}
+.quiz-header-meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.85rem;font-weight:600;color:var(--muted);margin-bottom:14px}
+.kahoot-card{background:var(--bg);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.kahoot-question{font-weight:700;font-size:1.05rem;margin-bottom:16px;text-align:left}
+.kahoot-grid{display:grid;grid-template-columns:1fr;gap:10px}
+@media (min-width:600px){.kahoot-grid{grid-template-columns:1fr 1fr}}
+.kahoot-btn{display:flex;align-items:center;gap:10px;text-align:left;background:var(--bg);color:var(--ink);border:1.5px solid var(--line);border-radius:var(--r);padding:13px 14px;font-size:.95rem;font-weight:500;font-family:inherit;cursor:pointer}
+.kahoot-btn:hover{border-color:var(--accent)}
+.kahoot-btn span:first-child{color:var(--accent)}
+.kahoot-btn.disabled{cursor:default;opacity:.75}
+.kahoot-btn.correct-anim{border-color:var(--accent);background:var(--accent-soft);opacity:1;font-weight:700}
+.kahoot-btn.wrong-anim{border-color:var(--danger);opacity:.7}
+.result-card{display:none;padding:10px 0}
+</header>
+
+<img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Jeunes souriants" class="medical-img" loading="lazy">
+<div class="img-caption">Grandir, s'informer et s'épanouir en toute complicité.</div>
+
+<h2>🌟 Lire c'est la vie</h2>
+<p>Bienvenue sur <strong>L'instant Santé</strong>, ton ami au quotidien. Conçu pour la jeunesse par <strong>Neema Digit SAS</strong>, ce portail part d'une conviction : <em>lire, c'est la vie</em>. Dans un monde où l'information défile à toute vitesse, prendre le temps de lire des contenus structurés est un acte de liberté et de protection de soi, un rempart contre les rumeurs et les fausses pistes sanitaires.</p>
+<p>Nous t'accompagnons, sans jugement, dans la compréhension de ton corps et la prévention des maux du quotidien : stress des examens, sommeil face aux écrans, alimentation, protection de la vision. Notre but : t'aider à devenir l'acteur principal de ta propre santé.</p>
+
+<h2>🚀 Ce que tu trouveras ici</h2>
+<ul>
+  <li>Une encyclopédie de maux détaillés, avec de petits scripts Python à lire et à copier.</li>
+  <li><em>« On dit Que ? »</em> : les mythes et remèdes de grand-mère passés au crible.</li>
+  <li>Une page Urgences avec les bons réflexes.</li>
+  <li>10 fiches pratiques à demander sur WhatsApp.</li>
+  <li>Un quiz interactif avec tirage aléatoire des questions.</li>
+</ul>
+
+<div class="search-box-container">
+  <h3>🔍 Recherche (maux & symptômes)</h3>
+  <div class="search-input-wrapper">
+    <input type="text" id="encycloSearchInput" placeholder="Ex: tension, diabète, yeux, paludisme..." aria-label="Recherche" onkeyup="executeEncycloSearch()">
+    <button onclick="executeEncycloSearch()" style="background:#7c3aed;color:#fff;border:none;padding:8px 18px;border-radius:20px;cursor:pointer;font-weight:700;">Chercher</button>
+  </div>
+  <div id="encycloSearchResultsArea" class="search-results-area"></div>
 </div>
+
+<div class="accordion-group">
+
+<div class="accordion-item">
+<div class="accordion-header" role="button" tabindex="0" onclick="toggleAccordion(this)" onkeydown="if(event.key==='Enter')toggleAccordion(this)"><span>🫀 1. L'Hypertension Artérielle (HTA)</span><span>▼</span></div>
+<div class="accordion-content">
+<h3>Le tueur silencieux</h3>
+<p>Le bon réflexe : placer la zone brûlée sous un jet d'eau tempérée (environ 15 °C, jamais glacée), en continu, pendant au moins 10 minutes. Cela refroidit les tissus, limite la lésion et soulage la douleur.</p>
 </div>
+
+<div class="myth-card">
+<div class="myth-title">❌ Mythe 2 : « Du jus de citron pur ou des décoctions de plantes dans les yeux nettoient et améliorent la vue. »</div>
+<div class="reality-title">✅ La réalité</div>
+<p>Instiller du citron, du vinaigre ou un liquide non stérile dans l'œil est très dangereux et peut mener à la cécité. La cornée est un tissu fragile et sensible au pH. Le jus de citron (pH proche de 2) provoque une brûlure chimique, des ulcères et des opacités. Les décoctions maison contiennent des particules et des germes qui peuvent causer des infections graves.</p>
+<p>Pour nettoyer les yeux, utilise uniquement du sérum physiologique stérile ou des larmes artificielles, avec l'avis d'un professionnel si l'œil est rouge ou douloureux.</p>
+</div>
+
+<div class="myth-card">
+<div class="myth-title">❌ Mythe 3 : « L'anesthésie générale fait perdre la mémoire à vie et réduit l'intelligence. »</div>
+<div class="reality-title">✅ La réalité</div>
+<p>Les protocoles actuels utilisent des molécules à action courte, administrées et surveillées en continu par un médecin anesthésiste-réanimateur. Chez un adulte en bonne santé, les produits sont éliminés en quelques heures et ne laissent, dans la grande majorité des cas, aucune séquelle à long terme. Une confusion passagère reste possible, surtout chez les personnes âgées.</p>
+<p>L'anesthésie ne détruit pas les souvenirs et ne réduit pas l'intelligence. Aucun acte médical n'est sans risque : parles-en à l'anesthésiste avant l'intervention.</p>
+</div>
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
+</section>
+
+<!-- PAGE 5 : FICHIERS -->
+<section id="ressources" class="page-section">
+<header><h1>Bibliothèque de Fichiers (10 Fiches)</h1><p style="text-align:center">Demande la fiche de ton choix directement sur WhatsApp.</p></header>
+<div id="fichesList"></div>
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
+</section>
+
+<!-- PAGE 6 : QUIZ -->
+<section id="quiz" class="page-section">
+<header><h1>🎈 Grand Quiz Santé & Prévention 🎈</h1><p style="text-align:center">20 questions tirées au hasard à chaque partie.</p></header>
+<div class="quiz-wrapper">
+  <div id="quizNameSection" class="quiz-name-box">
+    <h3>✨ Bienvenue sur le Quiz !</h3>
+    <p style="font-size:.9rem;text-align:center">Entre ton prénom pour commencer :</p>
+  target.classList.add('active-page');
+  document.querySelectorAll('.nav-btn').forEach(b =>
+    b.classList.toggle('active', (b.getAttribute('onclick') || '').includes("'" + pageId + "'")));
+  document.getElementById('dropdownNav').classList.remove('open');
+  document.getElementById('menuArrow').innerText = '▼';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggleAccordion(header) {
+  const content = header.nextElementSibling, arrow = header.lastElementChild;
+  document.querySelectorAll('.accordion-content').forEach(i => { if (i !== content) i.classList.remove('open'); });
+  document.querySelectorAll('.accordion-header span:last-child').forEach(a => { if (a !== arrow) a.innerText = '▼'; });
+  content.classList.toggle('open');
+  arrow.innerText = content.classList.contains('open') ? '▲' : '▼';
+}
+
+/* ---------- Recherche (sans accents) ---------- */
+const norm = s => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+function executeEncycloSearch() {
+  const query = norm(document.getElementById('encycloSearchInput').value.trim());
+  const out = document.getElementById('encycloSearchResultsArea');
+  if (query.length < 2) { out.style.display = 'none'; return; }
+  const items = [
+    { term: 'tension hta hypertension', title: 'Hypertension Artérielle (HTA) & Script Python', desc: "Ouvre le module 1 de l'accueil pour analyser ta tension." },
+    { term: 'diabete sucre imc poids', title: "Diabète de Type 2 & Calculateur d'IMC", desc: "Ouvre le module 2 de l'accueil pour évaluer ta corpulence." },
+    { term: 'yeux vue ecran lumiere bleue', title: 'Santé Oculaire', desc: 'Ouvre le module 3 : lumière bleue et règle des 20-20-20.' },
+    { term: 'paludisme fievre moustique', title: 'Paludisme', desc: 'Page Encyclopédie, module 4 : signes, prévention, quand consulter.' },
+    { term: 'brulure urgence secours saignement', title: 'Urgences & Secours', desc: 'Page Urgences : brûlure, saignement, personne inconsciente, AVC.' }
+  ];
+  const matches = items.filter(i => norm(i.term + ' ' + i.title + ' ' + i.desc).includes(query));
+  out.style.display = 'block';
+  out.innerHTML = matches.length
+    ? matches.map(m => `<div style="background:#fff;padding:12px;border-radius:8px;margin-bottom:8px;border-left:4px solid #7c3aed;"><h4 style="color:#7c3aed;margin-bottom:4px;">${m.title}</h4><p style="font-size:.88rem;margin:0;">${m.desc}</p></div>`).join('')
+function loadQuestion() {
+  canAnswer = true;
+  const nb = $('nextQuestionBtn');
+  nb.style.display = 'none';
+  nb.innerText = 'Question Suivante ➔';
+  const q = activeQuizData[currentQIdx];
+  $('questionCounter').innerText = `Question ${currentQIdx + 1} / ${activeQuizData.length}`;
+  $('scoreCounter').innerText = `Score : ${userScore} pts`;
+  $('kahootQuestion').innerText = q.q;
+  $('quizProgressBar').style.width = (currentQIdx / activeQuizData.length * 100) + '%';
+  const grid = $('kahootGrid');
+  grid.innerHTML = '';
+  q.options.forEach((txt, i) => {
+    const b = document.createElement('button');
+    b.className = 'kahoot-btn ' + kahootColors[i % 4];
+    b.innerHTML = `<span>${kahootShapes[i % 4]}</span> <span>${txt}</span>`;
+    b.onclick = () => selectAnswer(i, b);
+    grid.appendChild(b);
+  });
+}
+function selectAnswer(i, btn) {
+  if (!canAnswer) return;
+  canAnswer = false;
+  const q = activeQuizData[currentQIdx];
+  document.querySelectorAll('.kahoot-btn').forEach((b, idx) => {
+    b.classList.add('disabled');
+    if (idx === q.correct) b.classList.add('correct-anim');
+  });
+  if (i === q.correct) { userScore++; $('scoreCounter').innerText = `Score : ${userScore} pts`; }
+  else btn.classList.add('wrong-anim');
+  const nb = $('nextQuestionBtn');
+  if (currentQIdx >= activeQuizData.length - 1) nb.innerText = 'Voir mon Bilan Final 🏆';
+  const txt = `Bonjour, je suis ${n}. Email : ${m}. WhatsApp : ${w}. Je vous contacte depuis L'instant Santé.`;
+  window.open('https://wa.me/' + WHATSAPP_NUM + '?text=' + encodeURIComponent(txt), '_blank', 'noopener');
+  const fb = $('formFeedback');
+  fb.style.display = 'block'; fb.style.background = '#dcfce7'; fb.style.color = '#15803d';
+  fb.innerText = 'WhatsApp s’ouvre : envoie le message prérempli pour finaliser.';
+  $('contactMotionForm').reset();
+}
+
+/* ---------- Fiches (bouton WhatsApp) ---------- */
+const FICHES = [
+  ['🫀', 'HTA & prévention cardiovasculaire'], ['🩸', 'Diabète & équilibre glycémique'],
+  ['👁️', 'Ergonomie visuelle & écrans'], ['🦟', 'Paludisme : prévention et réflexes'],
+  ['🔥', 'Brûlures : les bons gestes'], ['🩹', 'Hémorragie & position latérale de sécurité'],
+  ['😴', 'Sommeil & écrans'], ['🧂', 'Réduire le sel au quotidien'],
+  ['🧘', 'Gérer le stress des examens'], ['💧', 'Hydratation au quotidien']
+];
+function renderFiches() {
+  const box = $('fichesList');
+  if (!box) return;
+  box.innerHTML = FICHES.map((f, i) => {
+    const num = String(i + 1).padStart(2, '0');
+    const msg = encodeURIComponent(`Bonjour, je souhaite la fiche ${num} : ${f[1]} (L'instant Santé).`);
+    return `<div class="category-block"><div class="category-title">${f[0]} Fiche ${num} · ${f[1]}</div><a class="btn-whatsapp" href="https://wa.me/${WHATSAPP_NUM}?text=${msg}" target="_blank" rel="noopener">💬 Demander cette fiche sur WhatsApp</a></div>`;
+  }).join('');
+}
+document.addEventListener('DOMContentLoaded', renderFiches);
+
+</script>
+</body>
+</html>

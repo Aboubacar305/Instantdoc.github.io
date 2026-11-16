@@ -2,7 +2,7 @@
 
 Portail de prévention santé pour la jeunesse : conseils, urgences, encyclopédie, mythes et quiz.
 
-🔗 **Site** : https://univetx.github.io/univet/
+🔗 **Site** : univetx.github.io
 
 ## Contenu
 - Accueil et dossiers santé (HTA, diabète, santé oculaire)

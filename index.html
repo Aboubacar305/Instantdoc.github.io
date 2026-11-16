@@ -49,6 +49,20 @@ a{color:var(--accent)}
 
 .search-box-container{margin:28px 0;padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:var(--r)}
 .search-input-wrapper{display:flex;gap:8px;border:1.5px solid var(--ink);border-radius:var(--r);padding:4px;background:var(--bg)}
+.search-input-wrapper input{flex:1;min-width:0;border:0;outline:0;background:none;color:var(--ink);font-size:1rem;padding:10px}
+.search-input-wrapper button{background:var(--accent)!important;color:#fff!important;border:0!important;border-radius:8px!important;padding:8px 16px!important;font-weight:600!important}
+.search-results-area{display:none;margin-top:12px}
+.search-results-area>div{background:var(--bg)!important;border:1px solid var(--line);border-left:3px solid var(--accent)!important}
+.search-results-area h4{color:var(--ink)!important}
+
+.python-code-box{background:#0f1720;color:#d1e7dd;padding:16px;border-radius:var(--r);font:.85rem/1.6 ui-monospace,Menlo,Consolas,monospace;overflow-x:auto;margin:14px 0;border:1px solid var(--line)}
+.python-code-box code{font:inherit;color:inherit}
+
+.accordion-group{display:flex;flex-direction:column;gap:10px;margin:20px 0}
+.accordion-item{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:var(--bg)}
+.accordion-header{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px;font-weight:600;cursor:pointer}
+.accordion-header:hover{background:var(--panel)}
+.accordion-header span:last-child{color:var(--accent)}
 .accordion-content{max-height:0;overflow:hidden;transition:max-height .45s ease-out;padding:0 16px}
 .accordion-content.open{max-height:15000px;padding:4px 16px 18px;border-top:1px solid var(--line)}
 
@@ -81,6 +95,56 @@ button:focus-visible,a:focus-visible,.accordion-header:focus-visible,.nav-btn:fo
 .kahoot-btn.correct-anim{border-color:var(--accent);background:var(--accent-soft);opacity:1;font-weight:700}
 .kahoot-btn.wrong-anim{border-color:var(--danger);opacity:.7}
 .result-card{display:none;padding:10px 0}
+.final-score{font-size:3rem;font-weight:800;color:var(--accent);margin:8px 0}
+.score-badge{display:inline-block;padding:5px 14px;border-radius:99px;font-weight:700;font-size:.9rem;margin-bottom:12px}
+
+.motion-form{border:1px solid var(--line);border-radius:var(--r);padding:22px;margin-top:24px;background:var(--panel)}
+.form-group{margin-bottom:16px}
+.form-group label{display:block;font-weight:600;font-size:.88rem;margin-bottom:6px}
+.form-control{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:var(--r);font-size:1rem;background:var(--bg);color:var(--ink)}
+.form-control:focus{border-color:var(--accent);outline:0}
+.form-feedback{display:none;padding:12px;border-radius:var(--r);margin-top:14px;font-weight:600;font-size:.9rem;text-align:center}
+
+.footer-info{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--accent);padding:12px 14px;border-radius:var(--r);font-size:.85rem;margin-bottom:24px}
+.site-footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+.site-footer p{font-size:inherit;margin:0}
+
+</style>
+
+</head>
+<body>
+
+<div class="festive-element festive-left" aria-hidden="true">🎈🎄🎈</div>
+<div class="festive-element festive-right" aria-hidden="true">🎁✨🎈</div>
+
+<div class="container">
+
+<div class="menu-container">
+<button class="menu-toggle-btn" onclick="toggleMenu()" aria-controls="dropdownNav">
+  <span>☰ Menu de Navigation</span><span id="menuArrow">▼</span>
+</button>
+<div id="dropdownNav" class="dropdown-nav">
+  <button class="nav-btn active" onclick="switchPage('accueil')">🏠 1. Accueil & Compagnon de Vie</button>
+  <button class="nav-btn" onclick="switchPage('urgences')">🚨 2. Urgences & Secours</button>
+  <button class="nav-btn" onclick="switchPage('pathologies')">🩺 3. Encyclopédie & Maux Détaillés</button>
+  <button class="nav-btn" onclick="switchPage('onditque')">💡 4. On dit Que ? (Mythes)</button>
+  <button class="nav-btn" onclick="switchPage('ressources')">📂 5. Fichiers & Documentation (10 Fiches)</button>
+  <button class="nav-btn" onclick="switchPage('quiz')">🧠 6. Quiz Kahoot</button>
+  <button class="nav-btn" onclick="switchPage('neema')">💼 7. Neema Digit SAS & PDG</button>
+</div>
+</div>
+
+<p class="footer-info">⚠️ Contenu informatif de prévention. Il ne remplace pas l'avis d'un médecin. En cas d'urgence, appelle les secours.</p>
+
+<!-- PAGE 1 : ACCUEIL -->
+<section id="accueil" class="page-section active-page">
+<div class="badge">💙 Ton Ami & Compagnon de Vie</div>
+<header>
+  <div class="brand-header-logo">
+    <img src="logo.jpg" alt="Logo Neema Digit SAS" onerror="this.onerror=null;this.src='1000017573.jpg'">
+    <h1>L'instant Santé</h1>
+  </div>
+  <p style="text-align:center">La plateforme chaleureuse et moderne pour guider la jeunesse au quotidien.</p>
 </header>
 
 <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=1200&q=80" alt="Jeunes souriants" class="medical-img" loading="lazy">
@@ -114,6 +178,121 @@ button:focus-visible,a:focus-visible,.accordion-header:focus-visible,.nav-btn:fo
 <div class="accordion-header" role="button" tabindex="0" onclick="toggleAccordion(this)" onkeydown="if(event.key==='Enter')toggleAccordion(this)"><span>🫀 1. L'Hypertension Artérielle (HTA)</span><span>▼</span></div>
 <div class="accordion-content">
 <h3>Le tueur silencieux</h3>
+<p>L'hypertension artérielle est une élévation durable de la pression du sang dans les artères, à partir de 140/90 mmHg. Longtemps vue comme une maladie de personnes âgées, elle touche de plus en plus de jeunes adultes : sédentarité, aliments très salés ou ultratransformés, stress.</p>
+<h3>Mécanisme et risques</h3>
+<p>Quand les artères perdent leur souplesse ou se rétrécissent, le cœur doit forcer pour maintenir le débit. À la longue, le muscle cardiaque s'épaissit et les parois des vaisseaux s'abîment. Les facteurs favorisants : hérédité, surpoids, excès de sel et de bouillons cubes, tabac, sédentarité, anxiété chronique. Non contrôlée, l'HTA augmente le risque d'AVC, d'infarctus, d'insuffisance rénale et de lésions de la rétine.</p>
+<h3>Script Python : analyser une mesure</h3>
+<pre class="python-code-box"><code># Analyse d'une mesure de tension – L'instant Santé
+def analyser_tension(sys, dias):
+    if sys &lt; 120 and dias &lt; 80:
+        return "Tension normale. Continue ainsi !"
+    elif 120 &lt;= sys &lt;= 139 or 80 &lt;= dias &lt;= 89:
+        return "Pré-hypertension : surveille le sel et bouge plus."
+    else:
+        return "Valeur élevée : refais la mesure au repos et consulte un médecin."
+
+print(analyser_tension(135, 85))</code></pre>
+<p style="font-size:.85rem">Une seule mesure ne suffit pas à poser un diagnostic.</p>
+<h3>Prévention</h3>
+<p>Réduis le sel, privilégie les aliments frais riches en potassium (légumes verts, bananes, agrumes), marche au moins 30 minutes par jour, arrête le tabac, apprends à gérer le stress et fais contrôler ta tension régulièrement.</p>
+</div>
+</div>
+
+<div class="accordion-item">
+<div class="accordion-header" role="button" tabindex="0" onclick="toggleAccordion(this)" onkeydown="if(event.key==='Enter')toggleAccordion(this)"><span>🩸 2. Le Diabète de Type 2 & l'IMC</span><span>▼</span></div>
+<div class="accordion-content">
+<h3>L'épidémie silencieuse du sucre</h3>
+<p>Le diabète de type 2 perturbe la façon dont le corps transforme les aliments en énergie. L'insuline, produite par le pancréas, permet au sucre de pénétrer dans les cellules. Dans le diabète de type 2, les cellules y résistent de plus en plus et le pancréas s'épuise à compenser.</p>
+<h3>Facteurs déclenchants</h3>
+<p>Boissons sucrées, sodas, farines raffinées et produits ultratransformés sollicitent le pancréas en permanence. La sédentarité aggrave le problème : des muscles peu sollicités répondent moins bien à l'insuline.</p>
+<h3>Script Python : calculer l'IMC</h3>
+<pre class="python-code-box"><code># Calcul de l'IMC – L'instant Santé
+def calculer_imc(poids_kg, taille_m):
+    imc = poids_kg / (taille_m ** 2)
+    if imc &lt; 18.5:
+        statut = "Insuffisance pondérale"
+    elif imc &lt; 25:
+        statut = "Corpulence normale"
+    elif imc &lt; 30:
+        statut = "Surpoids"
+    else:
+        statut = "Obésité (consultation conseillée)"
+    return f"IMC : {imc:.2f} – {statut}"
+
+print(calculer_imc(70, 1.75))</code></pre>
+<h3>Vers un équilibre durable</h3>
+<p>Le diabète de type 2 est en grande partie évitable. Privilégie les fibres, les céréales complètes, les protéines de qualité, réduis les sucres libres et bouge régulièrement : le corps retrouve alors une meilleure sensibilité à l'insuline.</p>
+</div>
+</div>
+
+<div class="accordion-item">
+<div class="accordion-header" role="button" tabindex="0" onclick="toggleAccordion(this)" onkeydown="if(event.key==='Enter')toggleAccordion(this)"><span>👁️ 3. Santé Oculaire & Écrans</span><span>▼</span></div>
+<div class="accordion-content">
+<h3>Les yeux face au numérique</h3>
+<p>Smartphones, tablettes et ordinateurs sollicitent nos yeux en continu. Fatigue visuelle, sécheresse oculaire et myopie touchent de plus en plus de jeunes.</p>
+<h3>Lumière bleue et sécheresse</h3>
+<p>Devant un écran, on cligne beaucoup moins des yeux (environ 4 à 5 fois par minute au lieu de 15 à 20). Le film de larmes se renouvelle mal : rougeurs, brûlures, vision floue passagère. La lumière bleue des écrans le soir peut aussi perturber le sommeil.</p>
+<h3>La règle 20-20-20</h3>
+<p>Toutes les 20 minutes d'écran, regarde un objet situé à environ 6 mètres pendant 20 secondes. Ajuste la luminosité à la pièce, fais des pauses sans écran et, si besoin, utilise des larmes artificielles.</p>
+</div>
+</div>
+
+</div>
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
+</section>
+
+<!-- PAGE 2 : URGENCES -->
+<section id="urgences" class="page-section">
+<header><h1>🚨 Urgences & Secours</h1><p style="text-align:center">Les bons réflexes en attendant les secours.</p></header>
+<div class="emergency-grid">
+  <div class="emergency-card"><h3>Police</h3><div class="emergency-number">17</div></div>
+  <div class="emergency-card"><h3>Sapeurs-pompiers</h3><div class="emergency-number">18</div></div>
+</div>
+<p>Au téléphone : garde ton calme, donne le lieu exact, décris la situation et réponds aux questions avant de raccrocher.</p>
+<div class="myth-card"><div class="myth-title">🔥 Brûlure</div><p>Refroidis sous l'eau tempérée (environ 15 °C), en jet doux, pendant au moins 10 minutes. Retire les bijoux et les vêtements non collés à la peau. Couvre avec un linge propre. Ne mets ni huile, ni beurre, ni dentifrice. Appelle les secours si la brûlure est étendue, au visage ou touche un enfant.</p></div>
+<div class="myth-card"><div class="myth-title">🩸 Saignement abondant</div><p>Appuie directement sur la plaie avec un linge propre, sans relâcher. Allonge la personne. Appelle les secours.</p></div>
+<div class="myth-card"><div class="myth-title">😶 Personne inconsciente qui respire</div><p>Mets-la sur le côté (Position Latérale de Sécurité), surveille sa respiration, appelle les secours. Ne lui donne rien à boire.</p></div>
+<div class="myth-card"><div class="myth-title">🧠 Signes d'AVC</div><p>Visage affaissé, bras sans force, parole difficile : appelle immédiatement les secours et note l'heure d'apparition des signes.</p></div>
+<p style="font-size:.85rem">Ces fiches ne remplacent pas une formation. La Croix-Rouge burkinabè forme aux premiers secours.</p>
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
+</section>
+
+<!-- PAGE 3 : PATHOLOGIES -->
+<section id="pathologies" class="page-section">
+<header><h1>🩺 Encyclopédie & Maux Détaillés</h1><p style="text-align:center">Les dossiers HTA, diabète et santé oculaire sont sur la page d'accueil.</p></header>
+<button class="motion-btn" onclick="switchPage('accueil')" style="max-width:320px;margin:0 auto 20px auto;">Voir les 3 premiers dossiers</button>
+<div class="accordion-group">
+<div class="accordion-item">
+<div class="accordion-header" role="button" tabindex="0" onclick="toggleAccordion(this)" onkeydown="if(event.key==='Enter')toggleAccordion(this)"><span>🦟 4. Le Paludisme : Reconnaître, Prévenir, Consulter</span><span>▼</span></div>
+<div class="accordion-content">
+<h3>Ce qu'il faut savoir</h3>
+<p>Le paludisme est transmis par la piqûre d'un moustique, l'anophèle, qui pique surtout la nuit. Signes fréquents : fièvre, frissons, maux de tête, courbatures. Chez un jeune enfant ou une femme enceinte, une fièvre demande une consultation rapide.</p>
+<h3>Que faire</h3>
+<ul>
+<li>Consulte un centre de santé en cas de fièvre : un test de dépistage confirme ou non la maladie.</li>
+<li>Ne prends pas de médicaments au hasard : le traitement est prescrit après le test.</li>
+</ul>
+<h3>Prévenir</h3>
+<ul>
+<li>Dors sous une moustiquaire imprégnée, en bon état.</li>
+<li>Vide régulièrement les eaux stagnantes autour de la maison (pneus, seaux, canaris).</li>
+<li>Porte des vêtements couvrants le soir.</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
+</section>
+
+<!-- PAGE 4 : ON DIT QUE ? -->
+<section id="onditque" class="page-section">
+<header><h1>💡 On dit Que ? (Mythes & Croyances)</h1><p style="text-align:center">Les fausses idées reçues et les remèdes populaires dangereux.</p></header>
+<img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?auto=format&fit=crop&w=1200&q=80" alt="Mythes et réalités" class="medical-img" loading="lazy">
+
+<div class="myth-card">
+<div class="myth-title">❌ Mythe 1 : « Mettre du dentifrice, de l'huile ou du beurre sur une brûlure la guérit plus vite. »</div>
+<div class="reality-title">✅ La réalité</div>
+<p>C'est l'un des remèdes de grand-mère les plus répandus et l'un des plus nocifs. Les corps gras emprisonnent la chaleur et aggravent la brûlure en profondeur. Le dentifrice contient des abrasifs, du menthol et des antiseptiques qui irritent la peau lésée et favorisent l'infection.</p>
 <p>Le bon réflexe : placer la zone brûlée sous un jet d'eau tempérée (environ 15 °C, jamais glacée), en continu, pendant au moins 10 minutes. Cela refroidit les tissus, limite la lésion et soulage la douleur.</p>
 </div>
 
@@ -147,6 +326,86 @@ button:focus-visible,a:focus-visible,.accordion-header:focus-visible,.nav-btn:fo
   <div id="quizNameSection" class="quiz-name-box">
     <h3>✨ Bienvenue sur le Quiz !</h3>
     <p style="font-size:.9rem;text-align:center">Entre ton prénom pour commencer :</p>
+    <input type="text" id="playerNameInput" class="form-control" placeholder="Ton prénom..." aria-label="Ton prénom" style="max-width:300px;margin:0 auto 15px auto;display:block;">
+    <button onclick="startQuizGame()" class="motion-btn" style="max-width:200px;margin:0 auto;">🚀 C'est parti !</button>
+  </div>
+  <div id="quizGameArea" style="display:none;">
+    <div class="progress-bar-container"><div id="quizProgressBar" class="progress-bar-fill"></div></div>
+    <div class="quiz-header-meta">
+      <span id="playerDisplayTitle">Joueur : -</span>
+      <span id="questionCounter">Question 1 / 20</span>
+      <span id="scoreCounter">Score : 0 pts</span>
+    </div>
+    <div id="kahootBox" class="kahoot-card">
+      <div id="kahootQuestion" class="kahoot-question">Chargement...</div>
+      <div id="kahootGrid" class="kahoot-grid"></div>
+    </div>
+    <button id="nextQuestionBtn" class="next-btn" onclick="nextQuestion()">Question Suivante ➔</button>
+  </div>
+  <div id="kahootResult" class="result-card">
+    <h2>🎉 Fin de la partie, <span id="resultPlayerName">-</span> !</h2>
+    <div id="finalScoreDisplay" class="final-score">0 / 20</div>
+    <div id="scoreBadge" class="score-badge">Score</div>
+    <p id="finalFeedbackText" style="text-align:center"></p>
+    <button class="next-btn" style="display:inline-block;margin-top:20px;" onclick="resetQuizSession()">🔄 Nouvelle partie</button>
+  </div>
+</div>
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong></p></div>
+</section>
+
+<!-- PAGE 7 : NEEMA DIGIT SAS -->
+<section id="neema" class="page-section">
+<header>
+  <div class="brand-header-logo">
+    <img src="logo.jpg" alt="Logo Neema Digit SAS" onerror="this.onerror=null;this.src='1000017573.jpg'">
+    <h1>Neema Digit SAS</h1>
+  </div>
+  <p style="text-align:center">Ingénierie digitale & solutions web • Ouagadougou, Burkina Faso</p>
+</header>
+
+<div class="ceo-profile-card">
+  <div class="ceo-avatar-container"><img src="profil.jpg" alt="Ouedraogo Aboubacar" onerror="this.onerror=null;this.src='1000017573.jpg'"></div>
+  <h2 style="border:none;margin:5px 0;color:var(--primary);">Ouedraogo Aboubacar (Mr BOW 226)</h2>
+  <div class="badge" style="background:var(--primary);color:#fff;">Fondateur & Président-Directeur Général</div>
+  <p style="margin-top:10px;text-align:center;">Entrepreneur, développeur et artiste, fondateur de <strong>Neema Digit SAS</strong> depuis 2022. Il pilote la technologie, le design et le développement de l'agence, et a conçu le portail <strong>L'instant Santé</strong>.</p>
+</div>
+
+<h2>💼 Présentation</h2>
+<p>Fondée en 2022 à Ouagadougou, <strong>Neema Digit SAS</strong> conçoit des sites web, des identités visuelles et des solutions e-commerce. Sa mission : créer des plateformes simples, rapides et utiles, qui répondent aux besoins de la jeunesse, de la santé publique et des entreprises.</p>
+<p><em>L'instant Santé</em> illustre cette approche : utiliser le code et un design soigné pour rendre l'information de santé accessible et lutter contre la désinformation.</p>
+
+<h2>🚀 Modèle économique</h2>
+<p>Deux axes : le développement de sites et de solutions e-commerce sur mesure pour des clients, et l'édition de plateformes d'utilité publique comme <em>L'instant Santé</em>, avec des fiches pratiques proposées via WhatsApp, des partenariats et des espaces publicitaires ciblés.</p>
+
+<div class="motion-form">
+<h3 style="margin-top:0;color:var(--primary);">💬 Contacter l'équipe (partenariats & projets)</h3>
+<form id="contactMotionForm" onsubmit="handleFormSubmit(event)">
+  <div class="form-group"><label for="userName">Prénom / Nom</label><input type="text" id="userName" class="form-control" placeholder="Ex: Awa Traoré" required></div>
+  <div class="form-group"><label for="userEmail">Adresse email</label><input type="email" id="userEmail" class="form-control" placeholder="exemple@mail.com" required></div>
+  <div class="form-group"><label for="userWhatsapp">Numéro WhatsApp / Téléphone</label><input type="tel" id="userWhatsapp" class="form-control" placeholder="+226 XX XX XX XX" required></div>
+  <button type="submit" class="motion-btn"><span>🚀 Envoyer via WhatsApp</span></button>
+</form>
+<div id="formFeedback" class="form-feedback"></div>
+</div>
+
+<div class="site-footer"><p>&copy; 2026 <strong>Neema Digit SAS</strong> • Dirigé par Ouedraogo Aboubacar (Mr BOW 226)</p></div>
+</section>
+
+</div>
+<script>
+/* L'instant Santé – app.js (UTF-8) */
+const WHATSAPP_NUM = '22656221895';
+
+/* ---------- Navigation ---------- */
+function toggleMenu() {
+  const nav = document.getElementById('dropdownNav');
+  nav.classList.toggle('open');
+  document.getElementById('menuArrow').innerText = nav.classList.contains('open') ? '▲' : '▼';
+}
+function switchPage(pageId) {
+  const target = document.getElementById(pageId);
+  if (!target) return;
+  document.querySelectorAll('.page-section').forEach(s => s.classList.remove('active-page'));
   target.classList.add('active-page');
   document.querySelectorAll('.nav-btn').forEach(b =>
     b.classList.toggle('active', (b.getAttribute('onclick') || '').includes("'" + pageId + "'")));
@@ -179,6 +438,72 @@ function executeEncycloSearch() {
   out.style.display = 'block';
   out.innerHTML = matches.length
     ? matches.map(m => `<div style="background:#fff;padding:12px;border-radius:8px;margin-bottom:8px;border-left:4px solid #7c3aed;"><h4 style="color:#7c3aed;margin-bottom:4px;">${m.title}</h4><p style="font-size:.88rem;margin:0;">${m.desc}</p></div>`).join('')
+    : `<p style="font-size:.9rem;">Aucun dossier direct. <a href="https://www.google.com/search?q=${encodeURIComponent(query + ' sante')}" target="_blank" rel="noopener" style="color:#7c3aed;font-weight:700;">Rechercher sur le web ➔</a></p>`;
+}
+
+/* ---------- Quiz ---------- */
+const masterQuizPool = [
+  { q: "Quel numéro d'urgence joindre pour les sapeurs-pompiers au Burkina Faso ?", options: ['15', '17', '18', '16'], correct: 2 },
+  { q: 'Quelle quantité de sel ne pas dépasser par jour ?', options: ['15 g', '5 g', '25 g', '10 g'], correct: 1 },
+  { q: 'Quel réflexe avoir face à une brûlure ?', options: ["Mettre de l'huile", "Passer de l'eau tempérée 10 min", 'Mettre du sel', 'Frotter'], correct: 1 },
+  { q: 'Quelle tension signale une hypertension artérielle (HTA) ?', options: ['120/80 mmHg', '110/70 mmHg', '140/90 mmHg ou plus', '90/60 mmHg'], correct: 2 },
+  { q: 'Que faire face à un accidenté inconscient qui respire ?', options: ['Lui donner à boire', 'Le mettre en Position Latérale de Sécurité (PLS)', 'Le secouer', 'Le laisser debout'], correct: 1 },
+  { q: 'Que risque-t-on en mettant du jus de citron dans les yeux ?', options: ['Une meilleure vue', 'Une brûlure de la cornée et un risque de cécité', 'Rien', 'Moins de fatigue'], correct: 1 },
+  { q: 'Quel est le rôle principal de Neema Digit SAS ?', options: ['Vendre des fruits', 'Ingénierie digitale & web', 'Réparer des voitures', 'Coiffure'], correct: 1 },
+  { q: 'Qui est le PDG fondateur de Neema Digit SAS ?', options: ['Ouedraogo Aboubacar (Mr BOW 226)', 'Inconnu', 'Personne', 'Un cabinet'], correct: 0 },
+  { q: "Quelle durée minimale d'activité physique par jour est recommandée ?", options: ['5 minutes', '30 minutes de marche active', '3 heures', '1 mois'], correct: 1 },
+  { q: 'Comment stopper rapidement une hémorragie externe abondante ?', options: ['Appuyer directement sur la plaie', 'Mettre de la poudre', "Boire de l'eau", 'Attendre'], correct: 0 },
+  { q: 'Quel nutriment en excès favorise le diabète de type 2 ?', options: ['Sucres raffinés et sodas', 'Eau minérale', 'Légumes verts', 'Poisson'], correct: 0 },
+  { q: "Que signifie l'abréviation médicale HTA ?", options: ['Hémorragie Toxique', 'Hypertension Artérielle', 'Hydratation Totale', 'Hyper Tension'], correct: 1 },
+  { q: 'Quelle maladie oculaire abîme le nerf optique silencieusement ?', options: ['Cataracte', 'Glaucome', 'Conjonctivite', 'Astigmatisme'], correct: 1 },
+  { q: "Quelle quantité d'eau boire environ par jour ?", options: ['0,5 litre', 'Entre 1,5 et 2 litres', '5 litres', '10 litres'], correct: 1 },
+  { q: 'La sédentarité augmente-t-elle les risques cardiovasculaires ?', options: ['Non', 'Oui, fortement', 'Uniquement la nuit', 'Chez les bébés'], correct: 1 },
+  { q: 'Quel numéro permet de joindre la police au Burkina Faso ?', options: ['15', '17', '18', '16'], correct: 1 },
+  { q: 'Le tabagisme a-t-il un effet néfaste sur les artères ?', options: ['Non', 'Oui, il les abîme et les obstrue', 'Il protège', 'Aucun effet'], correct: 1 },
+  { q: "Qu'est-ce que la cataracte ?", options: ['Opacification du cristallin', 'Rougeur', 'Goût amer', 'Saignement'], correct: 0 },
+  { q: 'Quel aliment est riche en potassium et bon pour le cœur ?', options: ['La banane', 'Le sel de table', 'Les chips', 'La mayonnaise'], correct: 0 },
+  { q: 'Le stress chronique peut-il faire monter la tension ?', options: ['Non', 'Oui, par vasoconstriction', "Seulement en été", 'Le matin seulement'], correct: 1 },
+  { q: 'Pourquoi éviter de donner à boire à une personne inconsciente ?', options: ["Risque d'étouffement", 'Elle aurait de la fièvre', 'Cela arrête la respiration', 'Sans danger'], correct: 0 },
+  { q: 'À quelle fréquence contrôler sa tension ?', options: ['Tous les 10 ans', 'Au moins une fois par an', 'Toutes les heures', 'Jamais'], correct: 1 },
+  { q: 'Les bouillons cubes industriels sont-ils riches en sel ?', options: ['Oui, très riches', 'Sans sel', 'Que du sucre', '100 % eau'], correct: 0 },
+  { q: "Signes d'un AVC (visage affaissé) : que faire ?", options: ['Faire dormir', 'Appeler immédiatement les secours', 'Donner un café', 'Attendre'], correct: 1 },
+  { q: "Objectif principal de L'instant Santé ?", options: ['Être ton compagnon de vie et de prévention', 'Vendre des médicaments', 'Faire de la chirurgie', 'Rien'], correct: 0 },
+  { q: 'Conséquence de la lumière bleue excessive ?', options: ['Améliore la vue', 'Fatigue et sécheresse oculaire', 'Soigne la myopie', 'Sans effet'], correct: 1 },
+  { q: "Pourquoi ne pas prendre d'antibiotiques sans ordonnance ?", options: ['Résistance bactérienne', 'Ils font dormir', 'Ils donnent faim', 'Aucune raison'], correct: 0 },
+  { q: 'Quels organes filtrent principalement les toxines ?', options: ['Foie et reins', 'Estomac', 'Cœur', 'Pancréas'], correct: 0 },
+  { q: 'Le sport régulier aide-t-il à réguler la glycémie ?', options: ['Oui', 'Non', 'Il augmente le sucre', 'Il fatigue le sang'], correct: 0 },
+  { q: 'Comment se transmet le paludisme ?', options: ['Par la piqûre du moustique anophèle', 'Par une poignée de main', 'Par le sel', 'Par la lumière bleue'], correct: 0 },
+  { q: 'Quelle protection limite les piqûres la nuit ?', options: ['La moustiquaire imprégnée', 'Un bonnet', 'Du sucre', 'Un ventilateur éteint'], correct: 0 },
+  { q: 'Siège de Neema Digit SAS ?', options: ['Ouagadougou, Burkina Faso', 'Paris', 'Dakar', 'Abidjan'], correct: 0 }
+];
+let activeQuizData = [], currentQIdx = 0, userScore = 0, canAnswer = true, currentPlayerName = 'Joueur';
+const kahootColors = ['k-red', 'k-blue', 'k-yellow', 'k-green'], kahootShapes = ['▲', '◆', '●', '■'];
+const $ = id => document.getElementById(id);
+
+function playSoundEffect(win) {
+  try {
+    const ctx = new (window.AudioContext || window.webkitAudioContext)(), t0 = ctx.currentTime;
+    const notes = win ? [523.25, 659.25, 783.99, 1046.5] : [300, 260, 220, 180], step = win ? .12 : .2;
+    notes.forEach((f, i) => {
+      const o = ctx.createOscillator(), g = ctx.createGain();
+      o.type = win ? 'triangle' : 'sawtooth';
+      o.frequency.setValueAtTime(f, t0 + i * step);
+      g.gain.setValueAtTime(win ? .2 : .15, t0 + i * step);
+      g.gain.exponentialRampToValueAtTime(.001, t0 + i * step + .3);
+      o.connect(g); g.connect(ctx.destination);
+      o.start(t0 + i * step); o.stop(t0 + i * step + .35);
+    });
+  } catch (e) { /* audio non pris en charge */ }
+}
+function startQuizGame() {
+  currentPlayerName = $('playerNameInput').value.trim() || 'Ami(e)';
+  $('playerDisplayTitle').innerText = 'Joueur : ' + currentPlayerName;
+  $('quizNameSection').style.display = 'none';
+  $('quizGameArea').style.display = 'block';
+  activeQuizData = [...masterQuizPool].sort(() => Math.random() - .5).slice(0, 20);
+  currentQIdx = 0; userScore = 0;
+  loadQuestion();
+}
 function loadQuestion() {
   canAnswer = true;
   const nb = $('nextQuestionBtn');
@@ -211,6 +536,40 @@ function selectAnswer(i, btn) {
   else btn.classList.add('wrong-anim');
   const nb = $('nextQuestionBtn');
   if (currentQIdx >= activeQuizData.length - 1) nb.innerText = 'Voir mon Bilan Final 🏆';
+  nb.style.display = 'block';
+}
+function nextQuestion() {
+  if (currentQIdx < activeQuizData.length - 1) { currentQIdx++; loadQuestion(); }
+  else showFinalResult();
+}
+function showFinalResult() {
+  $('quizProgressBar').style.width = '100%';
+  $('quizGameArea').style.display = 'none';
+  $('kahootResult').style.display = 'block';
+  $('resultPlayerName').innerText = currentPlayerName;
+  const note = Math.round(userScore / activeQuizData.length * 20);
+  $('finalScoreDisplay').innerText = note + ' / 20';
+  const badge = $('scoreBadge'), fb = $('finalFeedbackText');
+  if (note >= 12) {
+    badge.innerText = '🏆 Niveau Expert Préventif'; badge.style.background = '#dcfce7'; badge.style.color = '#15803d';
+    fb.innerText = `Bravo ${currentPlayerName} ! Tu assures en prévention santé.`;
+    playSoundEffect(true);
+  } else {
+    badge.innerText = '💡 À Consolider'; badge.style.background = '#fee2e2'; badge.style.color = '#b91c1c';
+    fb.innerText = `Bien joué ${currentPlayerName} ! Continue d'explorer notre encyclopédie.`;
+    playSoundEffect(false);
+  }
+}
+function resetQuizSession() {
+  $('kahootResult').style.display = 'none';
+  $('quizNameSection').style.display = 'block';
+  $('playerNameInput').value = '';
+}
+
+/* ---------- Formulaire : ouvre WhatsApp avec le message prérempli ---------- */
+function handleFormSubmit(event) {
+  event.preventDefault();
+  const n = $('userName').value.trim(), m = $('userEmail').value.trim(), w = $('userWhatsapp').value.trim();
   const txt = `Bonjour, je suis ${n}. Email : ${m}. WhatsApp : ${w}. Je vous contacte depuis L'instant Santé.`;
   window.open('https://wa.me/' + WHATSAPP_NUM + '?text=' + encodeURIComponent(txt), '_blank', 'noopener');
   const fb = $('formFeedback');
